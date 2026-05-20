@@ -14,7 +14,6 @@
       --muted: #5c7285;
       --line: #dce7e1;
       --panel: #ffffff;
-      --bg: #edf7f1;
       --shadow: 0 24px 60px rgba(16, 32, 50, 0.12);
       --radius: 24px;
     }
@@ -72,17 +71,17 @@
       box-shadow: var(--shadow);
       background: linear-gradient(120deg, #fbfffd 0 44%, #1faf57 44% 100%);
       display: grid;
-      grid-template-columns: 0.92fr 1.08fr;
+      grid-template-columns: 0.38fr 1.62fr;
       position: relative;
     }
 
     .visual-left {
       padding: 28px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.72));
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.72));
       backdrop-filter: blur(8px);
-      display: grid;
-      align-content: start;
-      gap: 18px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
       z-index: 2;
     }
 
@@ -105,66 +104,11 @@
       display: block;
     }
 
-    .visual-left h1 {
-      font-size: clamp(36px, 5vw, 60px);
-      line-height: 1.02;
-      letter-spacing: -1.6px;
-      max-width: 420px;
-      margin-top: 8px;
-    }
-
-    .visual-left p {
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 16px;
-      max-width: 430px;
-    }
-
-    .mini-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 8px;
-    }
-
-    .mini-item {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      padding: 12px 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(220, 231, 225, 0.95);
-      background: rgba(255, 255, 255, 0.84);
-    }
-
-    .mini-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 14px;
-      background: var(--brand-soft);
-      color: var(--brand-deep);
-      display: grid;
-      place-items: center;
-      font-weight: 900;
-      flex: 0 0 auto;
-    }
-
-    .mini-item strong {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 3px;
-    }
-
-    .mini-item span {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
     .visual-right {
       position: relative;
       display: grid;
       place-items: center;
-      padding: 22px;
+      padding: 18px 22px 18px 0;
     }
 
     .visual-right::before {
@@ -178,7 +122,7 @@
 
     .hero-illustration {
       position: relative;
-      width: min(100%, 560px);
+      width: min(100%, 600px);
       z-index: 1;
     }
 
@@ -745,6 +689,14 @@
         min-height: auto;
       }
 
+      .visual-left {
+        padding-bottom: 0;
+      }
+
+      .visual-right {
+        padding: 0 18px 18px;
+      }
+
       .sidebar {
         height: auto;
         position: relative;
@@ -779,16 +731,6 @@
             </svg>
             WhatsApp Business Manage
           </div>
-          <h1>Billing and invoicing with the same bold WhatsApp-inspired mood.</h1>
-          <p>
-            The entry screen now follows your first reference image more closely: greener surfaces, device-led visuals,
-            and a more product-style presentation instead of a pale dashboard illustration.
-          </p>
-          <div class="mini-list">
-            <div class="mini-item"><div class="mini-icon">W</div><div><strong>WhatsApp-first branding</strong><span>Green gradients, rounded hardware shapes, and app-like presentation.</span></div></div>
-            <div class="mini-item"><div class="mini-icon">I</div><div><strong>Invoice workflow</strong><span>Clients, billing, recurring reminders, collections, and ledger views.</span></div></div>
-            <div class="mini-item"><div class="mini-icon">D</div><div><strong>Device hero mockup</strong><span>Phone and laptop composition inspired by your selected image.</span></div></div>
-          </div>
         </div>
 
         <div class="visual-right">
@@ -812,18 +754,15 @@
               <circle cx="497" cy="84" r="6" fill="#22c55e"></circle>
               <circle cx="522" cy="84" r="6" fill="#4ade80"></circle>
               <circle cx="547" cy="84" r="6" fill="#86efac"></circle>
-
               <rect x="42" y="402" rx="26" ry="26" width="88" height="88" fill="#ffffff" opacity="0.94"></rect>
               <rect x="56" y="416" rx="20" ry="20" width="60" height="60" fill="#25d366"></rect>
               <path d="M98 452c-1.1 3-5.5 5.6-7.9 5.9-2 .2-4.8.4-15.9-4.2-14-5.9-23.1-20.9-23.8-21.9-.7-1-5.7-7.2-5.7-13.8 0-6.6 3.6-10 4.8-11.3 1.2-1.3 2.5-1.8 3.6-1.8h2.6c.9 0 2-.2 3.1 2.2 1 2.4 1.4 4.1 3.6 9.6.4 1 .7 2 .2 3-.4 1-.8 1.5-1.5 2.2-.7.7-1.5 1.5-2 2.2-.8.8-1.2 1.8-.5 3 .8 1.2 3.6 6 7.7 9.8 5.3 4.8 10 6.3 11.2 7 .8.4 2.2.4 3-.5 1-1 3.8-4.4 4.7-5.8.8-1.4 1.8-1.2 3-.6 1.2.6 8.4 4 9.8 4.8 1.4.8 2.3 1.2 2.5 2 .2.8.2 4.2-.7 7.1z" fill="#fff" transform="scale(.34) translate(110 880)"></path>
-
               <g transform="translate(54 150)">
                 <rect x="0" y="52" rx="16" ry="16" width="348" height="184" fill="#111827"></rect>
                 <rect x="16" y="14" rx="18" ry="18" width="316" height="190" fill="#ffffff"></rect>
                 <rect x="30" y="28" rx="14" ry="14" width="286" height="162" fill="#f7faf8"></rect>
                 <rect x="118" y="236" rx="14" ry="14" width="112" height="10" fill="#1f2937"></rect>
                 <path d="M-16 236h380l28 28H-40z" fill="url(#laptopBase)"></path>
-
                 <rect x="44" y="42" rx="14" ry="14" width="118" height="122" fill="#ffffff"></rect>
                 <circle cx="68" cy="68" r="10" fill="#d1d5db"></circle>
                 <rect x="86" y="61" rx="6" ry="6" width="58" height="8" fill="#1f2937"></rect>
@@ -834,13 +773,11 @@
                 <circle cx="68" cy="136" r="10" fill="#d1d5db"></circle>
                 <rect x="86" y="129" rx="6" ry="6" width="52" height="8" fill="#1f2937"></rect>
                 <rect x="86" y="145" rx="5" ry="5" width="70" height="6" fill="#cbd5e1"></rect>
-
                 <rect x="176" y="42" rx="16" ry="16" width="120" height="48" fill="#fff7cc"></rect>
                 <rect x="176" y="102" rx="16" ry="16" width="88" height="44" fill="#dcfce7"></rect>
                 <rect x="210" y="154" rx="14" ry="14" width="86" height="18" fill="#d1fae5"></rect>
                 <rect x="176" y="154" rx="14" ry="14" width="28" height="18" fill="#bbf7d0"></rect>
               </g>
-
               <g transform="translate(314 72)">
                 <rect x="0" y="0" rx="42" ry="42" width="214" height="410" fill="url(#phoneEdge)"></rect>
                 <rect x="10" y="10" rx="34" ry="34" width="194" height="390" fill="#0f172a"></rect>
@@ -851,36 +788,11 @@
                 <text x="44" y="92" font-size="12" font-weight="700" fill="#d1fae5">CHATS</text>
                 <text x="98" y="92" font-size="12" font-weight="700" fill="#a7f3d0">STATUS</text>
                 <text x="154" y="92" font-size="12" font-weight="700" fill="#a7f3d0">CALLS</text>
-
-                <g transform="translate(42 132)">
-                  <circle cx="14" cy="14" r="14" fill="#d1d5db"></circle>
-                  <text x="38" y="11" font-size="14" font-weight="700" fill="#1f2937">Alice Johnson</text>
-                  <text x="38" y="28" font-size="11" fill="#64748b">Hey! How are you?</text>
-                  <text x="122" y="10" font-size="10" fill="#64748b">10:24 AM</text>
-                </g>
-                <g transform="translate(42 178)">
-                  <circle cx="14" cy="14" r="14" fill="#d1d5db"></circle>
-                  <text x="38" y="11" font-size="14" font-weight="700" fill="#1f2937">Project Team</text>
-                  <text x="38" y="28" font-size="11" fill="#64748b">Meeting at 3 PM</text>
-                  <circle cx="140" cy="14" r="10" fill="#22c55e"></circle>
-                  <text x="136.5" y="18" font-size="10" font-weight="700" fill="#fff">2</text>
-                </g>
-                <g transform="translate(42 224)">
-                  <circle cx="14" cy="14" r="14" fill="#d1d5db"></circle>
-                  <text x="38" y="11" font-size="14" font-weight="700" fill="#1f2937">Michael Brown</text>
-                  <text x="38" y="28" font-size="11" fill="#64748b">See you tomorrow!</text>
-                </g>
-                <g transform="translate(42 270)">
-                  <circle cx="14" cy="14" r="14" fill="#d1d5db"></circle>
-                  <text x="38" y="11" font-size="14" font-weight="700" fill="#1f2937">Emily Davis</text>
-                  <text x="38" y="28" font-size="11" fill="#64748b">Thanks! 😊</text>
-                </g>
-                <g transform="translate(42 316)">
-                  <circle cx="14" cy="14" r="14" fill="#d1d5db"></circle>
-                  <text x="38" y="11" font-size="14" font-weight="700" fill="#1f2937">David Wilson</text>
-                  <text x="38" y="28" font-size="11" fill="#64748b">Let's catch up soon.</text>
-                </g>
-
+                <g transform="translate(42 132)"><circle cx="14" cy="14" r="14" fill="#d1d5db"></circle><text x="38" y="11" font-size="14" font-weight="700" fill="#1f2937">Alice Johnson</text><text x="38" y="28" font-size="11" fill="#64748b">Hey! How are you?</text><text x="122" y="10" font-size="10" fill="#64748b">10:24 AM</text></g>
+                <g transform="translate(42 178)"><circle cx="14" cy="14" r="14" fill="#d1d5db"></circle><text x="38" y="11" font-size="14" font-weight="700" fill="#1f2937">Project Team</text><text x="38" y="28" font-size="11" fill="#64748b">Meeting at 3 PM</text><circle cx="140" cy="14" r="10" fill="#22c55e"></circle><text x="136.5" y="18" font-size="10" font-weight="700" fill="#fff">2</text></g>
+                <g transform="translate(42 224)"><circle cx="14" cy="14" r="14" fill="#d1d5db"></circle><text x="38" y="11" font-size="14" font-weight="700" fill="#1f2937">Michael Brown</text><text x="38" y="28" font-size="11" fill="#64748b">See you tomorrow!</text></g>
+                <g transform="translate(42 270)"><circle cx="14" cy="14" r="14" fill="#d1d5db"></circle><text x="38" y="11" font-size="14" font-weight="700" fill="#1f2937">Emily Davis</text><text x="38" y="28" font-size="11" fill="#64748b">Thanks! 😊</text></g>
+                <g transform="translate(42 316)"><circle cx="14" cy="14" r="14" fill="#d1d5db"></circle><text x="38" y="11" font-size="14" font-weight="700" fill="#1f2937">David Wilson</text><text x="38" y="28" font-size="11" fill="#64748b">Let's catch up soon.</text></g>
                 <circle cx="154" cy="344" r="22" fill="#22c55e"></circle>
                 <path d="M147 345h14M154 338v14" stroke="#fff" stroke-width="3" stroke-linecap="round"></path>
               </g>
@@ -894,30 +806,17 @@
       <form id="loginForm" class="login-card">
         <h2>Admin Login</h2>
         <p>Use the demo credentials below to enter the web application.</p>
-        <div class="field">
-          <label>Email</label>
-          <input id="loginEmail" type="email" value="admin@company.com" required />
-        </div>
-        <div class="field">
-          <label>Password</label>
-          <input id="loginPassword" type="password" value="admin123" required />
-        </div>
+        <div class="field"><label>Email</label><input id="loginEmail" type="email" value="admin@company.com" required /></div>
+        <div class="field"><label>Password</label><input id="loginPassword" type="password" value="admin123" required /></div>
         <button class="btn btn-primary full" type="submit">Login Securely</button>
-        <div class="demo-note">Theme and hero artwork now follow your selected WhatsApp device mockup more closely.</div>
+        <div class="demo-note">If you want the exact uploaded image placed here, send it as a file path or repo asset and I can swap it in directly.</div>
       </form>
     </div>
   </section>
 
   <main id="appShell" class="app-shell hidden">
     <aside class="sidebar">
-      <div class="brand-row">
-        <div class="brand-mark">WB</div>
-        <div>
-          <strong>Billing Dashboard</strong>
-          <span>WhatsApp Services Admin</span>
-        </div>
-      </div>
-
+      <div class="brand-row"><div class="brand-mark">WB</div><div><strong>Billing Dashboard</strong><span>WhatsApp Services Admin</span></div></div>
       <nav id="nav" class="nav">
         <button class="active" data-section="dashboard">Dashboard</button>
         <button data-section="clients">Clients</button>
@@ -930,23 +829,11 @@
         <button data-section="reports">Reports</button>
         <button data-section="settings">Settings</button>
       </nav>
-
-      <div class="sidebar-footer">
-        <button class="btn btn-light full" onclick="logout()">Logout</button>
-      </div>
+      <div class="sidebar-footer"><button class="btn btn-light full" onclick="logout()">Logout</button></div>
     </aside>
 
     <section class="main">
-      <header class="topbar">
-        <div>
-          <h1 id="pageTitle">Dashboard Overview</h1>
-          <p id="pageSubtitle">Monitor billing performance, dues, recurring reminders, and operational health.</p>
-        </div>
-        <div class="top-actions">
-          <button class="btn btn-secondary" onclick="openModal('passwordModal')">Change Password</button>
-          <button class="btn btn-primary" onclick="showSection('invoice')">Create Invoice</button>
-        </div>
-      </header>
+      <header class="topbar"><div><h1 id="pageTitle">Dashboard Overview</h1><p id="pageSubtitle">Monitor billing performance, dues, recurring reminders, and operational health.</p></div><div class="top-actions"><button class="btn btn-secondary" onclick="openModal('passwordModal')">Change Password</button><button class="btn btn-primary" onclick="showSection('invoice')">Create Invoice</button></div></header>
 
       <section id="dashboard" class="section active">
         <div class="grid grid-4">
@@ -955,176 +842,35 @@
           <div class="card metric"><div><span>Invoices Raised</span><h3 id="metricInvoices">0</h3></div><div class="metric-icon">I</div></div>
           <div class="card metric"><div><span>Pending Amount</span><h3 id="metricPending">INR 0</h3></div><div class="metric-icon">P</div></div>
         </div>
-
         <div class="grid grid-2" style="margin-top:18px;">
-          <div class="card">
-            <div class="section-head">
-              <div>
-                <h2>Monthly Billing Trend</h2>
-                <p>Demo chart based on frontend sample invoice totals.</p>
-              </div>
-            </div>
-            <div id="billingChart" class="chart"></div>
-          </div>
-          <div class="card">
-            <div class="section-head">
-              <div>
-                <h2>Today’s Focus</h2>
-                <p>Quick operational signals for the finance and account team.</p>
-              </div>
-            </div>
-            <div id="focusList" class="list-stack"></div>
-          </div>
+          <div class="card"><div class="section-head"><div><h2>Monthly Billing Trend</h2><p>Demo chart based on frontend sample invoice totals.</p></div></div><div id="billingChart" class="chart"></div></div>
+          <div class="card"><div class="section-head"><div><h2>Today’s Focus</h2><p>Quick operational signals for the finance and account team.</p></div></div><div id="focusList" class="list-stack"></div></div>
         </div>
       </section>
 
-      <section id="clients" class="section">
-        <div class="section-head">
-          <div>
-            <h2>Clients</h2>
-            <p>Track companies, plans, contact info, status, due amounts, and renewal health.</p>
-          </div>
-          <button class="btn btn-primary" onclick="openModal('clientModal')">Add Client</button>
-        </div>
-        <div class="toolbar">
-          <input id="clientSearch" type="search" placeholder="Search company or email" oninput="renderClients()" />
-          <select id="clientStatusFilter" onchange="renderClients()">
-            <option value="">All Status</option>
-            <option value="Active">Active</option>
-            <option value="Paused">Paused</option>
-            <option value="Trial">Trial</option>
-          </select>
-        </div>
-        <div class="table-wrap"><table><thead><tr><th>Company</th><th>Contact</th><th>Plan</th><th>Status</th><th>Wallet</th><th>Due</th><th>Next Renewal</th><th>Actions</th></tr></thead><tbody id="clientTable"></tbody></table></div>
-      </section>
+      <section id="clients" class="section"><div class="section-head"><div><h2>Clients</h2><p>Track companies, plans, contact info, status, due amounts, and renewal health.</p></div><button class="btn btn-primary" onclick="openModal('clientModal')">Add Client</button></div><div class="toolbar"><input id="clientSearch" type="search" placeholder="Search company or email" oninput="renderClients()" /><select id="clientStatusFilter" onchange="renderClients()"><option value="">All Status</option><option value="Active">Active</option><option value="Paused">Paused</option><option value="Trial">Trial</option></select></div><div class="table-wrap"><table><thead><tr><th>Company</th><th>Contact</th><th>Plan</th><th>Status</th><th>Wallet</th><th>Due</th><th>Next Renewal</th><th>Actions</th></tr></thead><tbody id="clientTable"></tbody></table></div></section>
 
-      <section id="services" class="section">
-        <div class="section-head"><div><h2>Services</h2><p>Manage billable service catalog and default pricing used by invoice creation.</p></div></div>
-        <div class="table-wrap"><table><thead><tr><th>Service</th><th>Category</th><th>Billing Type</th><th>Rate</th><th>SAC</th><th>Description</th></tr></thead><tbody id="serviceTable"></tbody></table></div>
-      </section>
+      <section id="services" class="section"><div class="section-head"><div><h2>Services</h2><p>Manage billable service catalog and default pricing used by invoice creation.</p></div></div><div class="table-wrap"><table><thead><tr><th>Service</th><th>Category</th><th>Billing Type</th><th>Rate</th><th>SAC</th><th>Description</th></tr></thead><tbody id="serviceTable"></tbody></table></div></section>
 
-      <section id="invoice" class="section">
-        <div class="section-head">
-          <div><h2>Create Invoice</h2><p>Build a new invoice with line items, tax calculations, and recurring service support.</p></div>
-          <div class="top-actions"><button class="btn btn-light" onclick="resetInvoiceForm()">Reset</button><button class="btn btn-primary" onclick="saveInvoice()">Save Invoice</button></div>
-        </div>
-        <div class="invoice-layout">
-          <div class="card">
-            <div class="form-grid">
-              <div class="field"><label>Client</label><select id="invoiceClient"></select></div>
-              <div class="field"><label>Invoice No</label><input id="invoiceNo" /></div>
-              <div class="field"><label>Invoice Date</label><input id="invoiceDate" type="date" /></div>
-              <div class="field"><label>Due Date</label><input id="invoiceDueDate" type="date" /></div>
-              <div class="field"><label>Billing Period</label><input id="invoicePeriod" placeholder="May 2026" /></div>
-              <div class="field"><label>Place of Supply</label><input id="invoicePlace" value="Maharashtra" /></div>
-            </div>
-            <div class="section-head" style="margin-top:20px;"><div><h2 style="font-size:18px;">Line Items</h2><p>Add one or more billable services.</p></div><button class="btn btn-secondary" onclick="addInvoiceItem()">Add Line</button></div>
-            <div id="invoiceItems"></div>
-          </div>
-          <aside class="card summary-box">
-            <h3 style="margin-bottom:14px;">Invoice Summary</h3>
-            <div class="summary-line"><span>Subtotal</span><strong id="sumSubtotal">INR 0</strong></div>
-            <div class="summary-line"><span>CGST 9%</span><strong id="sumCgst">INR 0</strong></div>
-            <div class="summary-line"><span>SGST 9%</span><strong id="sumSgst">INR 0</strong></div>
-            <div class="summary-line"><span>Outstanding Due</span><strong id="sumOutstanding">INR 0</strong></div>
-            <div class="summary-total"><span>Payable</span><span id="sumPayable">INR 0</span></div>
-            <p class="small" style="margin-top:14px;">This browser version uses demo data. Backend APIs can later replace in-memory storage.</p>
-          </aside>
-        </div>
-      </section>
+      <section id="invoice" class="section"><div class="section-head"><div><h2>Create Invoice</h2><p>Build a new invoice with line items, tax calculations, and recurring service support.</p></div><div class="top-actions"><button class="btn btn-light" onclick="resetInvoiceForm()">Reset</button><button class="btn btn-primary" onclick="saveInvoice()">Save Invoice</button></div></div><div class="invoice-layout"><div class="card"><div class="form-grid"><div class="field"><label>Client</label><select id="invoiceClient"></select></div><div class="field"><label>Invoice No</label><input id="invoiceNo" /></div><div class="field"><label>Invoice Date</label><input id="invoiceDate" type="date" /></div><div class="field"><label>Due Date</label><input id="invoiceDueDate" type="date" /></div><div class="field"><label>Billing Period</label><input id="invoicePeriod" placeholder="May 2026" /></div><div class="field"><label>Place of Supply</label><input id="invoicePlace" value="Maharashtra" /></div></div><div class="section-head" style="margin-top:20px;"><div><h2 style="font-size:18px;">Line Items</h2><p>Add one or more billable services.</p></div><button class="btn btn-secondary" onclick="addInvoiceItem()">Add Line</button></div><div id="invoiceItems"></div></div><aside class="card summary-box"><h3 style="margin-bottom:14px;">Invoice Summary</h3><div class="summary-line"><span>Subtotal</span><strong id="sumSubtotal">INR 0</strong></div><div class="summary-line"><span>CGST 9%</span><strong id="sumCgst">INR 0</strong></div><div class="summary-line"><span>SGST 9%</span><strong id="sumSgst">INR 0</strong></div><div class="summary-line"><span>Outstanding Due</span><strong id="sumOutstanding">INR 0</strong></div><div class="summary-total"><span>Payable</span><span id="sumPayable">INR 0</span></div><p class="small" style="margin-top:14px;">This browser version uses demo data. Backend APIs can later replace in-memory storage.</p></aside></div></section>
 
-      <section id="invoices" class="section">
-        <div class="section-head"><div><h2>Invoice List</h2><p>Review payment state, billing type, due dates, and outstanding balances.</p></div></div>
-        <div class="toolbar">
-          <input id="invoiceSearch" type="search" placeholder="Search invoice or client" oninput="renderInvoices()" />
-          <select id="invoiceStatusFilter" onchange="renderInvoices()">
-            <option value="">All Payment Status</option><option value="Pending">Pending</option><option value="Paid">Paid</option><option value="Partially Paid">Partially Paid</option>
-          </select>
-        </div>
-        <div class="table-wrap"><table><thead><tr><th>Invoice</th><th>Client</th><th>Date</th><th>Type</th><th>Total</th><th>Paid</th><th>Balance</th><th>Status</th></tr></thead><tbody id="invoiceTable"></tbody></table></div>
-      </section>
+      <section id="invoices" class="section"><div class="section-head"><div><h2>Invoice List</h2><p>Review payment state, billing type, due dates, and outstanding balances.</p></div></div><div class="toolbar"><input id="invoiceSearch" type="search" placeholder="Search invoice or client" oninput="renderInvoices()" /><select id="invoiceStatusFilter" onchange="renderInvoices()"><option value="">All Payment Status</option><option value="Pending">Pending</option><option value="Paid">Paid</option><option value="Partially Paid">Partially Paid</option></select></div><div class="table-wrap"><table><thead><tr><th>Invoice</th><th>Client</th><th>Date</th><th>Type</th><th>Total</th><th>Paid</th><th>Balance</th><th>Status</th></tr></thead><tbody id="invoiceTable"></tbody></table></div></section>
 
-      <section id="recurring" class="section">
-        <div class="section-head"><div><h2>Recurring Billing</h2><p>Upcoming and active recurring invoice reminders for WhatsApp service clients.</p></div></div>
-        <div class="table-wrap"><table><thead><tr><th>Client</th><th>Service</th><th>Frequency</th><th>Amount</th><th>Raise Date</th><th>Due Date</th><th>Status</th></tr></thead><tbody id="recurringTable"></tbody></table></div>
-      </section>
+      <section id="recurring" class="section"><div class="section-head"><div><h2>Recurring Billing</h2><p>Upcoming and active recurring invoice reminders for WhatsApp service clients.</p></div></div><div class="table-wrap"><table><thead><tr><th>Client</th><th>Service</th><th>Frequency</th><th>Amount</th><th>Raise Date</th><th>Due Date</th><th>Status</th></tr></thead><tbody id="recurringTable"></tbody></table></div></section>
 
-      <section id="payments" class="section">
-        <div class="section-head"><div><h2>Payments</h2><p>Record incoming payments and see recent collection activity.</p></div></div>
-        <div class="grid grid-2">
-          <div class="card">
-            <div class="form-grid-2">
-              <div class="field"><label>Invoice</label><select id="paymentInvoice"></select></div>
-              <div class="field"><label>Payment Amount</label><input id="paymentAmount" type="number" value="0" /></div>
-              <div class="field"><label>Payment Date</label><input id="paymentDate" type="date" /></div>
-              <div class="field"><label>Mode</label><select id="paymentMode"><option>Bank Transfer</option><option>UPI</option><option>Cash</option><option>Card</option></select></div>
-            </div>
-            <button class="btn btn-primary" onclick="recordPayment()">Record Payment</button>
-          </div>
-          <div class="card"><h3 style="margin-bottom:12px;">Recent Payments</h3><div id="paymentList" class="list-stack"></div></div>
-        </div>
-      </section>
+      <section id="payments" class="section"><div class="section-head"><div><h2>Payments</h2><p>Record incoming payments and see recent collection activity.</p></div></div><div class="grid grid-2"><div class="card"><div class="form-grid-2"><div class="field"><label>Invoice</label><select id="paymentInvoice"></select></div><div class="field"><label>Payment Amount</label><input id="paymentAmount" type="number" value="0" /></div><div class="field"><label>Payment Date</label><input id="paymentDate" type="date" /></div><div class="field"><label>Mode</label><select id="paymentMode"><option>Bank Transfer</option><option>UPI</option><option>Cash</option><option>Card</option></select></div></div><button class="btn btn-primary" onclick="recordPayment()">Record Payment</button></div><div class="card"><h3 style="margin-bottom:12px;">Recent Payments</h3><div id="paymentList" class="list-stack"></div></div></div></section>
 
-      <section id="ledger" class="section">
-        <div class="section-head"><div><h2>Client Ledger</h2><p>Summarized receivable position by client.</p></div></div>
-        <div class="grid grid-4" style="margin-bottom:18px;">
-          <div class="card metric"><div><span>Opening Due</span><h3 id="ledgerOpening">INR 0</h3></div><div class="metric-icon">O</div></div>
-          <div class="card metric"><div><span>Invoices</span><h3 id="ledgerInvoiced">INR 0</h3></div><div class="metric-icon">B</div></div>
-          <div class="card metric"><div><span>Collections</span><h3 id="ledgerCollected">INR 0</h3></div><div class="metric-icon">R</div></div>
-          <div class="card metric"><div><span>Closing Due</span><h3 id="ledgerClosing">INR 0</h3></div><div class="metric-icon">C</div></div>
-        </div>
-        <div class="table-wrap"><table><thead><tr><th>Client</th><th>Opening Due</th><th>Invoices</th><th>Payments</th><th>Closing Due</th></tr></thead><tbody id="ledgerTable"></tbody></table></div>
-      </section>
+      <section id="ledger" class="section"><div class="section-head"><div><h2>Client Ledger</h2><p>Summarized receivable position by client.</p></div></div><div class="grid grid-4" style="margin-bottom:18px;"><div class="card metric"><div><span>Opening Due</span><h3 id="ledgerOpening">INR 0</h3></div><div class="metric-icon">O</div></div><div class="card metric"><div><span>Invoices</span><h3 id="ledgerInvoiced">INR 0</h3></div><div class="metric-icon">B</div></div><div class="card metric"><div><span>Collections</span><h3 id="ledgerCollected">INR 0</h3></div><div class="metric-icon">R</div></div><div class="card metric"><div><span>Closing Due</span><h3 id="ledgerClosing">INR 0</h3></div><div class="metric-icon">C</div></div></div><div class="table-wrap"><table><thead><tr><th>Client</th><th>Opening Due</th><th>Invoices</th><th>Payments</th><th>Closing Due</th></tr></thead><tbody id="ledgerTable"></tbody></table></div></section>
 
-      <section id="reports" class="section">
-        <div class="section-head"><div><h2>Reports</h2><p>Quick business insights for revenue mix, collection trend, and action items.</p></div></div>
-        <div class="grid grid-3">
-          <div class="card"><h3 style="margin-bottom:10px;">Revenue Snapshot</h3><p class="small" id="reportRevenue"></p></div>
-          <div class="card"><h3 style="margin-bottom:10px;">Collections Snapshot</h3><p class="small" id="reportCollections"></p></div>
-          <div class="card"><h3 style="margin-bottom:10px;">Operational Notes</h3><p class="small" id="reportNotes"></p></div>
-        </div>
-      </section>
+      <section id="reports" class="section"><div class="section-head"><div><h2>Reports</h2><p>Quick business insights for revenue mix, collection trend, and action items.</p></div></div><div class="grid grid-3"><div class="card"><h3 style="margin-bottom:10px;">Revenue Snapshot</h3><p class="small" id="reportRevenue"></p></div><div class="card"><h3 style="margin-bottom:10px;">Collections Snapshot</h3><p class="small" id="reportCollections"></p></div><div class="card"><h3 style="margin-bottom:10px;">Operational Notes</h3><p class="small" id="reportNotes"></p></div></div></section>
 
-      <section id="settings" class="section">
-        <div class="section-head"><div><h2>Settings</h2><p>Business identity, invoicing defaults, and reminder preferences for the app.</p></div></div>
-        <div class="card">
-          <div class="form-grid">
-            <div class="field"><label>Company Name</label><input id="settingCompany" value="WhatsApp Business Manage" /></div>
-            <div class="field"><label>Support Email</label><input id="settingEmail" value="accounts@company.com" /></div>
-            <div class="field"><label>Invoice Prefix</label><input id="settingPrefix" value="INV/2026" /></div>
-            <div class="field"><label>Default Reminder Days</label><input id="settingReminderDays" type="number" value="5" /></div>
-            <div class="field"><label>Email Provider</label><select id="settingProvider"><option>SMTP</option><option>Microsoft Graph</option><option>SendGrid</option></select></div>
-            <div class="field"><label>Tax Regime</label><input id="settingTax" value="GST 18%" /></div>
-          </div>
-          <div class="field"><label>Business Address</label><textarea id="settingAddress">Mumbai, Maharashtra, India</textarea></div>
-          <button class="btn btn-primary" onclick="saveSettings()">Save Settings</button>
-        </div>
-      </section>
+      <section id="settings" class="section"><div class="section-head"><div><h2>Settings</h2><p>Business identity, invoicing defaults, and reminder preferences for the app.</p></div></div><div class="card"><div class="form-grid"><div class="field"><label>Company Name</label><input id="settingCompany" value="WhatsApp Business Manage" /></div><div class="field"><label>Support Email</label><input id="settingEmail" value="accounts@company.com" /></div><div class="field"><label>Invoice Prefix</label><input id="settingPrefix" value="INV/2026" /></div><div class="field"><label>Default Reminder Days</label><input id="settingReminderDays" type="number" value="5" /></div><div class="field"><label>Email Provider</label><select id="settingProvider"><option>SMTP</option><option>Microsoft Graph</option><option>SendGrid</option></select></div><div class="field"><label>Tax Regime</label><input id="settingTax" value="GST 18%" /></div></div><div class="field"><label>Business Address</label><textarea id="settingAddress">Mumbai, Maharashtra, India</textarea></div><button class="btn btn-primary" onclick="saveSettings()">Save Settings</button></div></section>
     </section>
   </main>
 
-  <div id="clientModal" class="modal-backdrop hidden">
-    <div class="modal">
-      <div class="modal-head"><div><h2>Add Client</h2><p class="small">Create a new client record in the browser demo dataset.</p></div><button class="btn btn-light btn-sm" onclick="closeModal('clientModal')">Close</button></div>
-      <div class="form-grid-2">
-        <div class="field"><label>Company</label><input id="newClientCompany" /></div>
-        <div class="field"><label>Contact Name</label><input id="newClientName" /></div>
-        <div class="field"><label>Email</label><input id="newClientEmail" type="email" /></div>
-        <div class="field"><label>Plan</label><input id="newClientPlan" /></div>
-        <div class="field"><label>Status</label><select id="newClientStatus"><option>Active</option><option>Trial</option><option>Paused</option></select></div>
-        <div class="field"><label>Wallet Balance</label><input id="newClientWallet" type="number" value="0" /></div>
-      </div>
-      <button class="btn btn-primary" onclick="addClient()">Save Client</button>
-    </div>
-  </div>
+  <div id="clientModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><div><h2>Add Client</h2><p class="small">Create a new client record in the browser demo dataset.</p></div><button class="btn btn-light btn-sm" onclick="closeModal('clientModal')">Close</button></div><div class="form-grid-2"><div class="field"><label>Company</label><input id="newClientCompany" /></div><div class="field"><label>Contact Name</label><input id="newClientName" /></div><div class="field"><label>Email</label><input id="newClientEmail" type="email" /></div><div class="field"><label>Plan</label><input id="newClientPlan" /></div><div class="field"><label>Status</label><select id="newClientStatus"><option>Active</option><option>Trial</option><option>Paused</option></select></div><div class="field"><label>Wallet Balance</label><input id="newClientWallet" type="number" value="0" /></div></div><button class="btn btn-primary" onclick="addClient()">Save Client</button></div></div>
 
-  <div id="passwordModal" class="modal-backdrop hidden">
-    <div class="modal">
-      <div class="modal-head"><div><h2>Change Password</h2><p class="small">Demo interaction only for the frontend build.</p></div><button class="btn btn-light btn-sm" onclick="closeModal('passwordModal')">Close</button></div>
-      <div class="form-grid-2"><div class="field"><label>Current Password</label><input type="password" /></div><div class="field"><label>New Password</label><input type="password" /></div></div>
-      <button class="btn btn-primary" onclick="alert('Password updated in demo mode.')">Update Password</button>
-    </div>
-  </div>
+  <div id="passwordModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><div><h2>Change Password</h2><p class="small">Demo interaction only for the frontend build.</p></div><button class="btn btn-light btn-sm" onclick="closeModal('passwordModal')">Close</button></div><div class="form-grid-2"><div class="field"><label>Current Password</label><input type="password" /></div><div class="field"><label>New Password</label><input type="password" /></div></div><button class="btn btn-primary" onclick="alert('Password updated in demo mode.')">Update Password</button></div></div>
 
   <script>
     const state = {
@@ -1354,15 +1100,11 @@
       const search = document.getElementById('invoiceSearch').value.toLowerCase();
       const status = document.getElementById('invoiceStatusFilter').value;
       const filtered = state.invoices.filter((invoice) => `${invoice.invoiceNo} ${invoice.clientName}`.toLowerCase().includes(search) && (!status || invoice.paymentStatus === status));
-      document.getElementById('invoiceTable').innerHTML = filtered.map((invoice) => `
-        <tr><td><strong>${invoice.invoiceNo}</strong></td><td>${invoice.clientName}</td><td>${invoice.invoiceDate}</td><td>${invoice.billingType}</td><td>${money(invoice.total)}</td><td>${money(invoice.paid)}</td><td>${money(invoice.balance)}</td><td><span class="status ${invoice.paymentStatus === 'Paid' ? 'paid' : invoice.paymentStatus === 'Partially Paid' ? 'partial' : 'pending'}">${invoice.paymentStatus}</span></td></tr>
-      `).join('');
+      document.getElementById('invoiceTable').innerHTML = filtered.map((invoice) => `<tr><td><strong>${invoice.invoiceNo}</strong></td><td>${invoice.clientName}</td><td>${invoice.invoiceDate}</td><td>${invoice.billingType}</td><td>${money(invoice.total)}</td><td>${money(invoice.paid)}</td><td>${money(invoice.balance)}</td><td><span class="status ${invoice.paymentStatus === 'Paid' ? 'paid' : invoice.paymentStatus === 'Partially Paid' ? 'partial' : 'pending'}">${invoice.paymentStatus}</span></td></tr>`).join('');
     }
 
     function renderRecurring() {
-      document.getElementById('recurringTable').innerHTML = state.recurring.map((item) => `
-        <tr><td>${item.clientName}</td><td>${item.service}</td><td>${item.frequency}</td><td>${money(item.amount)}</td><td>${item.raiseDate}</td><td>${item.dueDate}</td><td><span class="status ${item.status === 'Active' ? 'active' : 'pending'}">${item.status}</span></td></tr>
-      `).join('');
+      document.getElementById('recurringTable').innerHTML = state.recurring.map((item) => `<tr><td>${item.clientName}</td><td>${item.service}</td><td>${item.frequency}</td><td>${money(item.amount)}</td><td>${item.raiseDate}</td><td>${item.dueDate}</td><td><span class="status ${item.status === 'Active' ? 'active' : 'pending'}">${item.status}</span></td></tr>`).join('');
     }
 
     function renderPayments() {
