@@ -1,42 +1,62 @@
 # WhatsApp Business Manage
 
-A frontend dashboard for managing WhatsApp Business billing operations, including clients, invoices, recurring reminders, payments, ledgers, and reports.
+WhatsApp Business Manage is an interactive frontend web application for handling client billing operations in the browser. It includes a demo login flow, dashboard metrics, client management, service catalog, invoice creation, recurring billing tracking, payment recording, ledger summaries, reports, and settings.
 
-## Features
+## What This Project Is
 
-- Admin login screen
-- Client and service management UI
-- Invoice creation and invoice list views
-- Recurring billing reminder flows
-- Payment tracking and ledger view
-- Reports, export, and settings screens
-- Responsive layout for desktop and mobile
-- GitHub Pages hosting for browser-based UI testing
-
-## Tech Stack
+This repository contains a single-page frontend admin application built with:
 
 - HTML
 - CSS
 - JavaScript
 
-## Project Status
+The current GitHub Pages deployment runs fully in the browser with demo data so the interface can be tested immediately.
 
-This repository currently contains the frontend demo layer.
+## Included Screens
 
-Backend features such as:
-- authentication
-- database storage
+- Admin login
+- Dashboard overview
+- Clients management
+- Services catalog
+- Invoice creation
+- Invoice listing
+- Recurring billing tracker
+- Payments screen
+- Client ledger summary
+- Reports and settings
+
+## Current Behavior
+
+The app is interactive and works as a frontend demo in the browser.
+
+You can:
+
+- log in with demo credentials
+- navigate between dashboard sections
+- add clients in the browser session
+- create invoices and line items
+- record payments
+- view recurring billing items
+- review ledger and report summaries
+
+## Demo Credentials
+
+- Email: `admin@company.com`
+- Password: `admin123`
+
+## Important Note
+
+Because GitHub Pages hosts static files, this version does not yet include a real backend.
+
+That means features like these are still demo-only until APIs are connected:
+
+- persistent database storage
+- real authentication
 - PDF generation
 - email sending
-- recurring scheduler jobs
-- export and backup APIs
+- scheduled recurring invoice jobs
+- export and backup services
 
-still need to be connected separately.
+## Suggested Next Step
 
-## Run on GitHub Pages
-
-Once GitHub Pages is enabled, open the published site in your browser using the Pages URL from the repository settings.
-
-## Notes
-
-This project is useful for testing the UI and user flow in the browser. Actions that depend on backend APIs will remain demo-only until a backend is added.
+Connect this frontend to a backend such as Node.js + Express with a database like MySQL or PostgreSQL to turn the demo into a production-ready application.
