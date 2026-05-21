@@ -900,6 +900,7 @@
       border: 1px solid #dbe7f3;
       border-radius: 10px;
       overflow: hidden;
+      min-width: 0;
     }
 
     .invoice-amount-cell {
@@ -1460,9 +1461,13 @@
 
       .invoice-meta-toolbar,
       .company-branding-grid,
-      .invoice-info-grid,
-      .invoice-amount-grid {
+      .invoice-info-grid {
         grid-template-columns: 1fr;
+      }
+
+      .invoice-amount-grid {
+        grid-template-columns: repeat(4, minmax(150px, 1fr));
+        overflow-x: auto;
       }
 
       .invoice-info-card,
@@ -1474,6 +1479,15 @@
       .invoice-info-card:last-child,
       .invoice-amount-cell:last-child {
         border-bottom: 0;
+      }
+
+      .invoice-amount-cell {
+        border-right: 1px solid #dbe7f3;
+        border-bottom: 0;
+      }
+
+      .invoice-amount-cell:last-child {
+        border-right: 0;
       }
 
       .top-actions,
