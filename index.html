@@ -904,9 +904,13 @@
     }
 
     .invoice-amount-cell {
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
       border-right: 1px solid #dbe7f3;
       background: #fff;
+      padding: 10px 12px;
     }
 
     .invoice-amount-cell:last-child {
@@ -914,22 +918,23 @@
     }
 
     .invoice-amount-cell label {
-      display: block;
-      padding: 7px 8px;
-      background: #f8fbff;
+      display: inline-block;
       color: #64748b;
       font-size: 10px;
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       line-height: 1.35;
+      text-align: left;
+      max-width: 95px;
     }
 
     .invoice-amount-cell strong {
-      display: block;
-      padding: 10px 8px;
+      display: inline-block;
       font-size: 14px;
       line-height: 1.1;
+      white-space: nowrap;
+      text-align: right;
     }
 
     .negative {
