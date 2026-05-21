@@ -605,6 +605,580 @@
       white-space: pre-line;
     }
 
+    .page-shell {
+      display: grid;
+      gap: 18px;
+    }
+
+    .page-hero {
+      background: linear-gradient(90deg, #1d4ed8, #0891b2);
+      border-radius: 24px;
+      color: #fff;
+      padding: 18px 22px;
+      box-shadow: 0 18px 40px rgba(14, 66, 142, 0.22);
+    }
+
+    .page-hero h2 {
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+
+    .page-hero p {
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .invoice-page-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 460px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .invoice-form-stack,
+    .invoice-preview-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .invoice-pane {
+      background: rgba(255, 255, 255, 0.98);
+      border: 1px solid rgba(220, 231, 225, 0.95);
+      border-radius: 22px;
+      box-shadow: 0 12px 28px rgba(16, 32, 50, 0.05);
+      padding: 18px;
+    }
+
+    .invoice-pane-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .invoice-pane-title h3 {
+      font-size: 18px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .invoice-pane-title p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .invoice-meta-toolbar {
+      display: grid;
+      grid-template-columns: 2fr 1fr auto;
+      gap: 12px;
+      align-items: end;
+    }
+
+    .invoice-company-card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(180deg, #f8fbff, #ffffff);
+      padding: 16px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .invoice-company-card strong {
+      font-size: 16px;
+    }
+
+    .invoice-company-card p {
+      color: #334155;
+      line-height: 1.7;
+      font-size: 13px;
+      white-space: pre-line;
+    }
+
+    .invoice-live-card {
+      background: #eaf1fb;
+      border: 1px solid #d6e2f3;
+      border-radius: 22px;
+      padding: 14px;
+    }
+
+    .invoice-live-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 10px;
+      padding: 0 6px;
+      color: #60738a;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .invoice-document {
+      background: #fff;
+      border-radius: 14px;
+      padding: 24px 26px;
+      box-shadow: 0 20px 40px rgba(37, 60, 92, 0.12);
+      display: grid;
+      gap: 14px;
+      min-height: 900px;
+    }
+
+    .invoice-doc-topline {
+      height: 4px;
+      background: linear-gradient(90deg, #65d36e, #1c8e3c);
+      border-radius: 999px;
+    }
+
+    .invoice-doc-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .invoice-branding {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .invoice-brand-badge {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      border: 1px solid #bfdbfe;
+      display: grid;
+      place-items: center;
+      color: #2563eb;
+      font-size: 22px;
+      font-weight: 900;
+      flex: none;
+    }
+
+    .invoice-brand-copy strong {
+      display: block;
+      color: #1d4ed8;
+      font-size: 28px;
+      letter-spacing: 0.06em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .invoice-brand-copy span {
+      display: block;
+      color: #0f172a;
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+
+    .invoice-brand-copy p,
+    .invoice-doc-company p,
+    .invoice-detail-list p,
+    .invoice-item-table td,
+    .invoice-bank-grid div,
+    .invoice-note-box,
+    .invoice-signature-block p {
+      white-space: pre-line;
+    }
+
+    .invoice-brand-copy p {
+      color: #64748b;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .invoice-doc-company {
+      text-align: right;
+      color: #334155;
+      font-size: 12px;
+      line-height: 1.7;
+      max-width: 320px;
+    }
+
+    .invoice-doc-title {
+      background: #103f91;
+      border-radius: 6px;
+      color: #fff;
+      text-align: center;
+      letter-spacing: 0.45em;
+      padding: 10px 12px;
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .invoice-info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+      border: 1px solid #dbe7f3;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .invoice-info-card {
+      padding: 14px 16px;
+      border-right: 1px solid #dbe7f3;
+      background: #fff;
+    }
+
+    .invoice-info-card:last-child {
+      border-right: 0;
+    }
+
+    .invoice-info-card h4 {
+      color: #1d4ed8;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .invoice-detail-list {
+      display: grid;
+      gap: 6px;
+      font-size: 12px;
+      color: #334155;
+    }
+
+    .invoice-detail-row {
+      display: grid;
+      grid-template-columns: 104px 1fr;
+      gap: 8px;
+      align-items: start;
+    }
+
+    .invoice-detail-row span {
+      color: #64748b;
+    }
+
+    .invoice-amount-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border: 1px solid #dbe7f3;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .invoice-amount-cell {
+      text-align: center;
+      border-right: 1px solid #dbe7f3;
+      background: #fff;
+    }
+
+    .invoice-amount-cell:last-child {
+      border-right: 0;
+    }
+
+    .invoice-amount-cell label {
+      display: block;
+      padding: 8px 10px;
+      background: #f8fbff;
+      color: #64748b;
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .invoice-amount-cell strong {
+      display: block;
+      padding: 12px 10px;
+      font-size: 22px;
+      line-height: 1.1;
+    }
+
+    .negative {
+      color: #dc2626;
+    }
+
+    .positive {
+      color: #15803d;
+    }
+
+    .invoice-item-table {
+      width: 100%;
+      min-width: 0;
+      border-collapse: collapse;
+      border: 1px solid #dbe7f3;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .invoice-item-table th {
+      background: #103f91;
+      color: #fff;
+      padding: 11px 12px;
+      font-size: 11px;
+      letter-spacing: 0.07em;
+    }
+
+    .invoice-item-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #dbe7f3;
+      font-size: 12px;
+      color: #0f172a;
+      vertical-align: top;
+    }
+
+    .invoice-item-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .invoice-item-table .right {
+      text-align: right;
+    }
+
+    .invoice-summary-area {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .invoice-note-box {
+      border-left: 4px solid #7bd46b;
+      color: #64748b;
+      padding: 8px 0 8px 12px;
+      font-size: 12px;
+      font-style: italic;
+      min-height: 52px;
+    }
+
+    .invoice-total-card {
+      border: 1px solid #dbe7f3;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .invoice-total-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 12px;
+      border-bottom: 1px solid #dbe7f3;
+      font-size: 12px;
+    }
+
+    .invoice-total-row:last-child {
+      border-bottom: 0;
+    }
+
+    .invoice-total-row.grand {
+      background: #4caf50;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .invoice-bottom-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 250px;
+      gap: 18px;
+      align-items: end;
+    }
+
+    .invoice-bank-box {
+      border-top: 2px solid #7bd46b;
+      padding-top: 12px;
+    }
+
+    .invoice-bank-box h4,
+    .invoice-signature-block h4 {
+      color: #103f91;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .invoice-bank-grid {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 7px 10px;
+      font-size: 12px;
+      color: #334155;
+    }
+
+    .invoice-bank-grid span {
+      color: #64748b;
+    }
+
+    .invoice-signature-block {
+      text-align: center;
+      color: #334155;
+      font-size: 12px;
+    }
+
+    .signature-mark {
+      min-height: 68px;
+      display: grid;
+      place-items: center;
+      color: #2563eb;
+      font-size: 28px;
+      margin-bottom: 4px;
+    }
+
+    .signature-line {
+      border-top: 1px solid #94a3b8;
+      margin-top: 4px;
+      padding-top: 8px;
+      font-weight: 800;
+    }
+
+    .invoice-doc-footer {
+      background: #103f91;
+      color: #fff;
+      border-radius: 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 16px;
+      font-size: 11px;
+      margin-top: auto;
+    }
+
+    .company-manage-shell {
+      display: grid;
+      grid-template-columns: 270px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .company-list-card,
+    .company-editor-card {
+      background: rgba(255, 255, 255, 0.98);
+      border: 1px solid rgba(220, 231, 225, 0.95);
+      border-radius: 22px;
+      box-shadow: 0 12px 28px rgba(16, 32, 50, 0.05);
+      padding: 18px;
+    }
+
+    .company-list-card h3,
+    .company-editor-card h3 {
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 14px;
+    }
+
+    .company-list-stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .company-list-item {
+      width: 100%;
+      text-align: left;
+      border: 1px solid #cfe0f4;
+      background: #fff;
+      border-radius: 16px;
+      padding: 14px 16px;
+    }
+
+    .company-list-item.active {
+      border-color: #2563eb;
+      box-shadow: inset 0 0 0 1px #2563eb;
+      background: #eff6ff;
+    }
+
+    .company-list-item strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .company-list-item span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      border-radius: 999px;
+      margin-right: 10px;
+      vertical-align: middle;
+      background: #22c55e;
+    }
+
+    .company-editor-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .company-editor-top p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .company-branding-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .upload-box {
+      border: 1px dashed #bfdbfe;
+      border-radius: 16px;
+      padding: 14px;
+      background: #f8fbff;
+    }
+
+    .upload-box label {
+      display: block;
+      margin-bottom: 8px;
+      color: #64748b;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+    }
+
+    .upload-box input {
+      margin-bottom: 10px;
+    }
+
+    .upload-preview {
+      min-height: 116px;
+      border: 1px dashed #bfdbfe;
+      border-radius: 12px;
+      background: #fff;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      color: #94a3b8;
+      font-size: 12px;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .upload-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .company-action-row {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
     .client-account-shell {
       display: grid;
       gap: 18px;
@@ -794,6 +1368,31 @@
         align-items: flex-start;
       }
 
+      .invoice-page-grid,
+      .company-manage-shell,
+      .invoice-summary-area,
+      .invoice-bottom-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .invoice-meta-toolbar,
+      .company-branding-grid,
+      .invoice-info-grid,
+      .invoice-amount-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .invoice-info-card,
+      .invoice-amount-cell {
+        border-right: 0;
+        border-bottom: 1px solid #dbe7f3;
+      }
+
+      .invoice-info-card:last-child,
+      .invoice-amount-cell:last-child {
+        border-bottom: 0;
+      }
+
       .top-actions,
       .toolbar {
         width: 100%;
@@ -886,6 +1485,25 @@
         font-size: 14px;
       }
 
+      .invoice-document {
+        padding: 18px;
+      }
+
+      .invoice-doc-header,
+      .invoice-bottom-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .invoice-doc-company {
+        text-align: left;
+        max-width: none;
+      }
+
+      .invoice-detail-row,
+      .invoice-bank-grid {
+        grid-template-columns: 1fr;
+      }
+
       .stat-grid,
       .detail-grid,
       .client-action-grid {
@@ -913,6 +1531,11 @@
 
       .table-wrap {
         border-radius: 14px;
+      }
+
+      .invoice-doc-title {
+        letter-spacing: 0.24em;
+        font-size: 16px;
       }
 
       table {
@@ -944,6 +1567,10 @@
       .section-head p,
       .topbar p {
         font-size: 12px;
+      }
+
+      .page-hero h2 {
+        font-size: 22px;
       }
     }
   </style>
@@ -1001,7 +1628,7 @@
 
       <section id="services" class="section"><div class="section-head"><div><h2>Services</h2><p>Manage billable service catalog and default pricing used by invoice creation.</p></div></div><div class="table-wrap"><table><thead><tr><th>Service</th><th>Category</th><th>Billing Type</th><th>Rate</th><th>SAC</th><th>Description</th></tr></thead><tbody id="serviceTable"></tbody></table></div></section>
 
-      <section id="invoice" class="section"><div class="section-head"><div><h2>Create Invoice</h2><p>Build a new invoice with line items, tax calculations, and editable bill-to details.</p></div><div class="top-actions"><button class="btn btn-light" onclick="resetInvoiceForm()">Reset</button><button class="btn btn-secondary" onclick="previewCurrentInvoice()">Preview Invoice</button><button class="btn btn-primary" onclick="saveInvoice()">Save Invoice</button></div></div><div class="invoice-layout"><div class="card"><div class="form-grid"><div class="field"><label>Client</label><select id="invoiceClient" onchange="applyClientToInvoice(this.value)"></select></div><div class="field"><label>Invoice No</label><input id="invoiceNo" /></div><div class="field"><label>Invoice Date</label><input id="invoiceDate" type="date" /></div><div class="field"><label>Due Date</label><input id="invoiceDueDate" type="date" /></div><div class="field"><label>Billing Period</label><input id="invoicePeriod" placeholder="May 2026" /></div><div class="field"><label>Place of Supply</label><input id="invoicePlace" value="Rajasthan" oninput="updateInvoiceSummary()" /></div></div><div class="section-head" style="margin-top:20px;"><div><h2 style="font-size:18px;">Bill To Details</h2><p>Auto-filled from the client record and still editable for one-off invoice changes.</p></div><button class="btn btn-light btn-sm" onclick="syncInvoiceWithSelectedClient()" type="button">Reload From Client</button></div><div class="form-grid-2"><div class="field"><label>Company / Billing Name</label><input id="invoiceBillCompany" /></div><div class="field"><label>Contact Person</label><input id="invoiceBillContact" /></div><div class="field"><label>Email</label><input id="invoiceBillEmail" type="email" /></div><div class="field"><label>Phone</label><input id="invoiceBillPhone" /></div><div class="field"><label>GSTIN</label><input id="invoiceBillGstin" /></div><div class="field"><label>PAN</label><input id="invoiceBillPan" /></div><div class="field"><label>Address Line 1</label><input id="invoiceBillAddress1" /></div><div class="field"><label>Address Line 2</label><input id="invoiceBillAddress2" /></div><div class="field"><label>City</label><input id="invoiceBillCity" /></div><div class="field"><label>State</label><input id="invoiceBillState" oninput="updateInvoiceSummary()" /></div><div class="field"><label>Pincode</label><input id="invoiceBillPincode" /></div><div class="field"><label>Country</label><input id="invoiceBillCountry" value="India" /></div></div><div class="section-head" style="margin-top:20px;"><div><h2 style="font-size:18px;">Line Items</h2><p>Add one or more billable services.</p></div><button class="btn btn-secondary" onclick="addInvoiceItem()">Add Line</button></div><div id="invoiceItems"></div><div class="section-head" style="margin-top:20px;"><div><h2 style="font-size:18px;">Invoice Company Details</h2><p>This header, footer, signature, GST, and address block comes from Settings.</p></div></div><div id="invoiceCompanyPreview" class="invoice-company-preview"></div></div><aside class="card summary-box"><h3 style="margin-bottom:14px;">Invoice Summary</h3><div class="summary-line"><span>Subtotal</span><strong id="sumSubtotal">INR 0</strong></div><div class="summary-line"><span id="sumTaxPrimaryLabel">CGST 9%</span><strong id="sumTaxPrimary">INR 0</strong></div><div class="summary-line"><span id="sumTaxSecondaryLabel">SGST 9%</span><strong id="sumTaxSecondary">INR 0</strong></div><div class="summary-line"><span>Outstanding Due</span><strong id="sumOutstanding">INR 0</strong></div><div class="summary-total"><span>Payable</span><span id="sumPayable">INR 0</span></div><p class="small" id="sumTaxHint" style="margin-top:14px;">Tax mode is selected automatically based on your business state and the invoice place of supply.</p></aside></div></section>
+<section id="invoice" class="section"><div class="page-shell"><div class="page-hero"><h2>Tax Invoice Workspace</h2><p>Build invoices on a full page with issuer controls on the left and a live tax invoice preview on the right.</p></div><div class="invoice-meta-toolbar"><div class="field"><label>Saved Invoices</label><select id="invoiceSavedDraft" onchange="handleInvoiceDraftSelect(this.value)"><option value="new">New Draft</option></select></div><div class="field"><label>Companies</label><select id="invoiceCompanySelect" onchange="handleInvoiceCompanySelect(this.value)"></select></div><button class="btn btn-secondary" onclick="showSection('settings')">Company Settings</button></div><div class="invoice-page-grid"><div class="invoice-form-stack"><div class="invoice-pane"><div class="invoice-pane-title"><div><h3>Invoice Details</h3><p>Use client and series data to create the invoice number and billing block.</p></div><div class="top-actions"><button class="btn btn-light btn-sm" onclick="resetInvoiceForm()">Reset</button><button class="btn btn-secondary btn-sm" onclick="previewCurrentInvoice()">Preview Invoice</button><button class="btn btn-primary btn-sm" onclick="saveInvoice()">Save Invoice</button></div></div><div class="form-grid-2"><div class="field"><label>Product</label><select id="invoiceProduct"><option>WhatsApp Panel Monthly Subscription Charges</option><option>CNMS Onnet</option><option>Campaign Setup</option><option>Chatbot Management</option></select></div><div class="field"><label>Invoice No.</label><input id="invoiceNo" /></div><div class="field"><label>Client</label><select id="invoiceClient" onchange="applyClientToInvoice(this.value)"></select></div><div class="field"><label>Date</label><input id="invoiceDate" type="date" /></div><div class="field"><label>Due Date</label><input id="invoiceDueDate" type="date" /></div><div class="field"><label>Billing Period</label><input id="invoicePeriod" placeholder="May 2026" /></div><div class="field"><label>Place of Supply</label><input id="invoicePlace" value="Rajasthan" oninput="updateInvoiceSummary()" /></div><div class="field"><label>Previous Due</label><input id="invoicePreviousDue" disabled /></div></div></div><div class="invoice-pane"><div class="invoice-pane-title"><div><h3>Issuer</h3><p>These values come from the selected company profile.</p></div></div><div id="invoiceCompanyPreview" class="invoice-company-card"></div></div><div class="invoice-pane"><div class="invoice-pane-title"><div><h3>Recipient</h3><p>Auto-filled from the client record and still editable for one-off invoice changes.</p></div><button class="btn btn-light btn-sm" onclick="syncInvoiceWithSelectedClient()" type="button">Reload From Client</button></div><div class="form-grid-2"><div class="field"><label>Company / Billing Name</label><input id="invoiceBillCompany" /></div><div class="field"><label>Contact Person</label><input id="invoiceBillContact" /></div><div class="field"><label>Email</label><input id="invoiceBillEmail" type="email" /></div><div class="field"><label>Phone</label><input id="invoiceBillPhone" /></div><div class="field"><label>GSTIN</label><input id="invoiceBillGstin" /></div><div class="field"><label>PAN</label><input id="invoiceBillPan" /></div><div class="field"><label>Address Line 1</label><input id="invoiceBillAddress1" /></div><div class="field"><label>Address Line 2</label><input id="invoiceBillAddress2" /></div><div class="field"><label>City</label><input id="invoiceBillCity" /></div><div class="field"><label>State</label><input id="invoiceBillState" oninput="updateInvoiceSummary()" /></div><div class="field"><label>Pincode</label><input id="invoiceBillPincode" /></div><div class="field"><label>Country</label><input id="invoiceBillCountry" value="India" /></div></div></div><div class="invoice-pane"><div class="invoice-pane-title"><div><h3>Line Items</h3><p>Add or edit invoice charge lines with quantity, rate, and term.</p></div><button class="btn btn-secondary btn-sm" onclick="addInvoiceItem()">Add Line</button></div><div id="invoiceItems"></div></div></div><div class="invoice-preview-stack"><div class="invoice-live-card"><div class="invoice-live-head"><span>Live Preview</span><span id="invoiceLiveMeta">Tax invoice preview updates as you type</span></div><div id="invoicePreviewContent" class="invoice-document"></div></div><div class="invoice-pane summary-box"><h3 style="margin-bottom:14px;">Invoice Summary</h3><div class="summary-line"><span>Subtotal</span><strong id="sumSubtotal">INR 0</strong></div><div class="summary-line"><span id="sumTaxPrimaryLabel">CGST 9%</span><strong id="sumTaxPrimary">INR 0</strong></div><div class="summary-line"><span id="sumTaxSecondaryLabel">SGST 9%</span><strong id="sumTaxSecondary">INR 0</strong></div><div class="summary-line"><span>Outstanding Due</span><strong id="sumOutstanding">INR 0</strong></div><div class="summary-line"><span>Wallet Balance</span><strong id="sumWallet">INR 0</strong></div><div class="summary-total"><span>Payable</span><span id="sumPayable">INR 0</span></div><p class="small" id="sumTaxHint" style="margin-top:14px;">Tax mode is selected automatically based on your business state and the invoice place of supply.</p></div></div></div></div></section>
 
       <section id="invoices" class="section"><div class="section-head"><div><h2>Invoice List</h2><p>Review payment state, billing type, due dates, and outstanding balances.</p></div></div><div class="toolbar"><input id="invoiceSearch" type="search" placeholder="Search invoice or client" oninput="renderInvoices()" /><select id="invoiceStatusFilter" onchange="renderInvoices()"><option value="">All Payment Status</option><option value="Pending">Pending</option><option value="Paid">Paid</option><option value="Partially Paid">Partially Paid</option></select></div><div class="table-wrap"><table><thead><tr><th>Invoice</th><th>Client</th><th>Date</th><th>Type</th><th>Total</th><th>Paid</th><th>Balance</th><th>Status</th><th>Actions</th></tr></thead><tbody id="invoiceTable"></tbody></table></div></section>
 
@@ -1013,16 +1640,23 @@
 
       <section id="reports" class="section"><div class="section-head"><div><h2>Reports</h2><p>Quick business insights for revenue mix, collection trend, and action items.</p></div></div><div class="grid grid-3"><div class="card"><h3 style="margin-bottom:10px;">Revenue Snapshot</h3><p class="small" id="reportRevenue"></p></div><div class="card"><h3 style="margin-bottom:10px;">Collections Snapshot</h3><p class="small" id="reportCollections"></p></div><div class="card"><h3 style="margin-bottom:10px;">Operational Notes</h3><p class="small" id="reportNotes"></p></div></div></section>
 
-      <section id="settings" class="section"><div class="section-head"><div><h2>Settings</h2><p>Business identity, invoice company header, footer, signature, numbering, and reminder preferences for the app.</p></div></div><div class="card"><div class="form-grid"><div class="field"><label>Company Name</label><input id="settingCompany" value="WhatsApp Business Manage" /></div><div class="field"><label>Support Email</label><input id="settingEmail" value="accounts@company.com" /></div><div class="field"><label>Support Phone</label><input id="settingPhone" value="+91 90000 00000" /></div><div class="field"><label>Invoice Series Prefix</label><input id="settingPrefix" value="ITSPL" /></div><div class="field"><label>Next Invoice Serial</label><input id="settingInvoiceStartNumber" type="number" min="1" value="3" /></div><div class="field"><label>Serial Padding</label><input id="settingInvoicePadding" type="number" min="1" max="8" value="4" /></div><div class="field"><label>Financial Year Label</label><input id="settingInvoiceYearLabel" value="26-27" /></div><div class="field"><label>Default Reminder Days</label><input id="settingReminderDays" type="number" value="5" /></div><div class="field"><label>Email Provider</label><select id="settingProvider"><option>SMTP</option><option>Microsoft Graph</option><option>SendGrid</option></select></div><div class="field"><label>Tax Regime</label><input id="settingTax" value="GST 18%" /></div><div class="field"><label>Company GSTIN</label><input id="settingGstin" value="08ABCDE1234F1Z5" /></div><div class="field"><label>Company PAN</label><input id="settingPan" value="ABCDE1234F" /></div><div class="field"><label>Business State</label><input id="settingBusinessState" value="Rajasthan" oninput="updateInvoiceSummary()" /></div><div class="field"><label>State Code</label><input id="settingStateCode" value="08" /></div><div class="field"><label>Company City</label><input id="settingCity" value="Jaipur" /></div></div><div class="form-grid-2"><div class="field"><label>Company Address</label><textarea id="settingAddress">Jaipur, Rajasthan, India</textarea></div><div class="field"><label>Invoice Number Preview</label><input id="settingInvoicePreviewNumber" value="ITSPL/0003/26-27" disabled /></div><div class="field"><label>Invoice Header</label><textarea id="settingInvoiceHeader">WhatsApp Business Manage
-Billing & Support Services</textarea></div><div class="field"><label>Invoice Footer</label><textarea id="settingInvoiceFooter">This is a system generated invoice. Payment is due within the agreed billing period.</textarea></div><div class="field"><label>Authorized Signatory</label><input id="settingSignatureName" value="Accounts Manager" /></div><div class="field"><label>Signature Title</label><input id="settingSignatureTitle" value="Authorized Signatory" /></div><div class="field"><label>Signature Note</label><textarea id="settingSignatureNote">For WhatsApp Business Manage</textarea></div></div><button class="btn btn-primary" onclick="saveSettings()">Save Settings</button></div></section>
-    </section>
+<section id="settings" class="section"><div class="page-shell"><div class="page-hero"><h2>Manage Companies</h2><p>Maintain the issuer profile, numbering pattern, branding blocks, and bank details that feed the invoice page.</p></div><div class="company-manage-shell"><div class="company-list-card"><h3>Available Companies</h3><div id="companyList" class="company-list-stack"></div></div><div class="company-editor-card"><div class="company-editor-top"><div><h3>Company Details</h3><p>Edit the selected company and use the same profile directly in invoice generation.</p></div><div class="top-actions"><button class="btn btn-secondary btn-sm" onclick="addCompany()">Add Company</button><button class="btn btn-light btn-sm" onclick="selectCompany(state.selectedCompanyId)">Reload</button></div></div><div class="form-grid-2"><div class="field"><label>Company Name</label><input id="settingCompany" value="Intellidata" /></div><div class="field"><label>Table Header Color</label><input id="settingHeaderColor" type="color" value="#2563eb" /></div><div class="field"><label>Issuer Name</label><input id="settingIssuerName" value="Intellidata Tech Solutions Pvt. Ltd." /></div><div class="field"><label>GSTIN</label><input id="settingGstin" value="08AAHCI0947G1ZJ" /></div><div class="field"><label>PI Prefix</label><input id="settingPrefix" value="ITSPL" /></div><div class="field"><label>Financial Year Label</label><input id="settingInvoiceYearLabel" value="26-27" /></div><div class="field"><label>Next PI Serial</label><input id="settingInvoiceStartNumber" type="number" min="1" value="8" /></div><div class="field"><label>Serial Padding</label><input id="settingInvoicePadding" type="number" min="1" max="8" value="4" /></div><div class="field"><label>Company PAN</label><input id="settingPan" value="AAHCI0947G" /></div><div class="field"><label>Tax Regime</label><input id="settingTax" value="GST 18%" /></div><div class="field"><label>Business State</label><input id="settingBusinessState" value="Rajasthan" oninput="updateInvoiceSummary()" /></div><div class="field"><label>State Code</label><input id="settingStateCode" value="08" /></div><div class="field"><label>Company City</label><input id="settingCity" value="Jodhpur" /></div><div class="field"><label>Support Email</label><input id="settingEmail" value="operations@intellidata.in" /></div><div class="field"><label>Support Phone</label><input id="settingPhone" value="+91-291-2754643, +91-8955106906" /></div><div class="field"><label>Signature Label</label><input id="settingSignatureTitle" value="Authorized Signatory" /></div></div><div class="form-grid-2"><div class="field"><label>Address</label><textarea id="settingAddress">Office No. 201, Plot No. CYB-5, Dream Heights, 2nd Floor, RIICO Heavy Industrial Area, Jodhpur, Rajasthan, 342003</textarea></div><div class="field"><label>Invoice Number Preview</label><input id="settingInvoicePreviewNumber" value="ITSPL/0008/26-27" disabled /></div><div class="field"><label>Invoice Header</label><textarea id="settingInvoiceHeader">Intelligence | Insights | Innovation</textarea></div><div class="field"><label>Invoice Footer</label><textarea id="settingInvoiceFooter">operations@intellidata.in • www.intellidata.in</textarea></div><div class="field"><label>Authorized Signatory</label><input id="settingSignatureName" value="For Intellidata Tech Solutions Pvt. Ltd." /></div><div class="field"><label>Signature Note</label><textarea id="settingSignatureNote">Terms and conditions and signature note printed on invoice footer.</textarea></div><div class="field"><label>Bank Details</label><textarea id="settingBankDetails">Beneficiary: Intellidata Tech Solutions Pvt. Ltd.
+Bank: ICICI Bank Ltd.
+Branch: Residency Road, Jodhpur
+Account No.: 016705013444
+Type: Current
+IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</label><textarea id="settingTerms">1. Taxes as per GST rules.
+2. Payment due in advance.
+3. Interest @24% p.a. on overdue bills.
+4. Disputes subject to Jodhpur, Rajasthan jurisdiction.
+5. Objections in writing within 3 days.</textarea></div></div><div class="company-branding-grid"><div class="upload-box"><label>Default Header</label><input id="settingHeaderAsset" type="file" accept="image/*" onchange="previewBrandingAsset('header', this)" /><div id="headerPreview" class="upload-preview">No header uploaded</div></div><div class="upload-box"><label>Default Footer</label><input id="settingFooterAsset" type="file" accept="image/*" onchange="previewBrandingAsset('footer', this)" /><div id="footerPreview" class="upload-preview">No footer uploaded</div></div><div class="upload-box"><label>Default Signature</label><input id="settingSignatureAsset" type="file" accept="image/*" onchange="previewBrandingAsset('signature', this)" /><div id="signaturePreview" class="upload-preview">No signature uploaded</div></div></div><div class="company-action-row"><button class="btn btn-primary" onclick="saveSettings()">Save Company</button><button class="btn btn-danger" onclick="deleteSelectedCompany()">Delete Company</button></div></div></div></div></section>
   </main>
 
   <div id="clientModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><div><h2 id="clientModalTitle">Add Client</h2><p class="small">Save invoice-ready client details so the invoice form fills automatically.</p></div><button class="btn btn-light btn-sm" onclick="closeModal('clientModal')">Close</button></div><div class="form-grid-2"><div class="field"><label>Company</label><input id="newClientCompany" /></div><div class="field"><label>Contact Name</label><input id="newClientName" /></div><div class="field"><label>Email</label><input id="newClientEmail" type="email" /></div><div class="field"><label>Phone</label><input id="newClientPhone" /></div><div class="field"><label>Plan</label><input id="newClientPlan" /></div><div class="field"><label>Status</label><select id="newClientStatus"><option>Active</option><option>Trial</option><option>Paused</option></select></div><div class="field"><label>Wallet Balance</label><input id="newClientWallet" type="number" value="0" /></div><div class="field"><label>GSTIN</label><input id="newClientGstin" /></div><div class="field"><label>PAN</label><input id="newClientPan" /></div><div class="field"><label>Place of Supply</label><input id="newClientPlaceOfSupply" value="Maharashtra" /></div><div class="field"><label>Address Line 1</label><input id="newClientAddress1" /></div><div class="field"><label>Address Line 2</label><input id="newClientAddress2" /></div><div class="field"><label>City</label><input id="newClientCity" /></div><div class="field"><label>State</label><input id="newClientState" value="Maharashtra" /></div><div class="field"><label>Pincode</label><input id="newClientPincode" /></div><div class="field"><label>Country</label><input id="newClientCountry" value="India" /></div></div><button class="btn btn-primary" onclick="saveClient()">Save Client</button></div></div>
 
   <div id="passwordModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><div><h2>Change Password</h2><p class="small">Demo interaction only for the frontend build.</p></div><button class="btn btn-light btn-sm" onclick="closeModal('passwordModal')">Close</button></div><div class="form-grid-2"><div class="field"><label>Current Password</label><input type="password" /></div><div class="field"><label>New Password</label><input type="password" /></div></div><button class="btn btn-primary" onclick="alert('Password updated in demo mode.')">Update Password</button></div></div>
 
-  <div id="invoicePreviewModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><div><h2>Invoice Preview</h2><p class="small">Review the invoice company header, footer, signature, and bill-to details saved with this invoice.</p></div><button class="btn btn-light btn-sm" onclick="closeModal('invoicePreviewModal')">Close</button></div><div id="invoicePreviewContent" class="invoice-company-preview"></div></div></div>
+  <div id="invoicePreviewModal" class="modal-backdrop hidden"><div class="modal" style="max-width:1100px;"><div class="modal-head"><div><h2>Invoice Preview</h2><p class="small">Review the invoice company header, footer, signature, and bill-to details saved with this invoice.</p></div><button class="btn btn-light btn-sm" onclick="closeModal('invoicePreviewModal')">Close</button></div><div id="invoicePreviewModalContent" class="invoice-document"></div></div></div>
 
   <div id="walletModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><div><h2>Add Money Details</h2><p class="small">Add balance into the client wallet for future invoice adjustment.</p></div><button class="btn btn-light btn-sm" onclick="closeModal('walletModal')">Close</button></div><div class="form-grid-2"><div class="field"><label>Amount</label><input id="walletAddAmount" type="number" min="0" value="0" /></div><div class="field"><label>Date</label><input id="walletAddDate" type="date" /></div></div><div class="field"><label>Remark</label><textarea id="walletAddRemark" placeholder="Wallet top-up note"></textarea></div><button class="btn btn-primary" onclick="addWalletBalance()">Add To Wallet</button></div></div>
 
@@ -1060,9 +1694,70 @@ Billing & Support Services</textarea></div><div class="field"><label>Invoice Foo
         { id: 2, invoiceNo: 'INV/2026/0003', clientName: 'Orbit Care Pvt Ltd', amount: 6000, date: '2026-05-14', mode: 'Bank Transfer' }
       ],
       creditNotes: [],
+      companies: [
+        {
+          id: 1,
+          companyName: 'Intellidata',
+          issuerName: 'Intellidata Tech Solutions Pvt. Ltd.',
+          email: 'operations@intellidata.in',
+          phone: '+91-291-2754643, +91-8955106906',
+          invoicePrefix: 'ITSPL',
+          invoiceStartNumber: '8',
+          invoicePadding: '4',
+          invoiceYearLabel: '26-27',
+          taxRegime: 'GST 18%',
+          gstin: '08AAHCI0947G1ZJ',
+          pan: 'AAHCI0947G',
+          businessState: 'Rajasthan',
+          stateCode: '08',
+          city: 'Jodhpur',
+          address: 'Office No. 201, Plot No. CYB-5, Dream Heights, 2nd Floor, RIICO Heavy Industrial Area, Jodhpur, Rajasthan, 342003',
+          invoiceHeader: 'Intelligence | Insights | Innovation',
+          invoiceFooter: 'operations@intellidata.in  •  www.intellidata.in',
+          signatureName: 'For Intellidata Tech Solutions Pvt. Ltd.',
+          signatureTitle: 'Authorized Signatory',
+          signatureNote: 'For Intellidata Tech Solutions Pvt. Ltd.',
+          headerColor: '#2563eb',
+          bankDetails: 'Beneficiary: Intellidata Tech Solutions Pvt. Ltd.\nBank: ICICI Bank Ltd.\nBranch: Residency Road, Jodhpur\nAccount No.: 016705013444\nType: Current\nIFSC: ICIC0000167',
+          terms: '1. Taxes as per GST rules.\n2. Payment due in advance.\n3. Interest @24% p.a. on overdue bills.\n4. Disputes subject to Jodhpur, Rajasthan jurisdiction.\n5. Objections in writing within 3 days.',
+          headerAssetData: '',
+          footerAssetData: '',
+          signatureAssetData: ''
+        },
+        {
+          id: 2,
+          companyName: 'ReliableSoft',
+          issuerName: 'ReliableSoft',
+          email: 'accounts@reliablesoft.in',
+          phone: '+91 90000 00000',
+          invoicePrefix: 'RSPL',
+          invoiceStartNumber: '1',
+          invoicePadding: '4',
+          invoiceYearLabel: '26-27',
+          taxRegime: 'GST 18%',
+          gstin: '08ABCDE1234F1Z5',
+          pan: 'ABCDE1234F',
+          businessState: 'Rajasthan',
+          stateCode: '08',
+          city: 'Jaipur',
+          address: 'Jaipur, Rajasthan, India',
+          invoiceHeader: 'Frontend billing and support services',
+          invoiceFooter: 'accounts@reliablesoft.in',
+          signatureName: 'For ReliableSoft',
+          signatureTitle: 'Authorized Signatory',
+          signatureNote: 'For ReliableSoft',
+          headerColor: '#14b8a6',
+          bankDetails: 'Beneficiary: ReliableSoft\nBank: ICICI Bank Ltd.\nBranch: Jaipur\nAccount No.: 000000000000\nType: Current\nIFSC: ICIC0000000',
+          terms: '1. Taxes as per GST rules.\n2. Payment due in advance.',
+          headerAssetData: '',
+          footerAssetData: '',
+          signatureAssetData: ''
+        }
+      ],
       invoiceItems: [],
       editingClientId: null,
-      currentClientAccountId: null
+      currentClientAccountId: null,
+      selectedCompanyId: 1
     };
 
     const sectionMeta = {
@@ -1076,11 +1771,26 @@ Billing & Support Services</textarea></div><div class="field"><label>Invoice Foo
       payments: ['Payments', 'Record collections and monitor recent receipts.'],
       ledger: ['Ledger', 'Opening due, invoiced amount, collections, and closing outstanding.'],
       reports: ['Reports', 'High-level business insights generated from the demo dataset.'],
-      settings: ['Settings', 'Business defaults and application-level configuration.']
+      settings: ['Manage Companies', 'Company issuer settings, branding assets, and invoice series controls.']
     };
 
     function money(value) {
       return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(Number(value || 0));
+    }
+
+    function numberToWords(value) {
+      const ones = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+      const tens = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+      const toWords = (num) => {
+        if (num < 20) return ones[num];
+        if (num < 100) return `${tens[Math.floor(num / 10)]}${num % 10 ? ` ${ones[num % 10]}` : ''}`;
+        if (num < 1000) return `${ones[Math.floor(num / 100)]} Hundred${num % 100 ? ` ${toWords(num % 100)}` : ''}`;
+        if (num < 100000) return `${toWords(Math.floor(num / 1000))} Thousand${num % 1000 ? ` ${toWords(num % 1000)}` : ''}`;
+        if (num < 10000000) return `${toWords(Math.floor(num / 100000))} Lakh${num % 100000 ? ` ${toWords(num % 100000)}` : ''}`;
+        return `${toWords(Math.floor(num / 10000000))} Crore${num % 10000000 ? ` ${toWords(num % 10000000)}` : ''}`;
+      };
+      const normalized = Math.max(0, Number(value || 0));
+      return toWords(Math.round(normalized));
     }
 
     function today() {
@@ -1154,6 +1864,7 @@ Billing & Support Services</textarea></div><div class="field"><label>Invoice Foo
     function companySettingFieldIds() {
       return {
         companyName: 'settingCompany',
+        issuerName: 'settingIssuerName',
         email: 'settingEmail',
         phone: 'settingPhone',
         invoicePrefix: 'settingPrefix',
@@ -1171,15 +1882,104 @@ Billing & Support Services</textarea></div><div class="field"><label>Invoice Foo
         invoiceFooter: 'settingInvoiceFooter',
         signatureName: 'settingSignatureName',
         signatureTitle: 'settingSignatureTitle',
-        signatureNote: 'settingSignatureNote'
+        signatureNote: 'settingSignatureNote',
+        headerColor: 'settingHeaderColor',
+        bankDetails: 'settingBankDetails',
+        terms: 'settingTerms'
       };
     }
 
+    function getSelectedCompany() {
+      return state.companies.find((company) => company.id === Number(state.selectedCompanyId)) || state.companies[0];
+    }
+
+    function populateCompanyForm(company) {
+      if (!company) return;
+      const fields = companySettingFieldIds();
+      Object.entries(fields).forEach(([key, id]) => {
+        const field = document.getElementById(id);
+        if (field) field.value = company[key] ?? '';
+      });
+      syncInvoiceSeriesPreview();
+      renderBrandingPreviews(company);
+      const invoiceCompanySelect = document.getElementById('invoiceCompanySelect');
+      if (invoiceCompanySelect) invoiceCompanySelect.value = String(company.id);
+    }
+
+    function renderBrandingPreviews(company) {
+      const previews = [
+        ['headerPreview', company?.headerAssetData, 'No header uploaded'],
+        ['footerPreview', company?.footerAssetData, 'No footer uploaded'],
+        ['signaturePreview', company?.signatureAssetData, 'No signature uploaded']
+      ];
+      previews.forEach(([id, value, emptyLabel]) => {
+        const target = document.getElementById(id);
+        if (!target) return;
+        target.innerHTML = value ? `<img src="${value}" alt="${emptyLabel}" />` : emptyLabel;
+      });
+    }
+
+    function renderCompanyList() {
+      const selectedId = Number(state.selectedCompanyId);
+      document.getElementById('companyList').innerHTML = state.companies.map((company, index) => `
+        <button class="company-list-item ${company.id === selectedId ? 'active' : ''}" onclick="selectCompany(${company.id})">
+          <strong><span class="dot" style="background:${company.headerColor || (index % 2 === 0 ? '#2563eb' : '#14b8a6')};"></span>${company.companyName}</strong>
+          <span>${company.issuerName}</span>
+        </button>
+      `).join('');
+      const invoiceCompanySelect = document.getElementById('invoiceCompanySelect');
+      if (invoiceCompanySelect) {
+        invoiceCompanySelect.innerHTML = state.companies.map((company) => `<option value="${company.id}">${company.companyName}</option>`).join('');
+        invoiceCompanySelect.value = String(selectedId);
+      }
+    }
+
+    function selectCompany(id) {
+      state.selectedCompanyId = Number(id);
+      const company = getSelectedCompany();
+      populateCompanyForm(company);
+      renderCompanyList();
+      renderInvoiceCompanyPreview(company);
+      updateInvoiceSummary();
+    }
+
+    function handleInvoiceCompanySelect(value) {
+      selectCompany(Number(value));
+    }
+
+    function getCompanySettingsSnapshot() {
+      const fields = companySettingFieldIds();
+      const snapshot = Object.fromEntries(Object.entries(fields).map(([key, id]) => [key, document.getElementById(id).value.trim()]));
+      const selected = getSelectedCompany();
+      return {
+        ...selected,
+        ...snapshot,
+        id: selected.id,
+        invoiceStartNumber: snapshot.invoiceStartNumber,
+        invoicePadding: snapshot.invoicePadding
+      };
+    }
+
+    function renderInvoiceCompanyPreview(source) {
+      const company = source || getCompanySettingsSnapshot();
+      const headerColor = company.headerColor || '#2563eb';
+      document.getElementById('invoiceCompanyPreview').innerHTML = `
+        <strong>${company.issuerName || company.companyName || 'Company Name'}</strong>
+        <p>${company.address || '-'}${company.city ? `\n${company.city}` : ''}${company.businessState ? `, ${company.businessState}` : ''}${company.stateCode ? ` - State Code ${company.stateCode}` : ''}</p>
+        <p>GSTIN: ${company.gstin || '-'}\nPAN: ${company.pan || '-'}\nPhone: ${company.phone || '-'}\nEmail: ${company.email || '-'}</p>
+        <div class="summary-total" style="margin-top:0;background:${headerColor};color:#fff;">
+          <span>${company.invoicePrefix || 'ITSPL'}/${String(company.invoiceStartNumber || '1').padStart(Number(company.invoicePadding || 4), '0')}/${company.invoiceYearLabel || '26-27'}</span>
+          <span>${company.taxRegime || 'GST 18%'}</span>
+        </div>
+      `;
+    }
+
     function getInvoiceSeriesConfig() {
-      const prefix = document.getElementById('settingPrefix') ? document.getElementById('settingPrefix').value.trim() || 'ITSPL' : 'ITSPL';
-      const nextNumber = Math.max(1, Number(document.getElementById('settingInvoiceStartNumber')?.value || 1));
-      const padding = Math.max(1, Number(document.getElementById('settingInvoicePadding')?.value || 4));
-      const yearLabel = document.getElementById('settingInvoiceYearLabel') ? document.getElementById('settingInvoiceYearLabel').value.trim() || '26-27' : '26-27';
+      const company = getCompanySettingsSnapshot();
+      const prefix = company.invoicePrefix || 'ITSPL';
+      const nextNumber = Math.max(1, Number(company.invoiceStartNumber || 1));
+      const padding = Math.max(1, Number(company.invoicePadding || 4));
+      const yearLabel = company.invoiceYearLabel || '26-27';
       return { prefix, nextNumber, padding, yearLabel };
     }
 
@@ -1194,47 +1994,6 @@ Billing & Support Services</textarea></div><div class="field"><label>Invoice Foo
       if (preview) {
         preview.value = formatInvoiceNumber();
       }
-    }
-
-    function getCompanySettingsSnapshot() {
-      const fields = companySettingFieldIds();
-      return Object.fromEntries(Object.entries(fields).map(([key, id]) => [key, document.getElementById(id).value.trim()]));
-    }
-
-    function renderInvoiceCompanyPreview(source) {
-      const company = source || getCompanySettingsSnapshot();
-      const addressLine = [company.city, company.businessState, company.stateCode ? `State Code: ${company.stateCode}` : ''].filter(Boolean).join(' | ');
-      const numberPreview = formatInvoiceNumber();
-      document.getElementById('invoiceCompanyPreview').innerHTML = `
-        <div class="invoice-preview-head">
-          <div>
-            <h4>${company.companyName || 'Company Name'}</h4>
-            <p class="small">${(company.invoiceHeader || 'Invoice header text').replace(/\n/g, '<br />')}</p>
-          </div>
-          <div class="invoice-preview-meta">
-            Next Invoice: ${numberPreview}<br />
-            GSTIN: ${company.gstin || '-'}<br />
-            PAN: ${company.pan || '-'}<br />
-            ${company.taxRegime || 'GST 18%'}
-          </div>
-        </div>
-        <div class="invoice-preview-grid">
-          <div class="invoice-preview-block">
-            <span>Company Address</span>
-            <strong>${company.companyName || 'Company Name'}</strong>
-            <p>${company.address || '-'}${addressLine ? `\n${addressLine}` : ''}${company.phone ? `\nPhone: ${company.phone}` : ''}${company.email ? `\nEmail: ${company.email}` : ''}</p>
-          </div>
-          <div class="invoice-preview-block">
-            <span>Signature</span>
-            <strong>${company.signatureName || 'Authorized Signatory'}</strong>
-            <p>${company.signatureTitle || ''}${company.signatureNote ? `\n${company.signatureNote}` : ''}</p>
-          </div>
-        </div>
-        <div class="invoice-preview-block">
-          <span>Invoice Footer</span>
-          <p>${company.invoiceFooter || '-'}</p>
-        </div>
-      `;
     }
 
     function fillInvoiceBillingDetails(client) {
@@ -1609,6 +2368,33 @@ Billing & Support Services</textarea></div><div class="field"><label>Invoice Foo
     function populateClientSelects() {
       document.getElementById('invoiceClient').innerHTML = state.clients.map((client) => `<option value="${client.id}">${client.company}</option>`).join('');
       document.getElementById('paymentInvoice').innerHTML = state.invoices.map((invoice) => `<option value="${invoice.id}">${invoice.invoiceNo} - ${invoice.clientName} - ${money(invoice.balance)}</option>`).join('');
+      document.getElementById('invoiceSavedDraft').innerHTML = ['<option value="new">New Draft</option>'].concat(
+        state.invoices.map((invoice) => `<option value="${invoice.id}">${invoice.invoiceNo} - ${invoice.clientName}</option>`)
+      ).join('');
+      renderCompanyList();
+    }
+
+    function handleInvoiceDraftSelect(value) {
+      if (value === 'new') {
+        resetInvoiceForm();
+        return;
+      }
+      const invoice = state.invoices.find((entry) => entry.id === Number(value));
+      if (!invoice) return;
+      if (invoice.companyId) {
+        selectCompany(invoice.companyId);
+      }
+      document.getElementById('invoiceClient').value = String(invoice.clientId);
+      document.getElementById('invoiceNo').value = invoice.invoiceNo;
+      document.getElementById('invoiceDate').value = invoice.invoiceDate;
+      document.getElementById('invoiceDueDate').value = invoice.dueDate;
+      document.getElementById('invoicePeriod').value = invoice.period || '';
+      document.getElementById('invoicePlace').value = invoice.placeOfSupply || '';
+      document.getElementById('invoiceProduct').value = invoice.product || 'WhatsApp Panel Monthly Subscription Charges';
+      fillInvoiceBillingDetails(invoice.billingDetails || getClientById(invoice.clientId));
+      state.invoiceItems = invoice.items?.length ? invoice.items.map((item) => ({ ...item, id: Date.now() + Math.random() })) : [{ id: Date.now(), description: invoice.product || 'Service Charges', qty: 1, rate: Number(invoice.total || 0), billingType: invoice.billingType || 'One Time', term: 'Monthly' }];
+      renderInvoiceItems();
+      updateInvoiceSummary();
     }
 
     function addInvoiceItem(prefill) {
@@ -1652,20 +2438,36 @@ Billing & Support Services</textarea></div><div class="field"><label>Invoice Foo
       const subtotal = state.invoiceItems.reduce((sum, item) => sum + item.qty * item.rate, 0);
       const tax = getInvoiceTaxBreakdown(subtotal);
       const clientId = Number(document.getElementById('invoiceClient').value || state.clients[0].id);
+      const client = getClientById(clientId);
       const outstanding = getClientDueTotal(clientId);
+      const wallet = Number(client?.wallet || 0);
       const currentInvoiceTotal = subtotal + tax.taxTotal;
-      const payable = currentInvoiceTotal + outstanding;
+      const payable = currentInvoiceTotal + outstanding - wallet;
       document.getElementById('sumSubtotal').textContent = money(subtotal);
       document.getElementById('sumTaxPrimaryLabel').textContent = tax.primaryLabel;
       document.getElementById('sumTaxSecondaryLabel').textContent = tax.secondaryLabel;
       document.getElementById('sumTaxPrimary').textContent = money(tax.primaryAmount);
       document.getElementById('sumTaxSecondary').textContent = money(tax.secondaryAmount);
       document.getElementById('sumOutstanding').textContent = money(outstanding);
-      document.getElementById('sumPayable').textContent = money(payable);
+      document.getElementById('sumWallet').textContent = money(wallet);
+      document.getElementById('sumPayable').textContent = money(Math.max(payable, 0));
+      document.getElementById('invoicePreviousDue').value = money(outstanding);
+      document.getElementById('invoiceLiveMeta').textContent = `${tax.mode === 'CGST_SGST' ? 'Same-state tax' : 'Inter-state tax'} • ${formatInvoiceNumber()} • ${client?.company || ''}`;
       document.getElementById('sumTaxHint').textContent = tax.mode === 'CGST_SGST'
         ? `Same-state billing: ${tax.placeOfSupply || 'selected state'} matches your business state ${tax.businessState}, so CGST and SGST are applied.`
         : `Inter-state billing: ${tax.placeOfSupply || 'selected state'} differs from your business state ${tax.businessState}, so IGST is applied.`;
-      return { payable, tax, subtotal, outstanding, currentInvoiceTotal };
+      const draftInvoice = {
+        invoiceNo: document.getElementById('invoiceNo').value || generateInvoiceNo(),
+        clientId,
+        clientName: client?.company || '',
+        invoiceDate: document.getElementById('invoiceDate').value,
+        dueDate: document.getElementById('invoiceDueDate').value,
+        placeOfSupply: getInvoicePlaceOfSupply(),
+        period: document.getElementById('invoicePeriod').value,
+        product: document.getElementById('invoiceProduct').value
+      };
+      document.getElementById('invoicePreviewContent').innerHTML = buildInvoicePreviewHtml(draftInvoice, getCompanySettingsSnapshot(), getInvoiceBillingSnapshot(), tax, { subtotal, outstanding, wallet, payable: Math.max(payable, 0), currentInvoiceTotal });
+      return { payable: Math.max(payable, 0), tax, subtotal, outstanding, wallet, currentInvoiceTotal };
     }
 
     function resetInvoiceForm() {
@@ -1673,56 +2475,125 @@ Billing & Support Services</textarea></div><div class="field"><label>Invoice Foo
       document.getElementById('invoiceDate').value = today();
       document.getElementById('invoiceDueDate').value = addDays(today(), 7);
       document.getElementById('invoicePeriod').value = 'May 2026';
+      document.getElementById('invoiceSavedDraft').value = 'new';
       state.invoiceItems = [];
       renderInvoiceCompanyPreview();
       syncInvoiceWithSelectedClient();
       addInvoiceItem();
     }
 
-    function buildInvoicePreviewHtml(invoice, company, billing, tax) {
+    function buildInvoicePreviewHtml(invoice, company, billing, tax, totalsOverride) {
       const safeCompany = company || getCompanySettingsSnapshot();
       const safeBilling = billing || getInvoiceBillingSnapshot();
       const safeTax = tax || updateInvoiceSummary().tax;
-      const addressLine = [safeCompany.city, safeCompany.businessState, safeCompany.stateCode ? `State Code: ${safeCompany.stateCode}` : ''].filter(Boolean).join(' | ');
+      const client = getClientById(invoice.clientId);
+      const totals = totalsOverride || updateInvoiceSummary();
+      const issueToName = safeBilling.company || invoice.clientName || '-';
+      const headerColor = safeCompany.headerColor || '#103f91';
+      const previewItems = invoice.items?.length ? invoice.items : (state.invoiceItems.length ? state.invoiceItems : [{ description: invoice.product || 'Service Charges', qty: 1, rate: totals.currentInvoiceTotal || 0, term: 'Monthly' }]);
+      const itemRows = previewItems.map((item) => `
+        <tr>
+          <td>${item.description || '-'}</td>
+          <td class="right">${item.sac || '997331'}</td>
+          <td class="right">${item.qty || 1}</td>
+          <td class="right">${money(item.rate || 0)}</td>
+          <td class="right">${item.term || 'Monthly'}</td>
+          <td class="right">${money((item.qty || 0) * (item.rate || 0))}</td>
+        </tr>
+      `).join('');
+      const bankDetails = String(safeCompany.bankDetails || '').split('\n').filter(Boolean).map((line) => {
+        const parts = line.split(':');
+        if (parts.length > 1) return `<span>${parts[0]}${parts[0].endsWith('.') ? '' : ''}</span><div>${parts.slice(1).join(':').trim()}</div>`;
+        return `<span>Detail</span><div>${line}</div>`;
+      }).join('');
+      const termsHtml = String(safeCompany.terms || '').split('\n').filter(Boolean).join('\n');
       return `
-        <div class="invoice-preview-head">
-          <div>
-            <h4>${safeCompany.companyName || 'Company Name'}</h4>
-            <p class="small">${(safeCompany.invoiceHeader || '').replace(/\n/g, '<br />')}</p>
+        <div class="invoice-doc-topline"></div>
+        <div class="invoice-doc-header">
+          <div class="invoice-branding">
+            <div class="invoice-brand-badge">${safeCompany.headerAssetData ? `<img src="${safeCompany.headerAssetData}" alt="Header" style="width:100%;height:100%;object-fit:cover;border-radius:18px;" />` : 'II'}</div>
+            <div class="invoice-brand-copy">
+              <strong>${safeCompany.companyName || 'OCRM'}</strong>
+              <span>${safeCompany.issuerName || 'Company Name'}</span>
+              <p>${safeCompany.invoiceHeader || ''}</p>
+            </div>
           </div>
-          <div class="invoice-preview-meta">
-            Invoice No: ${invoice.invoiceNo}<br />
-            Date: ${invoice.invoiceDate}<br />
-            Due: ${invoice.dueDate}
-          </div>
-        </div>
-        <div class="invoice-preview-grid">
-          <div class="invoice-preview-block">
-            <span>Issued By</span>
-            <strong>${safeCompany.companyName || '-'}</strong>
-            <p>${safeCompany.address || '-'}${addressLine ? `\n${addressLine}` : ''}${safeCompany.gstin ? `\nGSTIN: ${safeCompany.gstin}` : ''}${safeCompany.pan ? `\nPAN: ${safeCompany.pan}` : ''}${safeCompany.email ? `\nEmail: ${safeCompany.email}` : ''}${safeCompany.phone ? `\nPhone: ${safeCompany.phone}` : ''}</p>
-          </div>
-          <div class="invoice-preview-block">
-            <span>Bill To</span>
-            <strong>${safeBilling.company || invoice.clientName || '-'}</strong>
-            <p>${safeBilling.contact ? `${safeBilling.contact}\n` : ''}${safeBilling.address1 || ''}${safeBilling.address2 ? `\n${safeBilling.address2}` : ''}${safeBilling.city ? `\n${safeBilling.city}` : ''}${safeBilling.state ? `, ${safeBilling.state}` : ''}${safeBilling.pincode ? ` - ${safeBilling.pincode}` : ''}${safeBilling.gstin ? `\nGSTIN: ${safeBilling.gstin}` : ''}${safeBilling.email ? `\nEmail: ${safeBilling.email}` : ''}${safeBilling.phone ? `\nPhone: ${safeBilling.phone}` : ''}</p>
+          <div class="invoice-doc-company">
+            <strong>${safeCompany.issuerName || safeCompany.companyName || '-'}</strong>
+            <p>${safeCompany.address || '-'}${safeCompany.phone ? `\n${safeCompany.phone}` : ''}${safeCompany.email ? `\n${safeCompany.email}` : ''}</p>
           </div>
         </div>
-        <div class="invoice-preview-grid">
-          <div class="invoice-preview-block">
-            <span>Tax Summary</span>
-            <p>${safeTax.primaryLabel || safeTax.label1 || '-'}: ${money(safeTax.primaryAmount ?? safeTax.amount1 ?? 0)}${(safeTax.secondaryLabel || safeTax.label2) ? `\n${safeTax.secondaryLabel || safeTax.label2}: ${money(safeTax.secondaryAmount ?? safeTax.amount2 ?? 0)}` : ''}\nPlace of Supply: ${invoice.placeOfSupply || '-'}</p>
+        <div class="invoice-doc-title" style="background:${headerColor};">TAX INVOICE</div>
+        <div class="invoice-info-grid">
+          <div class="invoice-info-card">
+            <h4>Issue To</h4>
+            <div class="invoice-detail-list">
+              <div class="invoice-detail-row"><span>Name</span><div>${issueToName}</div></div>
+              <div class="invoice-detail-row"><span>Address</span><div>${safeBilling.address1 || ''}${safeBilling.address2 ? `\n${safeBilling.address2}` : ''}${safeBilling.city ? `\n${safeBilling.city}` : ''}${safeBilling.state ? `, ${safeBilling.state}` : ''}${safeBilling.pincode ? ` - ${safeBilling.pincode}` : ''}</div></div>
+              <div class="invoice-detail-row"><span>Operator ID</span><div>${client?.operatorId || '-'}</div></div>
+            </div>
           </div>
-          <div class="invoice-preview-block">
-            <span>Signature</span>
-            <strong>${safeCompany.signatureName || 'Authorized Signatory'}</strong>
-            <p>${safeCompany.signatureTitle || ''}${safeCompany.signatureNote ? `\n${safeCompany.signatureNote}` : ''}</p>
+          <div class="invoice-info-card">
+            <h4>Invoice Details</h4>
+            <div class="invoice-detail-list">
+              <div class="invoice-detail-row"><span>Invoice No.</span><div>${invoice.invoiceNo}</div></div>
+              <div class="invoice-detail-row"><span>Invoice Date</span><div>${invoice.invoiceDate || '-'}</div></div>
+              <div class="invoice-detail-row"><span>Due Date</span><div>${invoice.dueDate || '-'}</div></div>
+              <div class="invoice-detail-row"><span>Period</span><div>${invoice.period || '-'}</div></div>
+              <div class="invoice-detail-row"><span>Place of Supply</span><div>${invoice.placeOfSupply || '-'}</div></div>
+            </div>
+          </div>
+          <div class="invoice-info-card">
+            <h4>GST Details</h4>
+            <div class="invoice-detail-list">
+              <div class="invoice-detail-row"><span>Client GSTIN</span><div>${safeBilling.gstin || '-'}</div></div>
+              <div class="invoice-detail-row"><span>State Code</span><div>${safeCompany.stateCode || '-'}</div></div>
+              <div class="invoice-detail-row"><span>Company GSTIN</span><div>${safeCompany.gstin || '-'}</div></div>
+              <div class="invoice-detail-row"><span>State Code</span><div>${safeCompany.stateCode || '-'}</div></div>
+            </div>
           </div>
         </div>
-        <div class="invoice-preview-block">
-          <span>Footer</span>
-          <p>${safeCompany.invoiceFooter || '-'}</p>
+        <div class="invoice-amount-grid">
+          <div class="invoice-amount-cell"><label>Previous Due (A)</label><strong>${money(totals.outstanding || 0)}</strong></div>
+          <div class="invoice-amount-cell"><label>Current Charges (B)</label><strong class="${totals.currentInvoiceTotal ? 'negative' : ''}">${money(totals.currentInvoiceTotal || 0)}</strong></div>
+          <div class="invoice-amount-cell"><label>Wallet Balance (C)</label><strong>${money(totals.wallet || 0)}</strong></div>
+          <div class="invoice-amount-cell"><label>Amount Payable (A+B-C)</label><strong class="${totals.payable ? 'negative' : ''}">${money(totals.payable || 0)}</strong></div>
         </div>
+        <table class="invoice-item-table">
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>SAC/HSN</th>
+              <th>Qty</th>
+              <th>Rate (₹)</th>
+              <th>Term</th>
+              <th>Amount (₹)</th>
+            </tr>
+          </thead>
+          <tbody>${itemRows}</tbody>
+        </table>
+        <div class="invoice-summary-area">
+          <div class="invoice-note-box">${numberToWords(Math.round(totals.payable || 0))} Only</div>
+          <div class="invoice-total-card">
+            <div class="invoice-total-row"><span>Taxable Amount</span><strong>${money(totals.subtotal || 0)}</strong></div>
+            <div class="invoice-total-row"><span>${safeTax.primaryLabel || '-'}</span><strong>${money(safeTax.primaryAmount ?? 0)}</strong></div>
+            <div class="invoice-total-row"><span>${safeTax.secondaryLabel || '-'}</span><strong>${money(safeTax.secondaryAmount ?? 0)}</strong></div>
+            <div class="invoice-total-row grand"><span>Invoice Total</span><strong>${money(totals.currentInvoiceTotal || 0)}</strong></div>
+          </div>
+        </div>
+        <div class="invoice-bottom-grid">
+          <div class="invoice-bank-box">
+            <h4>Bank Details</h4>
+            <div class="invoice-bank-grid">${bankDetails}</div>
+            <div class="invoice-note-box" style="margin-top:16px;">${termsHtml}</div>
+          </div>
+          <div class="invoice-signature-block">
+            <h4>${safeCompany.signatureName || 'For Company'}</h4>
+            <div class="signature-mark">${safeCompany.signatureAssetData ? `<img src="${safeCompany.signatureAssetData}" alt="Signature" style="width:100%;max-width:140px;height:68px;object-fit:contain;" />` : '✍'}</div>
+            <div class="signature-line">${safeCompany.signatureTitle || 'Authorized Signatory'}</div>
+          </div>
+        </div>
+        <div class="invoice-doc-footer"><span>${safeCompany.invoiceFooter || '-'}</span><span>GSTIN: ${safeCompany.gstin || '-'}</span></div>
       `;
     }
 
@@ -1735,9 +2606,12 @@ Billing & Support Services</textarea></div><div class="field"><label>Invoice Foo
         clientName: client ? client.company : '',
         invoiceDate: document.getElementById('invoiceDate').value,
         dueDate: document.getElementById('invoiceDueDate').value,
-        placeOfSupply: getInvoicePlaceOfSupply()
+        placeOfSupply: getInvoicePlaceOfSupply(),
+        period: document.getElementById('invoicePeriod').value,
+        product: document.getElementById('invoiceProduct').value,
+        clientId
       };
-      document.getElementById('invoicePreviewContent').innerHTML = buildInvoicePreviewHtml(draftInvoice, getCompanySettingsSnapshot(), getInvoiceBillingSnapshot(), totals.tax);
+      document.getElementById('invoicePreviewModalContent').innerHTML = buildInvoicePreviewHtml(draftInvoice, getCompanySettingsSnapshot(), getInvoiceBillingSnapshot(), totals.tax, totals);
       openModal('invoicePreviewModal');
     }
 
@@ -1745,10 +2619,12 @@ Billing & Support Services</textarea></div><div class="field"><label>Invoice Foo
       const clientId = Number(document.getElementById('invoiceClient').value);
       const client = state.clients.find((entry) => entry.id === clientId);
       const totals = updateInvoiceSummary();
-      const invoice = { id: Date.now(), invoiceNo: document.getElementById('invoiceNo').value || generateInvoiceNo(), clientId, clientName: client.company, invoiceDate: document.getElementById('invoiceDate').value, dueDate: document.getElementById('invoiceDueDate').value, billingType: state.invoiceItems.some((item) => item.billingType === 'Recurring') ? 'Recurring' : 'One Time', total: Math.round(totals.currentInvoiceTotal), paid: 0, balance: Math.round(totals.currentInvoiceTotal), paymentStatus: 'Pending', placeOfSupply: getInvoicePlaceOfSupply(), billingDetails: getInvoiceBillingSnapshot(), companyDetails: getCompanySettingsSnapshot(), taxMode: totals.tax.mode, taxBreakdown: { label1: totals.tax.primaryLabel, amount1: Math.round(totals.tax.primaryAmount), label2: totals.tax.secondaryLabel, amount2: Math.round(totals.tax.secondaryAmount), businessState: totals.tax.businessState } };
+      const invoice = { id: Date.now(), invoiceNo: document.getElementById('invoiceNo').value || generateInvoiceNo(), clientId, clientName: client.company, companyId: state.selectedCompanyId, invoiceDate: document.getElementById('invoiceDate').value, dueDate: document.getElementById('invoiceDueDate').value, period: document.getElementById('invoicePeriod').value, product: document.getElementById('invoiceProduct').value, billingType: state.invoiceItems.some((item) => item.billingType === 'Recurring') ? 'Recurring' : 'One Time', total: Math.round(totals.currentInvoiceTotal), paid: 0, balance: Math.round(totals.currentInvoiceTotal), paymentStatus: 'Pending', placeOfSupply: getInvoicePlaceOfSupply(), billingDetails: getInvoiceBillingSnapshot(), companyDetails: getCompanySettingsSnapshot(), taxMode: totals.tax.mode, taxBreakdown: { label1: totals.tax.primaryLabel, amount1: Math.round(totals.tax.primaryAmount), label2: totals.tax.secondaryLabel, amount2: Math.round(totals.tax.secondaryAmount), businessState: totals.tax.businessState }, items: state.invoiceItems.map((item) => ({ ...item })) };
       state.invoices.unshift(invoice);
       updateClientLegacyDue(clientId);
-      document.getElementById('settingInvoiceStartNumber').value = String(getInvoiceSeriesConfig().nextNumber + 1);
+      const nextSerial = String(getInvoiceSeriesConfig().nextNumber + 1);
+      document.getElementById('settingInvoiceStartNumber').value = nextSerial;
+      getSelectedCompany().invoiceStartNumber = nextSerial;
       syncInvoiceSeriesPreview();
       populateClientSelects();
       refreshAll();
@@ -1774,7 +2650,7 @@ Billing & Support Services</textarea></div><div class="field"><label>Invoice Foo
     function openInvoicePreview(id) {
       const invoice = state.invoices.find((entry) => entry.id === id);
       if (!invoice) return;
-      document.getElementById('invoicePreviewContent').innerHTML = buildInvoicePreviewHtml(invoice, invoice.companyDetails || getCompanySettingsSnapshot(), invoice.billingDetails || {}, invoice.taxBreakdown || {});
+      document.getElementById('invoicePreviewModalContent').innerHTML = buildInvoicePreviewHtml(invoice, invoice.companyDetails || getCompanySettingsSnapshot(), invoice.billingDetails || {}, invoice.taxBreakdown || {}, { subtotal: invoice.total - (invoice.taxBreakdown?.amount1 || 0) - (invoice.taxBreakdown?.amount2 || 0), outstanding: getClientDueTotal(invoice.clientId), wallet: getClientById(invoice.clientId)?.wallet || 0, payable: invoice.balance, currentInvoiceTotal: invoice.total });
       openModal('invoicePreviewModal');
     }
 
@@ -1819,11 +2695,71 @@ Billing & Support Services</textarea></div><div class="field"><label>Invoice Foo
     }
 
     function saveSettings() {
+      const company = getSelectedCompany();
+      Object.assign(company, getCompanySettingsSnapshot());
       syncInvoiceSeriesPreview();
+      renderCompanyList();
       renderInvoiceCompanyPreview();
       document.getElementById('invoiceNo').value = generateInvoiceNo();
       updateInvoiceSummary();
-      alert('Settings saved in demo mode.');
+      alert('Company settings saved in demo mode.');
+    }
+
+    function addCompany() {
+      const id = Date.now();
+      state.companies.push({
+        id,
+        companyName: `New Company ${state.companies.length + 1}`,
+        issuerName: 'New Company Pvt. Ltd.',
+        email: '',
+        phone: '',
+        invoicePrefix: 'NEW',
+        invoiceStartNumber: '1',
+        invoicePadding: '4',
+        invoiceYearLabel: '26-27',
+        taxRegime: 'GST 18%',
+        gstin: '',
+        pan: '',
+        businessState: 'Rajasthan',
+        stateCode: '08',
+        city: '',
+        address: '',
+        invoiceHeader: '',
+        invoiceFooter: '',
+        signatureName: '',
+        signatureTitle: 'Authorized Signatory',
+        signatureNote: '',
+        headerColor: '#2563eb',
+        bankDetails: '',
+        terms: '',
+        headerAssetData: '',
+        footerAssetData: '',
+        signatureAssetData: ''
+      });
+      selectCompany(id);
+    }
+
+    function deleteSelectedCompany() {
+      if (state.companies.length <= 1) {
+        alert('At least one company profile must remain.');
+        return;
+      }
+      state.companies = state.companies.filter((company) => company.id !== state.selectedCompanyId);
+      state.selectedCompanyId = state.companies[0].id;
+      selectCompany(state.selectedCompanyId);
+    }
+
+    function previewBrandingAsset(kind, input) {
+      const file = input.files?.[0];
+      const company = getSelectedCompany();
+      if (!file || !company) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        company[`${kind}AssetData`] = String(reader.result || '');
+        renderBrandingPreviews(company);
+        updateInvoiceSummary();
+      };
+      reader.readAsDataURL(file);
     }
 
     function useClientForInvoice(id) {
@@ -1892,8 +2828,43 @@ Billing & Support Services</textarea></div><div class="field"><label>Invoice Foo
       button.addEventListener('click', () => showSection(button.dataset.section));
     });
 
+    [
+      'invoiceNo',
+      'invoiceDate',
+      'invoiceDueDate',
+      'invoicePeriod',
+      'invoicePlace',
+      'invoiceProduct',
+      'invoiceBillCompany',
+      'invoiceBillContact',
+      'invoiceBillEmail',
+      'invoiceBillPhone',
+      'invoiceBillGstin',
+      'invoiceBillPan',
+      'invoiceBillAddress1',
+      'invoiceBillAddress2',
+      'invoiceBillCity',
+      'invoiceBillState',
+      'invoiceBillPincode',
+      'invoiceBillCountry'
+    ].forEach((id) => {
+      const field = document.getElementById(id);
+      if (field) field.addEventListener('input', updateInvoiceSummary);
+    });
+
+    Object.values(companySettingFieldIds()).forEach((id) => {
+      const field = document.getElementById(id);
+      if (!field) return;
+      field.addEventListener('input', () => {
+        syncInvoiceSeriesPreview();
+        renderInvoiceCompanyPreview();
+        updateInvoiceSummary();
+      });
+    });
+
     document.getElementById('paymentDate').value = today();
     populateClientSelects();
+    selectCompany(state.selectedCompanyId);
     resetInvoiceForm();
     refreshAll();
     syncInvoiceWithSelectedClient();
