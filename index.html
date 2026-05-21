@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -28,6 +28,7 @@
     body {
       min-height: 100vh;
       color: var(--ink);
+      -webkit-text-size-adjust: 100%;
       background:
         radial-gradient(circle at top left, rgba(37, 211, 102, 0.08), transparent 24%),
         linear-gradient(135deg, #f8fffb, #edf7f1 55%, #eaf8ee);
@@ -126,6 +127,7 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      min-height: 44px;
       padding: 11px 16px;
       border-radius: 14px;
       font-weight: 800;
@@ -382,6 +384,7 @@
 
     .table-wrap {
       overflow: auto;
+      -webkit-overflow-scrolling: touch;
       border: 1px solid var(--line);
       border-radius: 16px;
       background: #fff;
@@ -538,6 +541,173 @@
       gap: 12px;
     }
 
+    .invoice-company-preview {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: linear-gradient(180deg, #ffffff, #f7fcf8);
+      padding: 18px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .invoice-preview-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .invoice-preview-head h4 {
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .invoice-preview-meta {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+      text-align: right;
+    }
+
+    .invoice-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .invoice-preview-block {
+      border: 1px solid #e6f2ea;
+      border-radius: 16px;
+      background: #fff;
+      padding: 14px;
+    }
+
+    .invoice-preview-block span {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 800;
+    }
+
+    .invoice-preview-block strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+
+    .invoice-preview-block p {
+      color: #334155;
+      line-height: 1.7;
+      font-size: 13px;
+      white-space: pre-line;
+    }
+
+    .client-account-shell {
+      display: grid;
+      gap: 18px;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .stat-card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+      padding: 16px;
+    }
+
+    .stat-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: 28px;
+      line-height: 1.1;
+    }
+
+    .stat-card input {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 12px;
+      margin-top: 2px;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .detail-panel {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .detail-panel h3 {
+      background: linear-gradient(135deg, #2b6de4, #0ea5e9);
+      color: #fff;
+      font-size: 14px;
+      padding: 12px 14px;
+    }
+
+    .detail-panel .detail-body {
+      padding: 14px;
+      display: grid;
+      gap: 9px;
+    }
+
+    .detail-row {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .detail-row label {
+      color: #475569;
+      font-weight: 700;
+    }
+
+    .client-action-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .client-link-btn {
+      background: none;
+      border: none;
+      color: var(--brand-deep);
+      font-weight: 900;
+      padding: 0;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .money-link-btn {
+      background: none;
+      border: none;
+      color: var(--brand-deep);
+      font-weight: 900;
+      padding: 0;
+      cursor: pointer;
+    }
+
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -600,21 +770,180 @@
       .sidebar {
         height: auto;
         position: relative;
+        padding: 18px;
       }
 
       .nav {
         flex-direction: row;
         overflow-x: auto;
+        padding-bottom: 6px;
+        margin: 0 -4px;
       }
 
       .nav button {
         min-width: fit-content;
       }
 
+      .main {
+        padding: 18px;
+      }
+
       .topbar,
       .section-head {
         flex-direction: column;
         align-items: flex-start;
+      }
+
+      .top-actions,
+      .toolbar {
+        width: 100%;
+      }
+
+      .top-actions .btn,
+      .toolbar input,
+      .toolbar select {
+        width: 100%;
+      }
+
+      table {
+        min-width: 720px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .login-shell {
+        padding: 16px;
+      }
+
+      .login-card,
+      .card,
+      .topbar,
+      .modal {
+        border-radius: 20px;
+      }
+
+      .login-card,
+      .modal {
+        padding: 22px;
+      }
+
+      .sidebar {
+        padding: 14px;
+        gap: 14px;
+      }
+
+      .brand-row {
+        padding-bottom: 14px;
+      }
+
+      .main {
+        padding: 14px;
+      }
+
+      .topbar {
+        padding: 16px;
+        margin-bottom: 16px;
+      }
+
+      .topbar h1 {
+        font-size: 22px;
+      }
+
+      .section-head h2 {
+        font-size: 19px;
+      }
+
+      .card {
+        padding: 16px;
+      }
+
+      .metric {
+        align-items: center;
+      }
+
+      .metric h3 {
+        font-size: 24px;
+      }
+
+      .metric-icon,
+      .brand-mark {
+        width: 40px;
+        height: 40px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .section-head .btn,
+      .item-card .btn,
+      .sidebar-footer .btn {
+        width: 100%;
+      }
+
+      .summary-line,
+      .summary-total {
+        font-size: 14px;
+      }
+
+      .stat-grid,
+      .detail-grid,
+      .client-action-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .invoice-preview-head,
+      .invoice-preview-grid {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+      .invoice-preview-meta {
+        text-align: left;
+      }
+
+      .item-card h4,
+      .list-card strong {
+        font-size: 15px;
+      }
+
+      .modal-head {
+        flex-direction: column;
+      }
+
+      .table-wrap {
+        border-radius: 14px;
+      }
+
+      table {
+        min-width: 640px;
+      }
+
+      th,
+      td {
+        padding: 11px 12px;
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .login-card {
+        padding: 18px;
+      }
+
+      .topbar h1 {
+        font-size: 20px;
+      }
+
+      .brand-row strong {
+        font-size: 14px;
+      }
+
+      .brand-row span,
+      .small,
+      .section-head p,
+      .topbar p {
+        font-size: 12px;
       }
     }
   </style>
@@ -662,17 +991,19 @@
         </div>
         <div class="grid grid-2" style="margin-top:18px;">
           <div class="card"><div class="section-head"><div><h2>Monthly Billing Trend</h2><p>Demo chart based on frontend sample invoice totals.</p></div></div><div id="billingChart" class="chart"></div></div>
-          <div class="card"><div class="section-head"><div><h2>Today's Focus</h2><p>Quick operational signals for the finance and account team.</p></div></div><div id="focusList" class="list-stack"></div></div>
+          <div class="card"><div class="section-head"><div><h2>Todayâ€™s Focus</h2><p>Quick operational signals for the finance and account team.</p></div></div><div id="focusList" class="list-stack"></div></div>
         </div>
       </section>
 
       <section id="clients" class="section"><div class="section-head"><div><h2>Clients</h2><p>Track companies, plans, invoice billing details, due amounts, and renewal health.</p></div><button class="btn btn-primary" onclick="openClientModal()">Add Client</button></div><div class="toolbar"><input id="clientSearch" type="search" placeholder="Search company, email, phone, or GSTIN" oninput="renderClients()" /><select id="clientStatusFilter" onchange="renderClients()"><option value="">All Status</option><option value="Active">Active</option><option value="Paused">Paused</option><option value="Trial">Trial</option></select></div><div class="table-wrap"><table><thead><tr><th>Company</th><th>Billing Contact</th><th>Plan</th><th>Status</th><th>GSTIN</th><th>Wallet</th><th>Due</th><th>Actions</th></tr></thead><tbody id="clientTable"></tbody></table></div></section>
 
+      <section id="clientAccount" class="section"><div class="section-head"><div><h2 id="clientAccountTitle">Client Account</h2><p id="clientAccountSubtitle">Wallet, due, invoices, credit notes, and billing profile for the selected client.</p></div><div class="top-actions"><button class="btn btn-light" onclick="showSection('clients')">Back To Clients</button><button class="btn btn-secondary" onclick="openWalletModal()">Add Balance</button><button class="btn btn-secondary" onclick="openCreditNoteModal()">Credit Note</button><button class="btn btn-primary" onclick="openClientInvoiceFromAccount()">Create Invoice</button></div></div><div class="client-account-shell"><div class="stat-grid"><div class="stat-card"><span>Due Amount</span><strong><button id="clientDueButton" class="money-link-btn" onclick="openClientDueDetails()"></button></strong></div><div class="stat-card"><span>Wallet Amount</span><strong id="clientWalletValue">INR 0</strong></div><div class="stat-card"><span>Net Balance</span><strong id="clientNetBalanceValue">INR 0</strong></div><div class="stat-card"><span>Commitment Remark</span><input id="clientCommitmentRemark" placeholder="Add a commitment note for this client" oninput="saveClientCommitmentRemark(this.value)" /></div></div><div class="client-action-grid"><button class="btn btn-secondary" onclick="openWalletModal()">Add Money Details</button><button class="btn btn-secondary" onclick="openCreditNoteModal()">Credit Note</button><button class="btn btn-secondary" onclick="openClientDueDetails()">Bill Details</button><button class="btn btn-primary" onclick="adjustWalletAgainstDueForClient()">Adjust Wallet To Due</button></div><div class="detail-grid"><div class="detail-panel"><h3>Operator Details</h3><div id="clientOperatorDetails" class="detail-body"></div></div><div class="detail-panel"><h3>Billing / Address Details</h3><div id="clientAddressDetails" class="detail-body"></div></div><div class="detail-panel"><h3>Account Summary</h3><div id="clientMiscDetails" class="detail-body"></div></div></div><div class="grid grid-2"><div class="card"><div class="section-head"><div><h2 style="font-size:18px;">Raised Invoices</h2><p>Pending and paid invoices for this client.</p></div></div><div id="clientInvoiceList" class="list-stack"></div></div><div class="card"><div class="section-head"><div><h2 style="font-size:18px;">Credit Notes</h2><p>Credit notes and wallet adjustments recorded in demo mode.</p></div></div><div id="clientCreditNoteList" class="list-stack"></div></div></div></div></section>
+
       <section id="services" class="section"><div class="section-head"><div><h2>Services</h2><p>Manage billable service catalog and default pricing used by invoice creation.</p></div></div><div class="table-wrap"><table><thead><tr><th>Service</th><th>Category</th><th>Billing Type</th><th>Rate</th><th>SAC</th><th>Description</th></tr></thead><tbody id="serviceTable"></tbody></table></div></section>
 
-      <section id="invoice" class="section"><div class="section-head"><div><h2>Create Invoice</h2><p>Build a new invoice with line items, tax calculations, and editable bill-to details.</p></div><div class="top-actions"><button class="btn btn-light" onclick="resetInvoiceForm()">Reset</button><button class="btn btn-primary" onclick="saveInvoice()">Save Invoice</button></div></div><div class="invoice-layout"><div class="card"><div class="form-grid"><div class="field"><label>Client</label><select id="invoiceClient" onchange="applyClientToInvoice(this.value)"></select></div><div class="field"><label>Invoice No</label><input id="invoiceNo" /></div><div class="field"><label>Invoice Date</label><input id="invoiceDate" type="date" /></div><div class="field"><label>Due Date</label><input id="invoiceDueDate" type="date" /></div><div class="field"><label>Billing Period</label><input id="invoicePeriod" placeholder="May 2026" /></div><div class="field"><label>Place of Supply</label><input id="invoicePlace" value="Maharashtra" /></div></div><div class="section-head" style="margin-top:20px;"><div><h2 style="font-size:18px;">Bill To Details</h2><p>Auto-filled from the client record and still editable for one-off invoice changes.</p></div><button class="btn btn-light btn-sm" onclick="syncInvoiceWithSelectedClient()" type="button">Reload From Client</button></div><div class="form-grid-2"><div class="field"><label>Company / Billing Name</label><input id="invoiceBillCompany" /></div><div class="field"><label>Contact Person</label><input id="invoiceBillContact" /></div><div class="field"><label>Email</label><input id="invoiceBillEmail" type="email" /></div><div class="field"><label>Phone</label><input id="invoiceBillPhone" /></div><div class="field"><label>GSTIN</label><input id="invoiceBillGstin" /></div><div class="field"><label>PAN</label><input id="invoiceBillPan" /></div><div class="field"><label>Address Line 1</label><input id="invoiceBillAddress1" /></div><div class="field"><label>Address Line 2</label><input id="invoiceBillAddress2" /></div><div class="field"><label>City</label><input id="invoiceBillCity" /></div><div class="field"><label>State</label><input id="invoiceBillState" /></div><div class="field"><label>Pincode</label><input id="invoiceBillPincode" /></div><div class="field"><label>Country</label><input id="invoiceBillCountry" value="India" /></div></div><div class="section-head" style="margin-top:20px;"><div><h2 style="font-size:18px;">Line Items</h2><p>Add one or more billable services.</p></div><button class="btn btn-secondary" onclick="addInvoiceItem()">Add Line</button></div><div id="invoiceItems"></div></div><aside class="card summary-box"><h3 style="margin-bottom:14px;">Invoice Summary</h3><div class="summary-line"><span>Subtotal</span><strong id="sumSubtotal">INR 0</strong></div><div class="summary-line"><span>CGST 9%</span><strong id="sumCgst">INR 0</strong></div><div class="summary-line"><span>SGST 9%</span><strong id="sumSgst">INR 0</strong></div><div class="summary-line"><span>Outstanding Due</span><strong id="sumOutstanding">INR 0</strong></div><div class="summary-total"><span>Payable</span><span id="sumPayable">INR 0</span></div><p class="small" style="margin-top:14px;">This browser version uses demo data. Backend APIs can later replace in-memory storage.</p></aside></div></section>
+      <section id="invoice" class="section"><div class="section-head"><div><h2>Create Invoice</h2><p>Build a new invoice with line items, tax calculations, and editable bill-to details.</p></div><div class="top-actions"><button class="btn btn-light" onclick="resetInvoiceForm()">Reset</button><button class="btn btn-secondary" onclick="previewCurrentInvoice()">Preview Invoice</button><button class="btn btn-primary" onclick="saveInvoice()">Save Invoice</button></div></div><div class="invoice-layout"><div class="card"><div class="form-grid"><div class="field"><label>Client</label><select id="invoiceClient" onchange="applyClientToInvoice(this.value)"></select></div><div class="field"><label>Invoice No</label><input id="invoiceNo" /></div><div class="field"><label>Invoice Date</label><input id="invoiceDate" type="date" /></div><div class="field"><label>Due Date</label><input id="invoiceDueDate" type="date" /></div><div class="field"><label>Billing Period</label><input id="invoicePeriod" placeholder="May 2026" /></div><div class="field"><label>Place of Supply</label><input id="invoicePlace" value="Rajasthan" oninput="updateInvoiceSummary()" /></div></div><div class="section-head" style="margin-top:20px;"><div><h2 style="font-size:18px;">Bill To Details</h2><p>Auto-filled from the client record and still editable for one-off invoice changes.</p></div><button class="btn btn-light btn-sm" onclick="syncInvoiceWithSelectedClient()" type="button">Reload From Client</button></div><div class="form-grid-2"><div class="field"><label>Company / Billing Name</label><input id="invoiceBillCompany" /></div><div class="field"><label>Contact Person</label><input id="invoiceBillContact" /></div><div class="field"><label>Email</label><input id="invoiceBillEmail" type="email" /></div><div class="field"><label>Phone</label><input id="invoiceBillPhone" /></div><div class="field"><label>GSTIN</label><input id="invoiceBillGstin" /></div><div class="field"><label>PAN</label><input id="invoiceBillPan" /></div><div class="field"><label>Address Line 1</label><input id="invoiceBillAddress1" /></div><div class="field"><label>Address Line 2</label><input id="invoiceBillAddress2" /></div><div class="field"><label>City</label><input id="invoiceBillCity" /></div><div class="field"><label>State</label><input id="invoiceBillState" oninput="updateInvoiceSummary()" /></div><div class="field"><label>Pincode</label><input id="invoiceBillPincode" /></div><div class="field"><label>Country</label><input id="invoiceBillCountry" value="India" /></div></div><div class="section-head" style="margin-top:20px;"><div><h2 style="font-size:18px;">Line Items</h2><p>Add one or more billable services.</p></div><button class="btn btn-secondary" onclick="addInvoiceItem()">Add Line</button></div><div id="invoiceItems"></div><div class="section-head" style="margin-top:20px;"><div><h2 style="font-size:18px;">Invoice Company Details</h2><p>This header, footer, signature, GST, and address block comes from Settings.</p></div></div><div id="invoiceCompanyPreview" class="invoice-company-preview"></div></div><aside class="card summary-box"><h3 style="margin-bottom:14px;">Invoice Summary</h3><div class="summary-line"><span>Subtotal</span><strong id="sumSubtotal">INR 0</strong></div><div class="summary-line"><span id="sumTaxPrimaryLabel">CGST 9%</span><strong id="sumTaxPrimary">INR 0</strong></div><div class="summary-line"><span id="sumTaxSecondaryLabel">SGST 9%</span><strong id="sumTaxSecondary">INR 0</strong></div><div class="summary-line"><span>Outstanding Due</span><strong id="sumOutstanding">INR 0</strong></div><div class="summary-total"><span>Payable</span><span id="sumPayable">INR 0</span></div><p class="small" id="sumTaxHint" style="margin-top:14px;">Tax mode is selected automatically based on your business state and the invoice place of supply.</p></aside></div></section>
 
-      <section id="invoices" class="section"><div class="section-head"><div><h2>Invoice List</h2><p>Review payment state, billing type, due dates, and outstanding balances.</p></div></div><div class="toolbar"><input id="invoiceSearch" type="search" placeholder="Search invoice or client" oninput="renderInvoices()" /><select id="invoiceStatusFilter" onchange="renderInvoices()"><option value="">All Payment Status</option><option value="Pending">Pending</option><option value="Paid">Paid</option><option value="Partially Paid">Partially Paid</option></select></div><div class="table-wrap"><table><thead><tr><th>Invoice</th><th>Client</th><th>Date</th><th>Type</th><th>Total</th><th>Paid</th><th>Balance</th><th>Status</th></tr></thead><tbody id="invoiceTable"></tbody></table></div></section>
+      <section id="invoices" class="section"><div class="section-head"><div><h2>Invoice List</h2><p>Review payment state, billing type, due dates, and outstanding balances.</p></div></div><div class="toolbar"><input id="invoiceSearch" type="search" placeholder="Search invoice or client" oninput="renderInvoices()" /><select id="invoiceStatusFilter" onchange="renderInvoices()"><option value="">All Payment Status</option><option value="Pending">Pending</option><option value="Paid">Paid</option><option value="Partially Paid">Partially Paid</option></select></div><div class="table-wrap"><table><thead><tr><th>Invoice</th><th>Client</th><th>Date</th><th>Type</th><th>Total</th><th>Paid</th><th>Balance</th><th>Status</th><th>Actions</th></tr></thead><tbody id="invoiceTable"></tbody></table></div></section>
 
       <section id="recurring" class="section"><div class="section-head"><div><h2>Recurring Billing</h2><p>Upcoming and active recurring invoice reminders for WhatsApp service clients.</p></div></div><div class="table-wrap"><table><thead><tr><th>Client</th><th>Service</th><th>Frequency</th><th>Amount</th><th>Raise Date</th><th>Due Date</th><th>Status</th></tr></thead><tbody id="recurringTable"></tbody></table></div></section>
 
@@ -682,7 +1013,8 @@
 
       <section id="reports" class="section"><div class="section-head"><div><h2>Reports</h2><p>Quick business insights for revenue mix, collection trend, and action items.</p></div></div><div class="grid grid-3"><div class="card"><h3 style="margin-bottom:10px;">Revenue Snapshot</h3><p class="small" id="reportRevenue"></p></div><div class="card"><h3 style="margin-bottom:10px;">Collections Snapshot</h3><p class="small" id="reportCollections"></p></div><div class="card"><h3 style="margin-bottom:10px;">Operational Notes</h3><p class="small" id="reportNotes"></p></div></div></section>
 
-      <section id="settings" class="section"><div class="section-head"><div><h2>Settings</h2><p>Business identity, invoicing defaults, and reminder preferences for the app.</p></div></div><div class="card"><div class="form-grid"><div class="field"><label>Company Name</label><input id="settingCompany" value="WhatsApp Business Manage" /></div><div class="field"><label>Support Email</label><input id="settingEmail" value="accounts@company.com" /></div><div class="field"><label>Invoice Prefix</label><input id="settingPrefix" value="INV/2026" /></div><div class="field"><label>Default Reminder Days</label><input id="settingReminderDays" type="number" value="5" /></div><div class="field"><label>Email Provider</label><select id="settingProvider"><option>SMTP</option><option>Microsoft Graph</option><option>SendGrid</option></select></div><div class="field"><label>Tax Regime</label><input id="settingTax" value="GST 18%" /></div></div><div class="field"><label>Business Address</label><textarea id="settingAddress">Mumbai, Maharashtra, India</textarea></div><button class="btn btn-primary" onclick="saveSettings()">Save Settings</button></div></section>
+      <section id="settings" class="section"><div class="section-head"><div><h2>Settings</h2><p>Business identity, invoice company header, footer, signature, numbering, and reminder preferences for the app.</p></div></div><div class="card"><div class="form-grid"><div class="field"><label>Company Name</label><input id="settingCompany" value="WhatsApp Business Manage" /></div><div class="field"><label>Support Email</label><input id="settingEmail" value="accounts@company.com" /></div><div class="field"><label>Support Phone</label><input id="settingPhone" value="+91 90000 00000" /></div><div class="field"><label>Invoice Series Prefix</label><input id="settingPrefix" value="ITSPL" /></div><div class="field"><label>Next Invoice Serial</label><input id="settingInvoiceStartNumber" type="number" min="1" value="3" /></div><div class="field"><label>Serial Padding</label><input id="settingInvoicePadding" type="number" min="1" max="8" value="4" /></div><div class="field"><label>Financial Year Label</label><input id="settingInvoiceYearLabel" value="26-27" /></div><div class="field"><label>Default Reminder Days</label><input id="settingReminderDays" type="number" value="5" /></div><div class="field"><label>Email Provider</label><select id="settingProvider"><option>SMTP</option><option>Microsoft Graph</option><option>SendGrid</option></select></div><div class="field"><label>Tax Regime</label><input id="settingTax" value="GST 18%" /></div><div class="field"><label>Company GSTIN</label><input id="settingGstin" value="08ABCDE1234F1Z5" /></div><div class="field"><label>Company PAN</label><input id="settingPan" value="ABCDE1234F" /></div><div class="field"><label>Business State</label><input id="settingBusinessState" value="Rajasthan" oninput="updateInvoiceSummary()" /></div><div class="field"><label>State Code</label><input id="settingStateCode" value="08" /></div><div class="field"><label>Company City</label><input id="settingCity" value="Jaipur" /></div></div><div class="form-grid-2"><div class="field"><label>Company Address</label><textarea id="settingAddress">Jaipur, Rajasthan, India</textarea></div><div class="field"><label>Invoice Number Preview</label><input id="settingInvoicePreviewNumber" value="ITSPL/0003/26-27" disabled /></div><div class="field"><label>Invoice Header</label><textarea id="settingInvoiceHeader">WhatsApp Business Manage
+Billing & Support Services</textarea></div><div class="field"><label>Invoice Footer</label><textarea id="settingInvoiceFooter">This is a system generated invoice. Payment is due within the agreed billing period.</textarea></div><div class="field"><label>Authorized Signatory</label><input id="settingSignatureName" value="Accounts Manager" /></div><div class="field"><label>Signature Title</label><input id="settingSignatureTitle" value="Authorized Signatory" /></div><div class="field"><label>Signature Note</label><textarea id="settingSignatureNote">For WhatsApp Business Manage</textarea></div></div><button class="btn btn-primary" onclick="saveSettings()">Save Settings</button></div></section>
     </section>
   </main>
 
@@ -690,13 +1022,21 @@
 
   <div id="passwordModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><div><h2>Change Password</h2><p class="small">Demo interaction only for the frontend build.</p></div><button class="btn btn-light btn-sm" onclick="closeModal('passwordModal')">Close</button></div><div class="form-grid-2"><div class="field"><label>Current Password</label><input type="password" /></div><div class="field"><label>New Password</label><input type="password" /></div></div><button class="btn btn-primary" onclick="alert('Password updated in demo mode.')">Update Password</button></div></div>
 
+  <div id="invoicePreviewModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><div><h2>Invoice Preview</h2><p class="small">Review the invoice company header, footer, signature, and bill-to details saved with this invoice.</p></div><button class="btn btn-light btn-sm" onclick="closeModal('invoicePreviewModal')">Close</button></div><div id="invoicePreviewContent" class="invoice-company-preview"></div></div></div>
+
+  <div id="walletModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><div><h2>Add Money Details</h2><p class="small">Add balance into the client wallet for future invoice adjustment.</p></div><button class="btn btn-light btn-sm" onclick="closeModal('walletModal')">Close</button></div><div class="form-grid-2"><div class="field"><label>Amount</label><input id="walletAddAmount" type="number" min="0" value="0" /></div><div class="field"><label>Date</label><input id="walletAddDate" type="date" /></div></div><div class="field"><label>Remark</label><textarea id="walletAddRemark" placeholder="Wallet top-up note"></textarea></div><button class="btn btn-primary" onclick="addWalletBalance()">Add To Wallet</button></div></div>
+
+  <div id="creditNoteModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><div><h2>Create Credit Note</h2><p class="small">Create a credit note and adjust the client due in demo mode.</p></div><button class="btn btn-light btn-sm" onclick="closeModal('creditNoteModal')">Close</button></div><div class="form-grid-2"><div class="field"><label>Credit Amount</label><input id="creditNoteAmount" type="number" min="0" value="0" /></div><div class="field"><label>Date</label><input id="creditNoteDate" type="date" /></div></div><div class="field"><label>Reason</label><textarea id="creditNoteReason" placeholder="Reason for the credit note"></textarea></div><button class="btn btn-primary" onclick="createCreditNote()">Create Credit Note</button></div></div>
+
+  <div id="dueDetailModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><div><h2>Pending Due Details</h2><p class="small">See invoice-wise pending amounts and optionally tag wallet balance.</p></div><button class="btn btn-light btn-sm" onclick="closeModal('dueDetailModal')">Close</button></div><div id="dueDetailContent" class="list-stack"></div></div></div>
+
   <script>
     const state = {
       clients: [
-        { id: 1, company: 'Apex Digital LLP', contact: 'Rohan Mehta', email: 'rohan@apexdigital.in', phone: '+91 98765 43210', plan: 'Growth', status: 'Active', wallet: 4500, previousDue: 8000, renewal: '2026-06-04', gstin: '27AAPFA1234A1Z5', pan: 'AAPFA1234A', placeOfSupply: 'Maharashtra', address1: '402, Sigma Trade Centre', address2: 'Andheri East', city: 'Mumbai', state: 'Maharashtra', pincode: '400069', country: 'India' },
-        { id: 2, company: 'Nova Traders', contact: 'Anita Shah', email: 'anita@novatraders.in', phone: '+91 99887 66554', plan: 'Starter', status: 'Trial', wallet: 0, previousDue: 2500, renewal: '2026-05-28', gstin: '24AAFFN4321L1ZR', pan: 'AAFFN4321L', placeOfSupply: 'Gujarat', address1: '88 Market Square', address2: 'Navrangpura', city: 'Ahmedabad', state: 'Gujarat', pincode: '380009', country: 'India' },
-        { id: 3, company: 'Orbit Care Pvt Ltd', contact: 'Farhan Ali', email: 'farhan@orbitcare.in', phone: '+91 98989 12121', plan: 'Enterprise', status: 'Active', wallet: 12000, previousDue: 0, renewal: '2026-06-15', gstin: '29AACCO7788K1ZB', pan: 'AACCO7788K', placeOfSupply: 'Karnataka', address1: '6th Floor, Orbit House', address2: 'Indiranagar', city: 'Bengaluru', state: 'Karnataka', pincode: '560038', country: 'India' },
-        { id: 4, company: 'Zen Retail Hub', contact: 'Sneha Kapoor', email: 'sneha@zenretail.in', phone: '+91 97654 21098', plan: 'Scale', status: 'Paused', wallet: 1800, previousDue: 6300, renewal: '2026-06-01', gstin: '07AAACZ7788M1ZQ', pan: 'AAACZ7788M', placeOfSupply: 'Delhi', address1: '14 Retail Avenue', address2: 'Karol Bagh', city: 'New Delhi', state: 'Delhi', pincode: '110005', country: 'India' }
+        { id: 1, company: 'Apex Digital LLP', contact: 'Rohan Mehta', email: 'rohan@apexdigital.in', phone: '+91 98765 43210', plan: 'Growth', status: 'Active', wallet: 4500, previousDue: 8000, renewal: '2026-06-04', gstin: '27AAPFA1234A1Z5', pan: 'AAPFA1234A', placeOfSupply: 'Maharashtra', address1: '402, Sigma Trade Centre', address2: 'Andheri East', city: 'Mumbai', state: 'Maharashtra', pincode: '400069', country: 'India', operatorId: 'APEX-001', commitmentRemark: '', registrationDate: '2026-04-12', activationDate: '2026-05-01', expiryDate: '2026-06-04', purchaseType: 'Rental', paymentType: 'POSTPAID', connectionCount: 12 },
+        { id: 2, company: 'Nova Traders', contact: 'Anita Shah', email: 'anita@novatraders.in', phone: '+91 99887 66554', plan: 'Starter', status: 'Trial', wallet: 0, previousDue: 2500, renewal: '2026-05-28', gstin: '24AAFFN4321L1ZR', pan: 'AAFFN4321L', placeOfSupply: 'Gujarat', address1: '88 Market Square', address2: 'Navrangpura', city: 'Ahmedabad', state: 'Gujarat', pincode: '380009', country: 'India', operatorId: 'NOVA-002', commitmentRemark: '', registrationDate: '2026-04-22', activationDate: '2026-05-05', expiryDate: '2026-05-28', purchaseType: 'Rental', paymentType: 'PREPAID', connectionCount: 4 },
+        { id: 3, company: 'Orbit Care Pvt Ltd', contact: 'Farhan Ali', email: 'farhan@orbitcare.in', phone: '+91 98989 12121', plan: 'Enterprise', status: 'Active', wallet: 12000, previousDue: 0, renewal: '2026-06-15', gstin: '29AACCO7788K1ZB', pan: 'AACCO7788K', placeOfSupply: 'Karnataka', address1: '6th Floor, Orbit House', address2: 'Indiranagar', city: 'Bengaluru', state: 'Karnataka', pincode: '560038', country: 'India', operatorId: 'ORBIT-003', commitmentRemark: '', registrationDate: '2026-04-25', activationDate: '2026-05-06', expiryDate: '2026-06-15', purchaseType: 'Rental', paymentType: 'ADVANCE', connectionCount: 18 },
+        { id: 4, company: 'Zen Retail Hub', contact: 'Sneha Kapoor', email: 'sneha@zenretail.in', phone: '+91 97654 21098', plan: 'Scale', status: 'Paused', wallet: 1800, previousDue: 6300, renewal: '2026-06-01', gstin: '07AAACZ7788M1ZQ', pan: 'AAACZ7788M', placeOfSupply: 'Delhi', address1: '14 Retail Avenue', address2: 'Karol Bagh', city: 'New Delhi', state: 'Delhi', pincode: '110005', country: 'India', operatorId: 'ZEN-004', commitmentRemark: '', registrationDate: '2026-04-29', activationDate: '2026-05-08', expiryDate: '2026-06-01', purchaseType: 'Rental', paymentType: 'POSTPAID', connectionCount: 7 }
       ],
       services: [
         { id: 1, name: 'WhatsApp API Maintenance', category: 'Platform', billingType: 'Recurring', rate: 7500, sac: '998313', description: 'Monthly account maintenance and service monitoring.' },
@@ -719,13 +1059,16 @@
         { id: 1, invoiceNo: 'INV/2026/0002', clientName: 'Nova Traders', amount: 4956, date: '2026-05-11', mode: 'UPI' },
         { id: 2, invoiceNo: 'INV/2026/0003', clientName: 'Orbit Care Pvt Ltd', amount: 6000, date: '2026-05-14', mode: 'Bank Transfer' }
       ],
+      creditNotes: [],
       invoiceItems: [],
-      editingClientId: null
+      editingClientId: null,
+      currentClientAccountId: null
     };
 
     const sectionMeta = {
       dashboard: ['Dashboard Overview', 'Monitor billing performance, dues, recurring reminders, and operational health.'],
       clients: ['Clients', 'Track companies, plans, status, renewal dates, and balances.'],
+      clientAccount: ['Client Account', 'Wallet, due details, bill history, and credit note controls for the selected client.'],
       services: ['Services', 'Review billable services and default pricing.'],
       invoice: ['Create Invoice', 'Build a browser-side invoice with tax and recurring service support.'],
       invoices: ['Invoice List', 'Review issued invoices, totals, balance, and payment state.'],
@@ -750,6 +1093,47 @@
       return value.toISOString().split('T')[0];
     }
 
+    function normalizeStateName(value) {
+      return String(value || '').trim().toLowerCase().replace(/\s+/g, ' ');
+    }
+
+    function getBusinessState() {
+      const configured = document.getElementById('settingBusinessState');
+      return configured ? configured.value.trim() || 'Rajasthan' : 'Rajasthan';
+    }
+
+    function getInvoicePlaceOfSupply() {
+      return document.getElementById('invoicePlace').value.trim() || document.getElementById('invoiceBillState').value.trim();
+    }
+
+    function getInvoiceTaxBreakdown(subtotal) {
+      const businessState = getBusinessState();
+      const placeOfSupply = getInvoicePlaceOfSupply();
+      const sameState = normalizeStateName(placeOfSupply) && normalizeStateName(placeOfSupply) === normalizeStateName(businessState);
+      if (sameState) {
+        return {
+          mode: 'CGST_SGST',
+          primaryLabel: 'CGST 9%',
+          secondaryLabel: 'SGST 9%',
+          primaryAmount: subtotal * 0.09,
+          secondaryAmount: subtotal * 0.09,
+          taxTotal: subtotal * 0.18,
+          placeOfSupply,
+          businessState
+        };
+      }
+      return {
+        mode: 'IGST',
+        primaryLabel: 'IGST 18%',
+        secondaryLabel: 'SGST 0%',
+        primaryAmount: subtotal * 0.18,
+        secondaryAmount: 0,
+        taxTotal: subtotal * 0.18,
+        placeOfSupply,
+        businessState
+      };
+    }
+
     function invoiceFieldIds() {
       return {
         company: 'invoiceBillCompany',
@@ -765,6 +1149,92 @@
         pincode: 'invoiceBillPincode',
         country: 'invoiceBillCountry'
       };
+    }
+
+    function companySettingFieldIds() {
+      return {
+        companyName: 'settingCompany',
+        email: 'settingEmail',
+        phone: 'settingPhone',
+        invoicePrefix: 'settingPrefix',
+        invoiceStartNumber: 'settingInvoiceStartNumber',
+        invoicePadding: 'settingInvoicePadding',
+        invoiceYearLabel: 'settingInvoiceYearLabel',
+        taxRegime: 'settingTax',
+        gstin: 'settingGstin',
+        pan: 'settingPan',
+        businessState: 'settingBusinessState',
+        stateCode: 'settingStateCode',
+        city: 'settingCity',
+        address: 'settingAddress',
+        invoiceHeader: 'settingInvoiceHeader',
+        invoiceFooter: 'settingInvoiceFooter',
+        signatureName: 'settingSignatureName',
+        signatureTitle: 'settingSignatureTitle',
+        signatureNote: 'settingSignatureNote'
+      };
+    }
+
+    function getInvoiceSeriesConfig() {
+      const prefix = document.getElementById('settingPrefix') ? document.getElementById('settingPrefix').value.trim() || 'ITSPL' : 'ITSPL';
+      const nextNumber = Math.max(1, Number(document.getElementById('settingInvoiceStartNumber')?.value || 1));
+      const padding = Math.max(1, Number(document.getElementById('settingInvoicePadding')?.value || 4));
+      const yearLabel = document.getElementById('settingInvoiceYearLabel') ? document.getElementById('settingInvoiceYearLabel').value.trim() || '26-27' : '26-27';
+      return { prefix, nextNumber, padding, yearLabel };
+    }
+
+    function formatInvoiceNumber(numberOverride) {
+      const config = getInvoiceSeriesConfig();
+      const serial = String(numberOverride ?? config.nextNumber).padStart(config.padding, '0');
+      return `${config.prefix}/${serial}/${config.yearLabel}`;
+    }
+
+    function syncInvoiceSeriesPreview() {
+      const preview = document.getElementById('settingInvoicePreviewNumber');
+      if (preview) {
+        preview.value = formatInvoiceNumber();
+      }
+    }
+
+    function getCompanySettingsSnapshot() {
+      const fields = companySettingFieldIds();
+      return Object.fromEntries(Object.entries(fields).map(([key, id]) => [key, document.getElementById(id).value.trim()]));
+    }
+
+    function renderInvoiceCompanyPreview(source) {
+      const company = source || getCompanySettingsSnapshot();
+      const addressLine = [company.city, company.businessState, company.stateCode ? `State Code: ${company.stateCode}` : ''].filter(Boolean).join(' | ');
+      const numberPreview = formatInvoiceNumber();
+      document.getElementById('invoiceCompanyPreview').innerHTML = `
+        <div class="invoice-preview-head">
+          <div>
+            <h4>${company.companyName || 'Company Name'}</h4>
+            <p class="small">${(company.invoiceHeader || 'Invoice header text').replace(/\n/g, '<br />')}</p>
+          </div>
+          <div class="invoice-preview-meta">
+            Next Invoice: ${numberPreview}<br />
+            GSTIN: ${company.gstin || '-'}<br />
+            PAN: ${company.pan || '-'}<br />
+            ${company.taxRegime || 'GST 18%'}
+          </div>
+        </div>
+        <div class="invoice-preview-grid">
+          <div class="invoice-preview-block">
+            <span>Company Address</span>
+            <strong>${company.companyName || 'Company Name'}</strong>
+            <p>${company.address || '-'}${addressLine ? `\n${addressLine}` : ''}${company.phone ? `\nPhone: ${company.phone}` : ''}${company.email ? `\nEmail: ${company.email}` : ''}</p>
+          </div>
+          <div class="invoice-preview-block">
+            <span>Signature</span>
+            <strong>${company.signatureName || 'Authorized Signatory'}</strong>
+            <p>${company.signatureTitle || ''}${company.signatureNote ? `\n${company.signatureNote}` : ''}</p>
+          </div>
+        </div>
+        <div class="invoice-preview-block">
+          <span>Invoice Footer</span>
+          <p>${company.invoiceFooter || '-'}</p>
+        </div>
+      `;
     }
 
     function fillInvoiceBillingDetails(client) {
@@ -792,6 +1262,223 @@
     function getInvoiceBillingSnapshot() {
       const fields = invoiceFieldIds();
       return Object.fromEntries(Object.entries(fields).map(([key, id]) => [key, document.getElementById(id).value.trim()]));
+    }
+
+    function getClientById(id) {
+      return state.clients.find((entry) => entry.id === Number(id));
+    }
+
+    function getClientInvoices(id) {
+      return state.invoices.filter((invoice) => invoice.clientId === Number(id));
+    }
+
+    function getClientDueTotal(id) {
+      return getClientInvoices(id).reduce((sum, invoice) => sum + Number(invoice.balance || 0), 0);
+    }
+
+    function getClientCreditNotes(id) {
+      return state.creditNotes.filter((note) => note.clientId === Number(id));
+    }
+
+    function getClientNetBalance(id) {
+      const client = getClientById(id);
+      if (!client) return 0;
+      return Number(client.wallet || 0) - getClientDueTotal(id);
+    }
+
+    function getCurrentClientAccount() {
+      return getClientById(state.currentClientAccountId);
+    }
+
+    function updateClientLegacyDue(id) {
+      const client = getClientById(id);
+      if (client) client.previousDue = getClientDueTotal(id);
+    }
+
+    function allocateAmountToInvoices(clientId, amount, mode, note) {
+      let remaining = Number(amount || 0);
+      const invoices = getClientInvoices(clientId).filter((invoice) => invoice.balance > 0).sort((a, b) => new Date(a.invoiceDate) - new Date(b.invoiceDate));
+      invoices.forEach((invoice) => {
+        if (remaining <= 0) return;
+        const applied = Math.min(invoice.balance, remaining);
+        invoice.paid += applied;
+        invoice.balance = Math.max(invoice.total - invoice.paid, 0);
+        invoice.paymentStatus = invoice.balance === 0 ? 'Paid' : 'Partially Paid';
+        state.payments.unshift({ id: Date.now() + Math.random(), invoiceNo: invoice.invoiceNo, clientName: invoice.clientName, amount: applied, date: today(), mode, note });
+        remaining -= applied;
+      });
+      updateClientLegacyDue(clientId);
+      return Number(amount || 0) - remaining;
+    }
+
+    function saveClientCommitmentRemark(value) {
+      const client = getCurrentClientAccount();
+      if (client) client.commitmentRemark = value;
+    }
+
+    function openClientAccount(id) {
+      state.currentClientAccountId = Number(id);
+      renderClientAccount();
+      showSection('clientAccount');
+    }
+
+    function renderDetailRows(rows) {
+      return rows.map((row) => `<div class="detail-row"><label>${row.label}</label><div>${row.value || '-'}</div></div>`).join('');
+    }
+
+    function renderClientAccount() {
+      const client = getCurrentClientAccount();
+      if (!client) return;
+      const due = getClientDueTotal(client.id);
+      const wallet = Number(client.wallet || 0);
+      const netBalance = wallet - due;
+      const invoices = getClientInvoices(client.id);
+      const creditNotes = getClientCreditNotes(client.id);
+      document.getElementById('clientAccountTitle').textContent = client.company;
+      document.getElementById('clientAccountSubtitle').textContent = `${client.plan} plan account view with wallet, due, invoice list, and credit note controls.`;
+      document.getElementById('clientDueButton').textContent = money(due);
+      document.getElementById('clientWalletValue').textContent = money(wallet);
+      document.getElementById('clientNetBalanceValue').textContent = money(netBalance);
+      document.getElementById('clientCommitmentRemark').value = client.commitmentRemark || '';
+      document.getElementById('clientOperatorDetails').innerHTML = renderDetailRows([
+        { label: 'Company', value: client.company },
+        { label: 'Operator ID', value: client.operatorId || `CL-${client.id}` },
+        { label: 'Owner Name', value: client.contact },
+        { label: 'Owner Email', value: client.email },
+        { label: 'Owner Mobile', value: client.phone },
+        { label: 'GSTIN', value: client.gstin },
+        { label: 'PAN', value: client.pan },
+        { label: 'Status', value: client.status }
+      ]);
+      document.getElementById('clientAddressDetails').innerHTML = renderDetailRows([
+        { label: 'Address 1', value: client.address1 },
+        { label: 'Address 2', value: client.address2 },
+        { label: 'City', value: client.city },
+        { label: 'State', value: client.state },
+        { label: 'Pincode', value: client.pincode },
+        { label: 'Country', value: client.country },
+        { label: 'Place of Supply', value: client.placeOfSupply }
+      ]);
+      document.getElementById('clientMiscDetails').innerHTML = renderDetailRows([
+        { label: 'Registration Date', value: client.registrationDate },
+        { label: 'Activation Date', value: client.activationDate },
+        { label: 'Expiry Date', value: client.expiryDate || client.renewal },
+        { label: 'Purchase Type', value: client.purchaseType },
+        { label: 'Payment Type', value: client.paymentType },
+        { label: 'Connection Count', value: String(client.connectionCount || 0) },
+        { label: 'Wallet Balance', value: money(wallet) },
+        { label: 'Current Due', value: money(due) }
+      ]);
+      document.getElementById('clientInvoiceList').innerHTML = invoices.length ? invoices.map((invoice) => `<div class="list-card"><strong>${invoice.invoiceNo} · ${money(invoice.total)}</strong><p>${invoice.invoiceDate} · ${invoice.paymentStatus} · Balance ${money(invoice.balance)}</p><div class="top-actions"><button class="btn btn-light btn-sm" onclick="openInvoicePreview(${invoice.id})">View Invoice</button>${invoice.balance > 0 ? `<button class="btn btn-secondary btn-sm" onclick="adjustWalletAgainstInvoice(${client.id}, ${invoice.id})">Tag Wallet</button>` : ''}</div></div>`).join('') : '<div class="list-card"><p>No invoices raised for this client yet.</p></div>';
+      document.getElementById('clientCreditNoteList').innerHTML = creditNotes.length ? creditNotes.map((note) => `<div class="list-card"><strong>${note.noteNo} · ${money(note.amount)}</strong><p>${note.date} · ${note.reason}</p></div>`).join('') : '<div class="list-card"><p>No credit notes created yet.</p></div>';
+    }
+
+    function openWalletModal() {
+      if (!getCurrentClientAccount()) return;
+      document.getElementById('walletAddAmount').value = '0';
+      document.getElementById('walletAddDate').value = today();
+      document.getElementById('walletAddRemark').value = '';
+      openModal('walletModal');
+    }
+
+    function addWalletBalance() {
+      const client = getCurrentClientAccount();
+      const amount = Number(document.getElementById('walletAddAmount').value || 0);
+      const date = document.getElementById('walletAddDate').value || today();
+      const remark = document.getElementById('walletAddRemark').value.trim();
+      if (!client || amount <= 0) {
+        alert('Enter a valid wallet amount first.');
+        return;
+      }
+      client.wallet = Number(client.wallet || 0) + amount;
+      state.payments.unshift({ id: Date.now() + Math.random(), invoiceNo: 'WALLET', clientName: client.company, amount, date, mode: 'Wallet Top Up', note: remark });
+      closeModal('walletModal');
+      refreshAll();
+      renderClientAccount();
+    }
+
+    function openCreditNoteModal() {
+      if (!getCurrentClientAccount()) return;
+      document.getElementById('creditNoteAmount').value = '0';
+      document.getElementById('creditNoteDate').value = today();
+      document.getElementById('creditNoteReason').value = '';
+      openModal('creditNoteModal');
+    }
+
+    function createCreditNote() {
+      const client = getCurrentClientAccount();
+      const amount = Number(document.getElementById('creditNoteAmount').value || 0);
+      const date = document.getElementById('creditNoteDate').value || today();
+      const reason = document.getElementById('creditNoteReason').value.trim();
+      if (!client || amount <= 0) {
+        alert('Enter a valid credit note amount first.');
+        return;
+      }
+      const applied = allocateAmountToInvoices(client.id, amount, 'Credit Note', reason || 'Credit note adjustment');
+      const remaining = amount - applied;
+      if (remaining > 0) client.wallet = Number(client.wallet || 0) + remaining;
+      const noteNo = `CN/${String(state.creditNotes.length + 1).padStart(4, '0')}`;
+      state.creditNotes.unshift({ id: Date.now(), noteNo, clientId: client.id, clientName: client.company, amount, applied, remaining, date, reason: reason || 'Credit note' });
+      closeModal('creditNoteModal');
+      refreshAll();
+      renderClientAccount();
+    }
+
+    function openClientDueDetails(id) {
+      const client = id ? getClientById(id) : getCurrentClientAccount();
+      if (!client) return;
+      state.currentClientAccountId = client.id;
+      const invoices = getClientInvoices(client.id).filter((invoice) => invoice.balance > 0);
+      document.getElementById('dueDetailContent').innerHTML = invoices.length ? invoices.map((invoice) => `<div class="list-card"><strong>${invoice.invoiceNo} · Pending ${money(invoice.balance)}</strong><p>${invoice.invoiceDate} · Due ${invoice.dueDate} · ${invoice.billingType}</p><div class="top-actions"><button class="btn btn-light btn-sm" onclick="openInvoicePreview(${invoice.id})">View Invoice</button><button class="btn btn-secondary btn-sm" onclick="adjustWalletAgainstInvoice(${client.id}, ${invoice.id})">Tag Wallet</button></div></div>`).join('') : '<div class="list-card"><p>No pending invoice is left for this client.</p></div>';
+      openModal('dueDetailModal');
+    }
+
+    function adjustWalletAgainstInvoice(clientId, invoiceId) {
+      const client = getClientById(clientId);
+      const invoice = state.invoices.find((entry) => entry.id === Number(invoiceId));
+      if (!client || !invoice || invoice.balance <= 0) return;
+      state.currentClientAccountId = client.id;
+      if (Number(client.wallet || 0) <= 0) {
+        alert('No wallet balance is available to tag.');
+        return;
+      }
+      if (!confirm(`Use wallet balance from ${client.company} against invoice ${invoice.invoiceNo}?`)) return;
+      const applied = Math.min(Number(client.wallet || 0), Number(invoice.balance || 0));
+      invoice.paid += applied;
+      invoice.balance = Math.max(invoice.total - invoice.paid, 0);
+      invoice.paymentStatus = invoice.balance === 0 ? 'Paid' : 'Partially Paid';
+      client.wallet = Number(client.wallet || 0) - applied;
+      state.payments.unshift({ id: Date.now() + Math.random(), invoiceNo: invoice.invoiceNo, clientName: client.company, amount: applied, date: today(), mode: 'Wallet Adjustment', note: 'Wallet tagged against due invoice' });
+      updateClientLegacyDue(client.id);
+      refreshAll();
+      renderClientAccount();
+      openClientDueDetails(client.id);
+    }
+
+    function adjustWalletAgainstDueForClient() {
+      const client = getCurrentClientAccount();
+      if (!client) return;
+      const due = getClientDueTotal(client.id);
+      if (Number(client.wallet || 0) <= 0) {
+        alert('No wallet balance is available to tag.');
+        return;
+      }
+      if (due <= 0) {
+        alert('There is no pending due to adjust.');
+        return;
+      }
+      if (!confirm(`Wallet ${money(client.wallet)} and due ${money(due)} are both present. Do you want to tag wallet amount against pending invoices?`)) return;
+      const applied = allocateAmountToInvoices(client.id, Number(client.wallet || 0), 'Wallet Adjustment', 'Wallet adjusted against due');
+      client.wallet = Math.max(Number(client.wallet || 0) - applied, 0);
+      refreshAll();
+      renderClientAccount();
+      openClientDueDetails(client.id);
+    }
+
+    function openClientInvoiceFromAccount() {
+      const client = getCurrentClientAccount();
+      if (!client) return;
+      useClientForInvoice(client.id);
     }
 
     function resetClientForm() {
@@ -836,7 +1523,7 @@
     }
 
     function generateInvoiceNo() {
-      return `INV/2026/${String(state.invoices.length + 1).padStart(4, '0')}`;
+      return formatInvoiceNumber();
     }
 
     function login() {
@@ -901,14 +1588,14 @@
       const filtered = state.clients.filter((client) => `${client.company} ${client.email} ${client.phone || ''} ${client.gstin || ''}`.toLowerCase().includes(search) && (!status || client.status === status));
       document.getElementById('clientTable').innerHTML = filtered.map((client) => `
         <tr>
-          <td><strong>${client.company}</strong><div class="small">${client.address1 || client.city || ''}</div></td>
+          <td><button class="client-link-btn" onclick="openClientAccount(${client.id})">${client.company}</button><div class="small">${client.address1 || client.city || ''}</div></td>
           <td>${client.contact}<div class="small">${client.email}<br />${client.phone || ''}</div></td>
           <td>${client.plan}</td>
           <td><span class="status ${client.status === 'Active' ? 'active' : client.status === 'Trial' ? 'trial' : 'disabled'}">${client.status}</span></td>
           <td>${client.gstin || '-'}</td>
           <td>${money(client.wallet)}</td>
-          <td>${money(client.previousDue)}</td>
-          <td><button class="btn btn-light btn-sm" onclick="openClientModal(${client.id})">Edit</button> <button class="btn btn-light btn-sm" onclick="useClientForInvoice(${client.id})">Invoice</button></td>
+          <td><button class="money-link-btn" onclick="openClientDueDetails(${client.id})">${money(getClientDueTotal(client.id))}</button></td>
+          <td><button class="btn btn-light btn-sm" onclick="openClientModal(${client.id})">Edit</button> <button class="btn btn-light btn-sm" onclick="openClientAccount(${client.id})">View</button> <button class="btn btn-light btn-sm" onclick="useClientForInvoice(${client.id})">Invoice</button></td>
         </tr>
       `).join('');
     }
@@ -963,18 +1650,22 @@
 
     function updateInvoiceSummary() {
       const subtotal = state.invoiceItems.reduce((sum, item) => sum + item.qty * item.rate, 0);
-      const cgst = subtotal * 0.09;
-      const sgst = subtotal * 0.09;
+      const tax = getInvoiceTaxBreakdown(subtotal);
       const clientId = Number(document.getElementById('invoiceClient').value || state.clients[0].id);
-      const client = state.clients.find((entry) => entry.id === clientId);
-      const outstanding = client ? client.previousDue : 0;
-      const payable = subtotal + cgst + sgst + outstanding;
+      const outstanding = getClientDueTotal(clientId);
+      const currentInvoiceTotal = subtotal + tax.taxTotal;
+      const payable = currentInvoiceTotal + outstanding;
       document.getElementById('sumSubtotal').textContent = money(subtotal);
-      document.getElementById('sumCgst').textContent = money(cgst);
-      document.getElementById('sumSgst').textContent = money(sgst);
+      document.getElementById('sumTaxPrimaryLabel').textContent = tax.primaryLabel;
+      document.getElementById('sumTaxSecondaryLabel').textContent = tax.secondaryLabel;
+      document.getElementById('sumTaxPrimary').textContent = money(tax.primaryAmount);
+      document.getElementById('sumTaxSecondary').textContent = money(tax.secondaryAmount);
       document.getElementById('sumOutstanding').textContent = money(outstanding);
       document.getElementById('sumPayable').textContent = money(payable);
-      return { payable };
+      document.getElementById('sumTaxHint').textContent = tax.mode === 'CGST_SGST'
+        ? `Same-state billing: ${tax.placeOfSupply || 'selected state'} matches your business state ${tax.businessState}, so CGST and SGST are applied.`
+        : `Inter-state billing: ${tax.placeOfSupply || 'selected state'} differs from your business state ${tax.businessState}, so IGST is applied.`;
+      return { payable, tax, subtotal, outstanding, currentInvoiceTotal };
     }
 
     function resetInvoiceForm() {
@@ -983,17 +1674,82 @@
       document.getElementById('invoiceDueDate').value = addDays(today(), 7);
       document.getElementById('invoicePeriod').value = 'May 2026';
       state.invoiceItems = [];
+      renderInvoiceCompanyPreview();
       syncInvoiceWithSelectedClient();
       addInvoiceItem();
+    }
+
+    function buildInvoicePreviewHtml(invoice, company, billing, tax) {
+      const safeCompany = company || getCompanySettingsSnapshot();
+      const safeBilling = billing || getInvoiceBillingSnapshot();
+      const safeTax = tax || updateInvoiceSummary().tax;
+      const addressLine = [safeCompany.city, safeCompany.businessState, safeCompany.stateCode ? `State Code: ${safeCompany.stateCode}` : ''].filter(Boolean).join(' | ');
+      return `
+        <div class="invoice-preview-head">
+          <div>
+            <h4>${safeCompany.companyName || 'Company Name'}</h4>
+            <p class="small">${(safeCompany.invoiceHeader || '').replace(/\n/g, '<br />')}</p>
+          </div>
+          <div class="invoice-preview-meta">
+            Invoice No: ${invoice.invoiceNo}<br />
+            Date: ${invoice.invoiceDate}<br />
+            Due: ${invoice.dueDate}
+          </div>
+        </div>
+        <div class="invoice-preview-grid">
+          <div class="invoice-preview-block">
+            <span>Issued By</span>
+            <strong>${safeCompany.companyName || '-'}</strong>
+            <p>${safeCompany.address || '-'}${addressLine ? `\n${addressLine}` : ''}${safeCompany.gstin ? `\nGSTIN: ${safeCompany.gstin}` : ''}${safeCompany.pan ? `\nPAN: ${safeCompany.pan}` : ''}${safeCompany.email ? `\nEmail: ${safeCompany.email}` : ''}${safeCompany.phone ? `\nPhone: ${safeCompany.phone}` : ''}</p>
+          </div>
+          <div class="invoice-preview-block">
+            <span>Bill To</span>
+            <strong>${safeBilling.company || invoice.clientName || '-'}</strong>
+            <p>${safeBilling.contact ? `${safeBilling.contact}\n` : ''}${safeBilling.address1 || ''}${safeBilling.address2 ? `\n${safeBilling.address2}` : ''}${safeBilling.city ? `\n${safeBilling.city}` : ''}${safeBilling.state ? `, ${safeBilling.state}` : ''}${safeBilling.pincode ? ` - ${safeBilling.pincode}` : ''}${safeBilling.gstin ? `\nGSTIN: ${safeBilling.gstin}` : ''}${safeBilling.email ? `\nEmail: ${safeBilling.email}` : ''}${safeBilling.phone ? `\nPhone: ${safeBilling.phone}` : ''}</p>
+          </div>
+        </div>
+        <div class="invoice-preview-grid">
+          <div class="invoice-preview-block">
+            <span>Tax Summary</span>
+            <p>${safeTax.primaryLabel || safeTax.label1 || '-'}: ${money(safeTax.primaryAmount ?? safeTax.amount1 ?? 0)}${(safeTax.secondaryLabel || safeTax.label2) ? `\n${safeTax.secondaryLabel || safeTax.label2}: ${money(safeTax.secondaryAmount ?? safeTax.amount2 ?? 0)}` : ''}\nPlace of Supply: ${invoice.placeOfSupply || '-'}</p>
+          </div>
+          <div class="invoice-preview-block">
+            <span>Signature</span>
+            <strong>${safeCompany.signatureName || 'Authorized Signatory'}</strong>
+            <p>${safeCompany.signatureTitle || ''}${safeCompany.signatureNote ? `\n${safeCompany.signatureNote}` : ''}</p>
+          </div>
+        </div>
+        <div class="invoice-preview-block">
+          <span>Footer</span>
+          <p>${safeCompany.invoiceFooter || '-'}</p>
+        </div>
+      `;
+    }
+
+    function previewCurrentInvoice() {
+      const clientId = Number(document.getElementById('invoiceClient').value);
+      const client = state.clients.find((entry) => entry.id === clientId);
+      const totals = updateInvoiceSummary();
+      const draftInvoice = {
+        invoiceNo: document.getElementById('invoiceNo').value || generateInvoiceNo(),
+        clientName: client ? client.company : '',
+        invoiceDate: document.getElementById('invoiceDate').value,
+        dueDate: document.getElementById('invoiceDueDate').value,
+        placeOfSupply: getInvoicePlaceOfSupply()
+      };
+      document.getElementById('invoicePreviewContent').innerHTML = buildInvoicePreviewHtml(draftInvoice, getCompanySettingsSnapshot(), getInvoiceBillingSnapshot(), totals.tax);
+      openModal('invoicePreviewModal');
     }
 
     function saveInvoice() {
       const clientId = Number(document.getElementById('invoiceClient').value);
       const client = state.clients.find((entry) => entry.id === clientId);
       const totals = updateInvoiceSummary();
-      const invoice = { id: Date.now(), invoiceNo: document.getElementById('invoiceNo').value || generateInvoiceNo(), clientId, clientName: client.company, invoiceDate: document.getElementById('invoiceDate').value, dueDate: document.getElementById('invoiceDueDate').value, billingType: state.invoiceItems.some((item) => item.billingType === 'Recurring') ? 'Recurring' : 'One Time', total: Math.round(totals.payable), paid: 0, balance: Math.round(totals.payable), paymentStatus: 'Pending', placeOfSupply: document.getElementById('invoicePlace').value.trim(), billingDetails: getInvoiceBillingSnapshot() };
+      const invoice = { id: Date.now(), invoiceNo: document.getElementById('invoiceNo').value || generateInvoiceNo(), clientId, clientName: client.company, invoiceDate: document.getElementById('invoiceDate').value, dueDate: document.getElementById('invoiceDueDate').value, billingType: state.invoiceItems.some((item) => item.billingType === 'Recurring') ? 'Recurring' : 'One Time', total: Math.round(totals.currentInvoiceTotal), paid: 0, balance: Math.round(totals.currentInvoiceTotal), paymentStatus: 'Pending', placeOfSupply: getInvoicePlaceOfSupply(), billingDetails: getInvoiceBillingSnapshot(), companyDetails: getCompanySettingsSnapshot(), taxMode: totals.tax.mode, taxBreakdown: { label1: totals.tax.primaryLabel, amount1: Math.round(totals.tax.primaryAmount), label2: totals.tax.secondaryLabel, amount2: Math.round(totals.tax.secondaryAmount), businessState: totals.tax.businessState } };
       state.invoices.unshift(invoice);
-      client.previousDue = invoice.balance;
+      updateClientLegacyDue(clientId);
+      document.getElementById('settingInvoiceStartNumber').value = String(getInvoiceSeriesConfig().nextNumber + 1);
+      syncInvoiceSeriesPreview();
       populateClientSelects();
       refreshAll();
       alert(`Invoice ${invoice.invoiceNo} saved in demo mode.`);
@@ -1004,7 +1760,7 @@
       const search = document.getElementById('invoiceSearch').value.toLowerCase();
       const status = document.getElementById('invoiceStatusFilter').value;
       const filtered = state.invoices.filter((invoice) => `${invoice.invoiceNo} ${invoice.clientName}`.toLowerCase().includes(search) && (!status || invoice.paymentStatus === status));
-      document.getElementById('invoiceTable').innerHTML = filtered.map((invoice) => `<tr><td><strong>${invoice.invoiceNo}</strong></td><td>${invoice.clientName}</td><td>${invoice.invoiceDate}</td><td>${invoice.billingType}</td><td>${money(invoice.total)}</td><td>${money(invoice.paid)}</td><td>${money(invoice.balance)}</td><td><span class="status ${invoice.paymentStatus === 'Paid' ? 'paid' : invoice.paymentStatus === 'Partially Paid' ? 'partial' : 'pending'}">${invoice.paymentStatus}</span></td></tr>`).join('');
+      document.getElementById('invoiceTable').innerHTML = filtered.map((invoice) => `<tr><td><strong>${invoice.invoiceNo}</strong></td><td>${invoice.clientName}</td><td>${invoice.invoiceDate}</td><td>${invoice.billingType}</td><td>${money(invoice.total)}</td><td>${money(invoice.paid)}</td><td>${money(invoice.balance)}</td><td><span class="status ${invoice.paymentStatus === 'Paid' ? 'paid' : invoice.paymentStatus === 'Partially Paid' ? 'partial' : 'pending'}">${invoice.paymentStatus}</span></td><td><button class="btn btn-light btn-sm" onclick="openInvoicePreview(${invoice.id})">View</button></td></tr>`).join('');
     }
 
     function renderRecurring() {
@@ -1012,7 +1768,14 @@
     }
 
     function renderPayments() {
-      document.getElementById('paymentList').innerHTML = state.payments.map((payment) => `<div class="list-card"><strong>${payment.invoiceNo} · ${money(payment.amount)}</strong><p>${payment.clientName} · ${payment.date} · ${payment.mode}</p></div>`).join('');
+      document.getElementById('paymentList').innerHTML = state.payments.map((payment) => `<div class="list-card"><strong>${payment.invoiceNo} Â· ${money(payment.amount)}</strong><p>${payment.clientName} Â· ${payment.date} Â· ${payment.mode}</p></div>`).join('');
+    }
+
+    function openInvoicePreview(id) {
+      const invoice = state.invoices.find((entry) => entry.id === id);
+      if (!invoice) return;
+      document.getElementById('invoicePreviewContent').innerHTML = buildInvoicePreviewHtml(invoice, invoice.companyDetails || getCompanySettingsSnapshot(), invoice.billingDetails || {}, invoice.taxBreakdown || {});
+      openModal('invoicePreviewModal');
     }
 
     function recordPayment() {
@@ -1029,18 +1792,20 @@
       invoice.balance = Math.max(invoice.total - invoice.paid, 0);
       invoice.paymentStatus = invoice.balance === 0 ? 'Paid' : 'Partially Paid';
       state.payments.unshift({ id: Date.now(), invoiceNo: invoice.invoiceNo, clientName: invoice.clientName, amount, date, mode });
+      updateClientLegacyDue(invoice.clientId);
       refreshAll();
+      if (state.currentClientAccountId === invoice.clientId) renderClientAccount();
       alert('Payment recorded in demo mode.');
     }
 
     function renderLedger() {
-      document.getElementById('ledgerOpening').textContent = money(state.clients.reduce((sum, client) => sum + client.previousDue, 0));
+      document.getElementById('ledgerOpening').textContent = money(state.clients.reduce((sum, client) => sum + getClientDueTotal(client.id), 0));
       document.getElementById('ledgerInvoiced').textContent = money(state.invoices.reduce((sum, invoice) => sum + invoice.total, 0));
       document.getElementById('ledgerCollected').textContent = money(state.payments.reduce((sum, payment) => sum + payment.amount, 0));
       document.getElementById('ledgerClosing').textContent = money(state.invoices.reduce((sum, invoice) => sum + invoice.balance, 0));
       document.getElementById('ledgerTable').innerHTML = state.clients.map((client) => {
         const clientInvoices = state.invoices.filter((invoice) => invoice.clientId === client.id);
-        return `<tr><td>${client.company}</td><td>${money(client.previousDue)}</td><td>${money(clientInvoices.reduce((sum, invoice) => sum + invoice.total, 0))}</td><td>${money(clientInvoices.reduce((sum, invoice) => sum + invoice.paid, 0))}</td><td>${money(clientInvoices.reduce((sum, invoice) => sum + invoice.balance, 0))}</td></tr>`;
+        return `<tr><td>${client.company}</td><td>${money(getClientDueTotal(client.id))}</td><td>${money(clientInvoices.reduce((sum, invoice) => sum + invoice.total, 0))}</td><td>${money(clientInvoices.reduce((sum, invoice) => sum + invoice.paid, 0))}</td><td>${money(clientInvoices.reduce((sum, invoice) => sum + invoice.balance, 0))}</td></tr>`;
       }).join('');
     }
 
@@ -1054,6 +1819,10 @@
     }
 
     function saveSettings() {
+      syncInvoiceSeriesPreview();
+      renderInvoiceCompanyPreview();
+      document.getElementById('invoiceNo').value = generateInvoiceNo();
+      updateInvoiceSummary();
       alert('Settings saved in demo mode.');
     }
 
@@ -1089,7 +1858,7 @@
         const client = state.clients.find((entry) => entry.id === state.editingClientId);
         Object.assign(client, payload);
       } else {
-        state.clients.unshift({ id: Date.now(), ...payload, previousDue: 0, renewal: addDays(today(), 30) });
+        state.clients.unshift({ id: Date.now(), ...payload, previousDue: 0, renewal: addDays(today(), 30), operatorId: `CL-${state.clients.length + 1}`, commitmentRemark: '', registrationDate: today(), activationDate: today(), expiryDate: addDays(today(), 30), purchaseType: 'Rental', paymentType: 'POSTPAID', connectionCount: 0 });
       }
       resetClientForm();
       closeModal('clientModal');
@@ -1108,7 +1877,10 @@
       renderLedger();
       renderReports();
       populateClientSelects();
+      renderInvoiceCompanyPreview();
+      syncInvoiceSeriesPreview();
       updateInvoiceSummary();
+      if (state.currentClientAccountId) renderClientAccount();
     }
 
     document.getElementById('loginForm').addEventListener('submit', (event) => {
@@ -1128,3 +1900,6 @@
   </script>
 </body>
 </html>
+
+
+
