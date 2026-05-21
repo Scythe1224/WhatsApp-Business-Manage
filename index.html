@@ -735,8 +735,8 @@
     .invoice-doc-header {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
-      gap: 18px;
-      align-items: start;
+      gap: 20px;
+      align-items: center;
     }
 
     .invoice-branding {
@@ -761,14 +761,14 @@
     }
 
     .invoice-header-banner {
-      border-bottom: 1px solid #dbe7f3;
-      padding-bottom: 14px;
-      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      min-height: 88px;
     }
 
     .invoice-header-banner img {
       width: 100%;
-      max-height: 90px;
+      max-height: 88px;
       object-fit: contain;
       object-position: left center;
       display: block;
@@ -777,7 +777,7 @@
     .invoice-brand-copy strong {
       display: block;
       color: #1d4ed8;
-      font-size: 18px;
+      font-size: 16px;
       letter-spacing: 0.04em;
       line-height: 1.15;
       margin-bottom: 2px;
@@ -786,9 +786,9 @@
     .invoice-brand-copy span {
       display: block;
       color: #0f172a;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 800;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       line-height: 1.2;
     }
 
@@ -811,9 +811,9 @@
     .invoice-doc-company {
       text-align: right;
       color: #334155;
-      font-size: 12px;
-      line-height: 1.7;
-      max-width: 340px;
+      font-size: 11px;
+      line-height: 1.65;
+      max-width: 380px;
     }
 
     .invoice-doc-title {
@@ -853,19 +853,21 @@
       font-size: 11px;
       letter-spacing: 0.08em;
       margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 3px solid #65d36e;
     }
 
     .invoice-detail-list {
       display: grid;
-      gap: 8px;
-      font-size: 12px;
+      gap: 7px;
+      font-size: 11px;
       color: #334155;
     }
 
     .invoice-detail-row {
       display: grid;
-      grid-template-columns: 88px minmax(0, 1fr);
-      gap: 10px;
+      grid-template-columns: 80px minmax(0, 1fr);
+      gap: 8px;
       align-items: start;
     }
 
@@ -877,7 +879,7 @@
 
     .invoice-detail-row div {
       min-width: 0;
-      line-height: 1.5;
+      line-height: 1.45;
       word-break: break-word;
     }
 
@@ -914,7 +916,7 @@
     .invoice-amount-cell strong {
       display: block;
       padding: 10px 8px;
-      font-size: 16px;
+      font-size: 14px;
       line-height: 1.1;
     }
 
@@ -985,7 +987,7 @@
       display: flex;
       justify-content: space-between;
       gap: 12px;
-      padding: 10px 12px;
+      padding: 9px 12px;
       border-bottom: 1px solid #dbe7f3;
       font-size: 12px;
     }
@@ -997,7 +999,7 @@
     .invoice-total-row.grand {
       background: #4caf50;
       color: #fff;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 900;
     }
 
@@ -1894,12 +1896,12 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
         };
       }
       return {
-        mode: 'IGST',
-        primaryLabel: 'IGST 18%',
-        secondaryLabel: 'SGST 0%',
-        primaryAmount: subtotal * 0.18,
-        secondaryAmount: 0,
-        taxTotal: subtotal * 0.18,
+          mode: 'IGST',
+          primaryLabel: 'IGST 18%',
+          secondaryLabel: '',
+          primaryAmount: subtotal * 0.18,
+          secondaryAmount: 0,
+          taxTotal: subtotal * 0.18,
         placeOfSupply,
         businessState
       };
@@ -2509,6 +2511,7 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
       document.getElementById('sumTaxSecondaryLabel').textContent = tax.secondaryLabel;
       document.getElementById('sumTaxPrimary').textContent = money(tax.primaryAmount);
       document.getElementById('sumTaxSecondary').textContent = money(tax.secondaryAmount);
+      document.getElementById('sumTaxSecondaryLabel').parentElement.style.display = tax.secondaryLabel ? 'flex' : 'none';
       document.getElementById('sumOutstanding').textContent = money(outstanding);
       document.getElementById('sumWallet').textContent = money(wallet);
       document.getElementById('sumPayable').textContent = money(Math.max(payable, 0));
@@ -2570,19 +2573,23 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
       const termsHtml = String(safeCompany.terms || '').split('\n').filter(Boolean).join('\n');
       const brandHeader = safeCompany.headerAssetData
         ? `<div class="invoice-header-banner"><img src="${safeCompany.headerAssetData}" alt="Company Header" /></div>`
-        : '';
-      return `
-        ${brandHeader}
-        <div class="invoice-doc-topline"></div>
-        <div class="invoice-doc-header">
-          <div class="invoice-branding">
+        : `<div class="invoice-branding">
             <div class="invoice-brand-badge">${safeCompany.companyName ? safeCompany.companyName.slice(0, 2).toUpperCase() : 'II'}</div>
             <div class="invoice-brand-copy">
               <strong>${safeCompany.issuerName || 'Company Name'}</strong>
               <span>${safeCompany.companyName || 'OCRM'}</span>
               <p>${safeCompany.invoiceHeader || ''}</p>
             </div>
-          </div>
+          </div>`;
+      const taxRows = `
+        <div class="invoice-total-row"><span>Taxable Amount</span><strong>${money(totals.subtotal || 0)}</strong></div>
+        <div class="invoice-total-row"><span>${safeTax.primaryLabel || '-'}</span><strong>${money(safeTax.primaryAmount ?? 0)}</strong></div>
+        ${safeTax.secondaryLabel ? `<div class="invoice-total-row"><span>${safeTax.secondaryLabel}</span><strong>${money(safeTax.secondaryAmount ?? 0)}</strong></div>` : ''}
+      `;
+      return `
+        <div class="invoice-doc-topline"></div>
+        <div class="invoice-doc-header">
+          <div>${brandHeader}</div>
           <div class="invoice-doc-company">
             <strong>${safeCompany.issuerName || safeCompany.companyName || '-'}</strong>
             <p>${safeCompany.address || '-'}${safeCompany.phone ? `\n${safeCompany.phone}` : ''}${safeCompany.email ? `\n${safeCompany.email}` : ''}</p>
@@ -2640,9 +2647,7 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
         <div class="invoice-summary-area">
           <div class="invoice-note-box">${numberToWords(Math.round(totals.payable || 0))} Only</div>
           <div class="invoice-total-card">
-            <div class="invoice-total-row"><span>Taxable Amount</span><strong>${money(totals.subtotal || 0)}</strong></div>
-            <div class="invoice-total-row"><span>${safeTax.primaryLabel || '-'}</span><strong>${money(safeTax.primaryAmount ?? 0)}</strong></div>
-            <div class="invoice-total-row"><span>${safeTax.secondaryLabel || '-'}</span><strong>${money(safeTax.secondaryAmount ?? 0)}</strong></div>
+            ${taxRows}
             <div class="invoice-total-row grand"><span>Invoice Total</span><strong>${money(totals.currentInvoiceTotal || 0)}</strong></div>
           </div>
         </div>
