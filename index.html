@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -51,94 +51,17 @@
 
     .login-shell {
       min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-    }
-
-    .login-visual {
-      padding: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-
-    .visual-card {
-      width: min(980px, 100%);
-      min-height: calc(100vh - 64px);
-      border-radius: 34px;
-      overflow: hidden;
-      border: 1px solid rgba(220, 231, 225, 0.94);
-      box-shadow: var(--shadow);
-      background: linear-gradient(120deg, #fbfffd 0 44%, #1faf57 44% 100%);
-      display: grid;
-      grid-template-columns: 0.38fr 1.62fr;
-      position: relative;
-    }
-
-    .visual-left {
-      padding: 28px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.72));
-      backdrop-filter: blur(8px);
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      z-index: 2;
-    }
-
-    .badge {
-      width: fit-content;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255, 255, 255, 0.96);
-      border: 1px solid #cfe8d6;
-      color: var(--brand-deep);
-      padding: 10px 16px;
-      border-radius: 999px;
-      font-weight: 800;
-    }
-
-    .badge svg {
-      width: 18px;
-      height: 18px;
-      display: block;
-    }
-
-    .visual-right {
-      position: relative;
-      padding: 0;
-      min-height: 100%;
-    }
-
-    .visual-right::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(135deg, rgba(7, 94, 84, 0.06), rgba(37, 211, 102, 0.08)),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.1));
-      z-index: 1;
-    }
-
-    .hero-illustration {
-      position: relative;
-      width: 100%;
-      min-height: calc(100vh - 64px);
-      background: url("assets/login-hero.jpg") center center / cover no-repeat;
-    }
-
-    .hero-illustration::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.08));
+      padding: 32px;
     }
 
     .login-panel {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 32px;
+      width: 100%;
     }
 
     .login-card {
@@ -661,7 +584,6 @@
 
     @media (max-width: 980px) {
       .login-shell,
-      .visual-card,
       .app-shell,
       .grid-2,
       .grid-3,
@@ -671,21 +593,8 @@
         grid-template-columns: 1fr;
       }
 
-      .login-visual,
       .login-panel {
         padding: 20px;
-      }
-
-      .visual-card {
-        min-height: auto;
-      }
-
-      .visual-left {
-        padding-bottom: 0;
-      }
-
-      .visual-right {
-        min-height: 420px;
       }
 
       .sidebar {
@@ -712,24 +621,6 @@
 </head>
 <body>
   <section id="loginScreen" class="login-shell">
-    <div class="login-visual">
-      <div class="visual-card">
-        <div class="visual-left">
-          <div class="badge">
-            <svg viewBox="0 0 48 48" aria-hidden="true">
-              <circle cx="24" cy="24" r="24" fill="#25D366"></circle>
-              <path d="M33.8 28.7c-.4 1.2-2.2 2.3-3.1 2.4-.8.1-1.9.2-6.2-1.7-5.5-2.4-9-8.3-9.3-8.7-.3-.4-2.2-2.9-2.2-5.5 0-2.6 1.4-3.9 1.9-4.5.5-.5 1-.7 1.4-.7h1c.3 0 .8-.1 1.2.9.4 1 .5 1.6 1.4 3.8.2.4.3.8.1 1.2-.2.4-.3.6-.6.9-.3.3-.6.6-.8.9-.3.3-.5.7-.2 1.2.3.5 1.4 2.4 3 3.9 2.1 1.9 3.9 2.5 4.4 2.8.5.2.9.2 1.2-.2.4-.4 1.5-1.7 1.8-2.3.3-.6.7-.5 1.2-.3.5.2 3.3 1.6 3.8 1.9.6.3.9.5 1 .8.1.3.1 1.6-.3 2.8z" fill="#fff"></path>
-            </svg>
-            WhatsApp Business Manage
-          </div>
-        </div>
-
-                <div class="visual-right">
-          <div class="hero-illustration" role="img" aria-label="WhatsApp inspired device showcase"></div>
-        </div>
-      </div>
-    </div>
-
     <div class="login-panel">
       <form id="loginForm" class="login-card">
         <h2>Admin Login</h2>
@@ -771,18 +662,27 @@
         </div>
         <div class="grid grid-2" style="margin-top:18px;">
           <div class="card"><div class="section-head"><div><h2>Monthly Billing Trend</h2><p>Demo chart based on frontend sample invoice totals.</p></div></div><div id="billingChart" class="chart"></div></div>
-          <div class="card"><div class="section-head"><div><h2>Today's Focus</h2><p>Quick operational signals for the finance and account team.</p></div></div><div id="focusList" class="list-stack"></div></div>
+          <div class="card"><div class="section-head"><div><h2>Today’s Focus</h2><p>Quick operational signals for the finance and account team.</p></div></div><div id="focusList" class="list-stack"></div></div>
         </div>
       </section>
+
       <section id="clients" class="section"><div class="section-head"><div><h2>Clients</h2><p>Track companies, plans, contact info, status, due amounts, and renewal health.</p></div><button class="btn btn-primary" onclick="openModal('clientModal')">Add Client</button></div><div class="toolbar"><input id="clientSearch" type="search" placeholder="Search company or email" oninput="renderClients()" /><select id="clientStatusFilter" onchange="renderClients()"><option value="">All Status</option><option value="Active">Active</option><option value="Paused">Paused</option><option value="Trial">Trial</option></select></div><div class="table-wrap"><table><thead><tr><th>Company</th><th>Contact</th><th>Plan</th><th>Status</th><th>Wallet</th><th>Due</th><th>Next Renewal</th><th>Actions</th></tr></thead><tbody id="clientTable"></tbody></table></div></section>
+
       <section id="services" class="section"><div class="section-head"><div><h2>Services</h2><p>Manage billable service catalog and default pricing used by invoice creation.</p></div></div><div class="table-wrap"><table><thead><tr><th>Service</th><th>Category</th><th>Billing Type</th><th>Rate</th><th>SAC</th><th>Description</th></tr></thead><tbody id="serviceTable"></tbody></table></div></section>
-      <section id="invoice" class="section"><div class="section-head"><div><h2>Create Invoice</h2><p>Build a new invoice with line items, tax calculations, and recurring service support.</p></div><div class="top-actions"><button class="btn btn-light" onclick="resetInvoiceForm()">Reset</button><button class="btn btn-primary" onclick="saveInvoice()">Save Invoice</button></div></div><div class="invoice-layout"><div class="card"><div class="form-grid"><div class="field"><label>Client</label><select id="invoiceClient"></select></div><div class="field"><label>Invoice No</label><input id="invoiceNo" /></div><div class="field"><label>Invoice Date</label><input id="invoiceDate" type="date" /></div><div class="field"><label>Due Date</label><input id="invoiceDueDate" type="date" /></div><div class="field"><label>Billing Period</label><input id="invoicePeriod" /></div><div class="field"><label>Place of Supply</label><input id="invoicePlace" /></div></div><div class="toolbar"><button class="btn btn-secondary" onclick="addInvoiceItem()">Add Service Item</button></div><div id="invoiceItems"></div></div><aside class="card summary-box"><h2>Invoice Summary</h2><div class="summary-line"><span>Subtotal</span><strong id="sumSubtotal">INR 0</strong></div><div class="summary-line"><span>CGST 9%</span><strong id="sumCgst">INR 0</strong></div><div class="summary-line"><span>SGST 9%</span><strong id="sumSgst">INR 0</strong></div><div class="summary-line"><span>Previous Due</span><strong id="sumOutstanding">INR 0</strong></div><div class="summary-total"><span>Total Payable</span><span id="sumPayable">INR 0</span></div></aside></div></section>
-      <section id="invoices" class="section"><div class="section-head"><div><h2>Invoice List</h2><p>Review invoice status, paid amounts, and outstanding balances.</p></div></div><div class="toolbar"><input id="invoiceSearch" type="search" placeholder="Search invoice or client" oninput="renderInvoices()" /><select id="invoiceStatusFilter" onchange="renderInvoices()"><option value="">All Status</option><option value="Pending">Pending</option><option value="Paid">Paid</option><option value="Partially Paid">Partially Paid</option></select></div><div class="table-wrap"><table><thead><tr><th>Invoice No</th><th>Client</th><th>Date</th><th>Type</th><th>Total</th><th>Paid</th><th>Balance</th><th>Status</th></tr></thead><tbody id="invoiceTable"></tbody></table></div></section>
-      <section id="recurring" class="section"><div class="section-head"><div><h2>Recurring Billing</h2><p>Upcoming recurring services and reminder schedule visibility.</p></div></div><div class="table-wrap"><table><thead><tr><th>Client</th><th>Service</th><th>Frequency</th><th>Amount</th><th>Raise Date</th><th>Due Date</th><th>Status</th></tr></thead><tbody id="recurringTable"></tbody></table></div></section>
-      <section id="payments" class="section"><div class="grid grid-2"><div class="card"><div class="section-head"><div><h2>Record Payment</h2><p>Update invoice collection progress in demo mode.</p></div></div><div class="field"><label>Invoice</label><select id="paymentInvoice"></select></div><div class="form-grid-2"><div class="field"><label>Amount</label><input id="paymentAmount" type="number" placeholder="0" /></div><div class="field"><label>Date</label><input id="paymentDate" type="date" /></div></div><div class="field"><label>Mode</label><select id="paymentMode"><option>UPI</option><option>Bank Transfer</option><option>Cash</option><option>Cheque</option></select></div><button class="btn btn-primary" onclick="recordPayment()">Save Payment</button></div><div class="card"><div class="section-head"><div><h2>Recent Collections</h2><p>Recent payment history from the in-browser demo dataset.</p></div></div><div id="paymentList" class="list-stack"></div></div></div></section>
-      <section id="ledger" class="section"><div class="grid grid-4"><div class="card metric"><div><span>Opening Due</span><h3 id="ledgerOpening">INR 0</h3></div><div class="metric-icon">O</div></div><div class="card metric"><div><span>Invoiced</span><h3 id="ledgerInvoiced">INR 0</h3></div><div class="metric-icon">B</div></div><div class="card metric"><div><span>Collected</span><h3 id="ledgerCollected">INR 0</h3></div><div class="metric-icon">R</div></div><div class="card metric"><div><span>Closing Due</span><h3 id="ledgerClosing">INR 0</h3></div><div class="metric-icon">D</div></div></div><div class="card" style="margin-top:18px;"><div class="section-head"><div><h2>Client Ledger Summary</h2><p>Snapshot of account level outstanding and collection movement.</p></div></div><div class="table-wrap"><table><thead><tr><th>Client</th><th>Opening</th><th>Invoiced</th><th>Collected</th><th>Closing</th></tr></thead><tbody id="ledgerTable"></tbody></table></div></div></section>
-      <section id="reports" class="section"><div class="grid grid-3"><div class="card"><h2>Revenue</h2><p id="reportRevenue" class="small"></p></div><div class="card"><h2>Collections</h2><p id="reportCollections" class="small"></p></div><div class="card"><h2>Notes</h2><p style="small" id="reportNotes"></p></div></div></section>
-      <section id="settings" class="section"><div class="card"><div class="section-head"><div><h2>Settings</h2><p>Demo app configuration for billing, reminders, access, and branding.</p></div></div><div class="form-grid-2"><div class="field"><label>Business Name</label><input value="WhatsApp Business Manage" /></div><div class="field"><label>Billing Email</label><input value="accounts@company.com" /></div><div class="field"><label>Default Due Days</label><input type="number" value="7" /></div><div class="field"><label>Send Reminders</label><select><option>Yes</option><option>No</option></select></div></div><div class="toolbar"><button class="btn btn-primary" onclick="saveSettings()">Save Settings</button></div></div></section>
+
+      <section id="invoice" class="section"><div class="section-head"><div><h2>Create Invoice</h2><p>Build a new invoice with line items, tax calculations, and recurring service support.</p></div><div class="top-actions"><button class="btn btn-light" onclick="resetInvoiceForm()">Reset</button><button class="btn btn-primary" onclick="saveInvoice()">Save Invoice</button></div></div><div class="invoice-layout"><div class="card"><div class="form-grid"><div class="field"><label>Client</label><select id="invoiceClient"></select></div><div class="field"><label>Invoice No</label><input id="invoiceNo" /></div><div class="field"><label>Invoice Date</label><input id="invoiceDate" type="date" /></div><div class="field"><label>Due Date</label><input id="invoiceDueDate" type="date" /></div><div class="field"><label>Billing Period</label><input id="invoicePeriod" placeholder="May 2026" /></div><div class="field"><label>Place of Supply</label><input id="invoicePlace" value="Maharashtra" /></div></div><div class="section-head" style="margin-top:20px;"><div><h2 style="font-size:18px;">Line Items</h2><p>Add one or more billable services.</p></div><button class="btn btn-secondary" onclick="addInvoiceItem()">Add Line</button></div><div id="invoiceItems"></div></div><aside class="card summary-box"><h3 style="margin-bottom:14px;">Invoice Summary</h3><div class="summary-line"><span>Subtotal</span><strong id="sumSubtotal">INR 0</strong></div><div class="summary-line"><span>CGST 9%</span><strong id="sumCgst">INR 0</strong></div><div class="summary-line"><span>SGST 9%</span><strong id="sumSgst">INR 0</strong></div><div class="summary-line"><span>Outstanding Due</span><strong id="sumOutstanding">INR 0</strong></div><div class="summary-total"><span>Payable</span><span id="sumPayable">INR 0</span></div><p class="small" style="margin-top:14px;">This browser version uses demo data. Backend APIs can later replace in-memory storage.</p></aside></div></section>
+
+      <section id="invoices" class="section"><div class="section-head"><div><h2>Invoice List</h2><p>Review payment state, billing type, due dates, and outstanding balances.</p></div></div><div class="toolbar"><input id="invoiceSearch" type="search" placeholder="Search invoice or client" oninput="renderInvoices()" /><select id="invoiceStatusFilter" onchange="renderInvoices()"><option value="">All Payment Status</option><option value="Pending">Pending</option><option value="Paid">Paid</option><option value="Partially Paid">Partially Paid</option></select></div><div class="table-wrap"><table><thead><tr><th>Invoice</th><th>Client</th><th>Date</th><th>Type</th><th>Total</th><th>Paid</th><th>Balance</th><th>Status</th></tr></thead><tbody id="invoiceTable"></tbody></table></div></section>
+
+      <section id="recurring" class="section"><div class="section-head"><div><h2>Recurring Billing</h2><p>Upcoming and active recurring invoice reminders for WhatsApp service clients.</p></div></div><div class="table-wrap"><table><thead><tr><th>Client</th><th>Service</th><th>Frequency</th><th>Amount</th><th>Raise Date</th><th>Due Date</th><th>Status</th></tr></thead><tbody id="recurringTable"></tbody></table></div></section>
+
+      <section id="payments" class="section"><div class="section-head"><div><h2>Payments</h2><p>Record incoming payments and see recent collection activity.</p></div></div><div class="grid grid-2"><div class="card"><div class="form-grid-2"><div class="field"><label>Invoice</label><select id="paymentInvoice"></select></div><div class="field"><label>Payment Amount</label><input id="paymentAmount" type="number" value="0" /></div><div class="field"><label>Payment Date</label><input id="paymentDate" type="date" /></div><div class="field"><label>Mode</label><select id="paymentMode"><option>UPI</option><option>Bank Transfer</option><option>Cash</option><option>Cheque</option></select></div></div><button class="btn btn-primary" onclick="recordPayment()">Record Payment</button></div><div class="card"><h2 style="font-size:20px; margin-bottom:12px;">Recent Collections</h2><div id="paymentList" class="list-stack"></div></div></div></section>
+
+      <section id="ledger" class="section"><div class="grid grid-4"><div class="card metric"><div><span>Opening Due</span><h3 id="ledgerOpening">INR 0</h3></div><div class="metric-icon">O</div></div><div class="card metric"><div><span>Invoiced</span><h3 id="ledgerInvoiced">INR 0</h3></div><div class="metric-icon">B</div></div><div class="card metric"><div><span>Collected</span><h3 id="ledgerCollected">INR 0</h3></div><div class="metric-icon">R</div></div><div class="card metric"><div><span>Closing Due</span><h3 id="ledgerClosing">INR 0</h3></div><div class="metric-icon">D</div></div></div><div class="card" style="margin-top:18px;"><div class="section-head"><div><h2>Client Ledger Summary</h2><p>Snapshot of account-level billing and collection movement.</p></div></div><div class="table-wrap"><table><thead><tr><th>Client</th><th>Opening</th><th>Invoiced</th><th>Collected</th><th>Closing</th></tr></thead><tbody id="ledgerTable"></tbody></table></div></div></section>
+
+      <section id="reports" class="section"><div class="grid grid-3"><div class="card"><h2>Revenue</h2><p id="reportRevenue" class="small"></p></div><div class="card"><h2>Collections</h2><p id="reportCollections" class="small"></p></div><div class="card"><h2>Notes</h2><p class="small" id="reportNotes"></p></div></div></section>
+
+      <section id="settings" class="section"><div class="card"><div class="section-head"><div><h2>Settings</h2><p>Demo configuration for billing defaults, reminder preferences, and contact settings.</p></div></div><div class="form-grid-2"><div class="field"><label>Business Name</label><input value="WhatsApp Business Manage" /></div><div class="field"><label>Billing Email</label><input value="accounts@company.com" /></div><div class="field"><label>Default Due Days</label><input type="number" value="7" /></div><div class="field"><label>Send Reminders</label><select><option>Yes</option><option>No</option></select></div></div><div class="toolbar"><button class="btn btn-primary" onclick="saveSettings()">Save Settings</button></div></div></section>
     </section>
 
     <div id="clientModal" class="modal-backdrop hidden">
@@ -814,16 +714,338 @@
   <script>
     const state = {
       clients: [
-        { id: 1, company: 'GreenLead Tech', contact: 'Rohan Mehra', email: 'rohan@greenlead.com', plan: 'Growth Suite', credit: 18000, due: 9500, renewal: '2026-06-05', status: 'Active' },
-        { id: 2, company: 'ChatBridge Retail', contact: 'Anya Singh', email: 'anya@chatbridge.in', plan: 'Pro Automation', credit: 24000, due: 0, renewal: '2026-05-30', status: 'Trial' },
-        { id: 3, company: 'ConversaXub ', contact: 'Kavya Reddy', email: 'kavya@conversaxub.com', plan: 'Enterprise Care', credit: 38000, due: 14000, renewal: '2026-06-12', status: 'Paused' }
+        { id: 1, company: 'Apex Digital LLP', contact: 'Naina Verma', email: 'naina@apexdigital.in', plan: 'Growth Plan', status: 'Active', wallet: 3500, previousDue: 4200, renewal: '2026-06-04' },
+        { id: 2, company: 'Nova Traders', contact: 'Karan Shah', email: 'karan@novatraders.in', plan: 'Campaign Pack', status: 'Trial', wallet: 0, previousDue: 0, renewal: '2026-05-29' },
+        { id: 3, company: 'Orbit Care Pvt Ltd', contact: 'Ritika Bose', email: 'ritika@orbitcare.in', plan: 'Automation Plus', status: 'Active', wallet: 1800, previousDue: 2600, renewal: '2026-06-07' },
+        { id: 4, company: 'Zen Retail Hub', contact: 'Aman Gill', email: 'aman@zenretailhub.com', plan: 'Support Retainer', status: 'Paused', wallet: 0, previousDue: 6300, renewal: '2026-06-10' }
       ],
       services: [
-        { id: 1, name: 'WhatsApp Campaign Management', category: 'Marketing', billingType: 'Recurring', rate: 12000, sac: '998314', description: 'Scheduled broadcasts, list segments, and campaign tracking.' },
-        { id: 2, name: 'Chatbot Flow Design', category: 'Automation', billingType: 'One Time', rate: 8500, sac: '998346', description: 'Design and deploy WhatsApp bot scripts.' },
-        { id: 3, name: 'Contact List Verification', category: 'Compliance', billingType: 'Recurring', rate: 6500, sac: '998316', description: 'Phrase content checks and list health monitoring.' }
+        { id: 1, name: 'WhatsApp API Maintenance', category: 'Platform', billingType: 'Recurring', rate: 7500, sac: '998313', description: 'Monthly account maintenance and service monitoring.' },
+        { id: 2, name: 'Campaign Setup', category: 'Marketing', billingType: 'One Time', rate: 4200, sac: '998361', description: 'Campaign setup, targeting, and template assistance.' },
+        { id: 3, name: 'Chatbot Management', category: 'Automation', billingType: 'Recurring', rate: 9800, sac: '998314', description: 'Bot flow support, updates, and uptime handling.' },
+        { id: 4, name: 'Green Tick Consulting', category: 'Compliance', billingType: 'One Time', rate: 15000, sac: '998312', description: 'Advisory and documentation assistance for approval.' }
       ],
       invoices: [
-        { id: 101, invoiceNo: 'WBM-0101', clientId: 1, clientName: 'GreenLead Tech', invoiceDate: '2026-05-02', dueDate: '2026-05-09', billingType: 'Recurring', total: 33500, paid: 19000, balance: 14500, paymentStatus: 'Partially Paid' },
-        { id: 102, invoiceNo: 'WBM-0102', clientId: 2, clientName: 'ChatBridge Retail', invoiceDate: '2026-05-05', dueDate: '2026-05-10', billingType: 'One Time', total: 11000, paid: 0, balance: 11000, paymentStatus: 'Pending' },
-        { id: 103, invoiceNo: 'WBM-0103', clientId: 3, clientName: 'ConversaXhub', 
+        { id: 101, invoiceNo: 'INV/2026/0001', clientId: 1, clientName: 'Apex Digital LLP', invoiceDate: '2026-05-02', dueDate: '2026-05-09', billingType: 'Recurring', total: 17700, paid: 9700, balance: 8000, paymentStatus: 'Pending' },
+        { id: 102, invoiceNo: 'INV/2026/0002', clientId: 2, clientName: 'Nova Traders', invoiceDate: '2026-05-05', dueDate: '2026-05-11', billingType: 'One Time', total: 4956, paid: 4956, balance: 0, paymentStatus: 'Paid' },
+        { id: 103, invoiceNo: 'INV/2026/0003', clientId: 3, clientName: 'Orbit Care Pvt Ltd', invoiceDate: '2026-05-06', dueDate: '2026-05-13', billingType: 'Recurring', total: 11564, paid: 6000, balance: 5564, paymentStatus: 'Partially Paid' },
+        { id: 104, invoiceNo: 'INV/2026/0004', clientId: 4, clientName: 'Zen Retail Hub', invoiceDate: '2026-05-08', dueDate: '2026-05-15', billingType: 'Recurring', total: 7434, paid: 1134, balance: 6300, paymentStatus: 'Pending' }
+      ],
+      recurring: [
+        { id: 1, clientName: 'Apex Digital LLP', service: 'WhatsApp API Maintenance', frequency: 'Monthly', amount: 7500, raiseDate: '2026-06-02', dueDate: '2026-06-09', status: 'Due' },
+        { id: 2, clientName: 'Orbit Care Pvt Ltd', service: 'Chatbot Management', frequency: 'Monthly', amount: 9800, raiseDate: '2026-06-06', dueDate: '2026-06-12', status: 'Active' },
+        { id: 3, clientName: 'Zen Retail Hub', service: 'WhatsApp API Maintenance', frequency: 'Monthly', amount: 6300, raiseDate: '2026-06-01', dueDate: '2026-06-08', status: 'Due' }
+      ],
+      payments: [
+        { id: 1, invoiceNo: 'INV/2026/0002', clientName: 'Nova Traders', amount: 4956, date: '2026-05-11', mode: 'UPI' },
+        { id: 2, invoiceNo: 'INV/2026/0003', clientName: 'Orbit Care Pvt Ltd', amount: 6000, date: '2026-05-14', mode: 'Bank Transfer' }
+      ],
+      invoiceItems: []
+    };
+
+    const sectionMeta = {
+      dashboard: ['Dashboard Overview', 'Monitor billing performance, dues, recurring reminders, and operational health.'],
+      clients: ['Clients', 'Track companies, plans, status, renewal dates, and balances.'],
+      services: ['Services', 'Review billable services and default pricing.'],
+      invoice: ['Create Invoice', 'Build a browser-side invoice with tax and recurring service support.'],
+      invoices: ['Invoice List', 'Review issued invoices, totals, balance, and payment state.'],
+      recurring: ['Recurring Billing', 'Upcoming recurring reminders and active billing schedules.'],
+      payments: ['Payments', 'Record collections and monitor recent receipts.'],
+      ledger: ['Ledger', 'Opening due, invoiced amount, collections, and closing outstanding.'],
+      reports: ['Reports', 'High-level business insights generated from the demo dataset.'],
+      settings: ['Settings', 'Business defaults and application-level configuration.']
+    };
+
+    function money(value) {
+      return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(Number(value || 0));
+    }
+
+    function today() {
+      return new Date().toISOString().split('T')[0];
+    }
+
+    function addDays(dateStr, days) {
+      const value = new Date(dateStr);
+      value.setDate(value.getDate() + days);
+      return value.toISOString().split('T')[0];
+    }
+
+    function generateInvoiceNo() {
+      return `INV/2026/${String(state.invoices.length + 1).padStart(4, '0')}`;
+    }
+
+    function login() {
+      document.getElementById('loginScreen').classList.add('hidden');
+      document.getElementById('appShell').classList.remove('hidden');
+      refreshAll();
+    }
+
+    function logout() {
+      document.getElementById('appShell').classList.add('hidden');
+      document.getElementById('loginScreen').classList.remove('hidden');
+    }
+
+    function openModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach((section) => {
+        section.classList.toggle('active', section.id === id);
+      });
+      document.querySelectorAll('#nav button').forEach((button) => {
+        button.classList.toggle('active', button.dataset.section === id);
+      });
+      const [title, subtitle] = sectionMeta[id];
+      document.getElementById('pageTitle').textContent = title;
+      document.getElementById('pageSubtitle').textContent = subtitle;
+    }
+
+    function renderChart() {
+      const target = document.getElementById('billingChart');
+      const values = [42, 61, 56, 78, 72, 88];
+      const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+      target.innerHTML = values.map((value, index) => `<div class="bar" style="height:${value}%"><span>${labels[index]}</span></div>`).join('');
+    }
+
+    function renderFocusList() {
+      const pendingCount = state.invoices.filter((invoice) => invoice.paymentStatus !== 'Paid').length;
+      const recurringDue = state.recurring.filter((item) => item.status === 'Due').length;
+      const list = [
+        `${pendingCount} invoices still need collection follow-up.`,
+        `${recurringDue} recurring items are due for the next billing cycle.`,
+        `${state.clients.filter((client) => client.status === 'Trial').length} clients are still in trial and need conversion attention.`
+      ];
+      document.getElementById('focusList').innerHTML = list.map((item) => `<div class="list-card"><strong>Action Item</strong><p>${item}</p></div>`).join('');
+    }
+
+    function refreshMetrics() {
+      document.getElementById('metricClients').textContent = state.clients.length;
+      document.getElementById('metricActiveClients').textContent = state.clients.filter((client) => client.status === 'Active').length;
+      document.getElementById('metricInvoices').textContent = state.invoices.length;
+      document.getElementById('metricPending').textContent = money(state.invoices.reduce((sum, invoice) => sum + invoice.balance, 0));
+    }
+
+    function renderClients() {
+      const search = document.getElementById('clientSearch').value.toLowerCase();
+      const status = document.getElementById('clientStatusFilter').value;
+      const filtered = state.clients.filter((client) => `${client.company} ${client.email}`.toLowerCase().includes(search) && (!status || client.status === status));
+      document.getElementById('clientTable').innerHTML = filtered.map((client) => `
+        <tr>
+          <td><strong>${client.company}</strong><div class="small">${client.contact}</div></td>
+          <td>${client.email}</td>
+          <td>${client.plan}</td>
+          <td><span class="status ${client.status === 'Active' ? 'active' : client.status === 'Trial' ? 'trial' : 'disabled'}">${client.status}</span></td>
+          <td>${money(client.wallet)}</td>
+          <td>${money(client.previousDue)}</td>
+          <td>${client.renewal}</td>
+          <td><button class="btn btn-light btn-sm" onclick="useClientForInvoice(${client.id})">Invoice</button></td>
+        </tr>
+      `).join('');
+    }
+
+    function renderServices() {
+      document.getElementById('serviceTable').innerHTML = state.services.map((service) => `
+        <tr><td><strong>${service.name}</strong></td><td>${service.category}</td><td>${service.billingType}</td><td>${money(service.rate)}</td><td>${service.sac}</td><td>${service.description}</td></tr>
+      `).join('');
+    }
+
+    function populateClientSelects() {
+      document.getElementById('invoiceClient').innerHTML = state.clients.map((client) => `<option value="${client.id}">${client.company}</option>`).join('');
+      document.getElementById('paymentInvoice').innerHTML = state.invoices.map((invoice) => `<option value="${invoice.id}">${invoice.invoiceNo} - ${invoice.clientName} - ${money(invoice.balance)}</option>`).join('');
+    }
+
+    function addInvoiceItem(prefill) {
+      const service = prefill || state.services[0];
+      state.invoiceItems.push({ id: Date.now() + Math.random(), description: service.name, qty: 1, rate: service.rate, billingType: service.billingType, term: 'Monthly' });
+      renderInvoiceItems();
+      updateInvoiceSummary();
+    }
+
+    function removeInvoiceItem(id) {
+      state.invoiceItems = state.invoiceItems.filter((item) => item.id !== id);
+      renderInvoiceItems();
+      updateInvoiceSummary();
+    }
+
+    function updateInvoiceItem(id, key, value) {
+      const item = state.invoiceItems.find((entry) => entry.id === id);
+      if (!item) return;
+      item[key] = key === 'qty' || key === 'rate' ? Number(value || 0) : value;
+      updateInvoiceSummary();
+    }
+
+    function renderInvoiceItems() {
+      document.getElementById('invoiceItems').innerHTML = state.invoiceItems.map((item, index) => `
+        <div class="item-card">
+          <h4>Line Item ${index + 1}</h4>
+          <div class="form-grid">
+            <div class="field"><label>Description</label><input value="${item.description}" oninput="updateInvoiceItem(${item.id}, 'description', this.value)" /></div>
+            <div class="field"><label>Quantity</label><input type="number" value="${item.qty}" oninput="updateInvoiceItem(${item.id}, 'qty', this.value)" /></div>
+            <div class="field"><label>Rate</label><input type="number" value="${item.rate}" oninput="updateInvoiceItem(${item.id}, 'rate', this.value)" /></div>
+            <div class="field"><label>Billing Type</label><select onchange="updateInvoiceItem(${item.id}, 'billingType', this.value)"><option ${item.billingType === 'One Time' ? 'selected' : ''}>One Time</option><option ${item.billingType === 'Recurring' ? 'selected' : ''}>Recurring</option></select></div>
+            <div class="field"><label>Term</label><select onchange="updateInvoiceItem(${item.id}, 'term', this.value)"><option ${item.term === 'Monthly' ? 'selected' : ''}>Monthly</option><option ${item.term === 'Quarterly' ? 'selected' : ''}>Quarterly</option><option ${item.term === 'Yearly' ? 'selected' : ''}>Yearly</option></select></div>
+            <div class="field"><label>Line Total</label><input value="${money(item.qty * item.rate)}" disabled /></div>
+          </div>
+          <button class="btn btn-danger btn-sm" onclick="removeInvoiceItem(${item.id})">Remove Line</button>
+        </div>
+      `).join('');
+    }
+
+    function updateInvoiceSummary() {
+      const subtotal = state.invoiceItems.reduce((sum, item) => sum + item.qty * item.rate, 0);
+      const cgst = subtotal * 0.09;
+      const sgst = subtotal * 0.09;
+      const clientId = Number(document.getElementById('invoiceClient').value || state.clients[0].id);
+      const client = state.clients.find((entry) => entry.id === clientId);
+      const outstanding = client ? client.previousDue : 0;
+      const payable = subtotal + cgst + sgst + outstanding;
+      document.getElementById('sumSubtotal').textContent = money(subtotal);
+      document.getElementById('sumCgst').textContent = money(cgst);
+      document.getElementById('sumSgst').textContent = money(sgst);
+      document.getElementById('sumOutstanding').textContent = money(outstanding);
+      document.getElementById('sumPayable').textContent = money(payable);
+      return { payable };
+    }
+
+    function resetInvoiceForm() {
+      document.getElementById('invoiceNo').value = generateInvoiceNo();
+      document.getElementById('invoiceDate').value = today();
+      document.getElementById('invoiceDueDate').value = addDays(today(), 7);
+      document.getElementById('invoicePeriod').value = 'May 2026';
+      document.getElementById('invoicePlace').value = 'Maharashtra';
+      state.invoiceItems = [];
+      addInvoiceItem();
+    }
+
+    function saveInvoice() {
+      const clientId = Number(document.getElementById('invoiceClient').value);
+      const client = state.clients.find((entry) => entry.id === clientId);
+      const totals = updateInvoiceSummary();
+      const invoice = { id: Date.now(), invoiceNo: document.getElementById('invoiceNo').value || generateInvoiceNo(), clientId, clientName: client.company, invoiceDate: document.getElementById('invoiceDate').value, dueDate: document.getElementById('invoiceDueDate').value, billingType: state.invoiceItems.some((item) => item.billingType === 'Recurring') ? 'Recurring' : 'One Time', total: Math.round(totals.payable), paid: 0, balance: Math.round(totals.payable), paymentStatus: 'Pending' };
+      state.invoices.unshift(invoice);
+      client.previousDue = invoice.balance;
+      populateClientSelects();
+      refreshAll();
+      alert(`Invoice ${invoice.invoiceNo} saved in demo mode.`);
+      showSection('invoices');
+    }
+
+    function renderInvoices() {
+      const search = document.getElementById('invoiceSearch').value.toLowerCase();
+      const status = document.getElementById('invoiceStatusFilter').value;
+      const filtered = state.invoices.filter((invoice) => `${invoice.invoiceNo} ${invoice.clientName}`.toLowerCase().includes(search) && (!status || invoice.paymentStatus === status));
+      document.getElementById('invoiceTable').innerHTML = filtered.map((invoice) => `<tr><td><strong>${invoice.invoiceNo}</strong></td><td>${invoice.clientName}</td><td>${invoice.invoiceDate}</td><td>${invoice.billingType}</td><td>${money(invoice.total)}</td><td>${money(invoice.paid)}</td><td>${money(invoice.balance)}</td><td><span class="status ${invoice.paymentStatus === 'Paid' ? 'paid' : invoice.paymentStatus === 'Partially Paid' ? 'partial' : 'pending'}">${invoice.paymentStatus}</span></td></tr>`).join('');
+    }
+
+    function renderRecurring() {
+      document.getElementById('recurringTable').innerHTML = state.recurring.map((item) => `<tr><td>${item.clientName}</td><td>${item.service}</td><td>${item.frequency}</td><td>${money(item.amount)}</td><td>${item.raiseDate}</td><td>${item.dueDate}</td><td><span class="status ${item.status === 'Active' ? 'active' : 'pending'}">${item.status}</span></td></tr>`).join('');
+    }
+
+    function renderPayments() {
+      document.getElementById('paymentList').innerHTML = state.payments.map((payment) => `<div class="list-card"><strong>${payment.invoiceNo} · ${money(payment.amount)}</strong><p>${payment.clientName} · ${payment.date} · ${payment.mode}</p></div>`).join('');
+    }
+
+    function recordPayment() {
+      const invoiceId = Number(document.getElementById('paymentInvoice').value);
+      const amount = Number(document.getElementById('paymentAmount').value || 0);
+      const date = document.getElementById('paymentDate').value;
+      const mode = document.getElementById('paymentMode').value;
+      const invoice = state.invoices.find((entry) => entry.id === invoiceId);
+      if (!invoice || amount <= 0) {
+        alert('Select an invoice and enter a valid amount.');
+        return;
+      }
+      invoice.paid += amount;
+      invoice.balance = Math.max(invoice.total - invoice.paid, 0);
+      invoice.paymentStatus = invoice.balance === 0 ? 'Paid' : 'Partially Paid';
+      state.payments.unshift({ id: Date.now(), invoiceNo: invoice.invoiceNo, clientName: invoice.clientName, amount, date, mode });
+      refreshAll();
+      alert('Payment recorded in demo mode.');
+    }
+
+    function renderLedger() {
+      document.getElementById('ledgerOpening').textContent = money(state.clients.reduce((sum, client) => sum + client.previousDue, 0));
+      document.getElementById('ledgerInvoiced').textContent = money(state.invoices.reduce((sum, invoice) => sum + invoice.total, 0));
+      document.getElementById('ledgerCollected').textContent = money(state.payments.reduce((sum, payment) => sum + payment.amount, 0));
+      document.getElementById('ledgerClosing').textContent = money(state.invoices.reduce((sum, invoice) => sum + invoice.balance, 0));
+      document.getElementById('ledgerTable').innerHTML = state.clients.map((client) => {
+        const clientInvoices = state.invoices.filter((invoice) => invoice.clientId === client.id);
+        return `<tr><td>${client.company}</td><td>${money(client.previousDue)}</td><td>${money(clientInvoices.reduce((sum, invoice) => sum + invoice.total, 0))}</td><td>${money(clientInvoices.reduce((sum, invoice) => sum + invoice.paid, 0))}</td><td>${money(clientInvoices.reduce((sum, invoice) => sum + invoice.balance, 0))}</td></tr>`;
+      }).join('');
+    }
+
+    function renderReports() {
+      const revenue = state.invoices.reduce((sum, invoice) => sum + invoice.total, 0);
+      const collections = state.payments.reduce((sum, payment) => sum + payment.amount, 0);
+      const outstanding = state.invoices.reduce((sum, invoice) => sum + invoice.balance, 0);
+      document.getElementById('reportRevenue').textContent = `Demo revenue billed this cycle: ${money(revenue)} across ${state.invoices.length} invoices.`;
+      document.getElementById('reportCollections').textContent = `Collections recorded: ${money(collections)}. Outstanding receivables currently stand at ${money(outstanding)}.`;
+      document.getElementById('reportNotes').textContent = 'This GitHub Pages build runs fully in the browser with demo data. Connect backend APIs later for authentication, persistence, PDF generation, emailing, and scheduler automation.';
+    }
+
+    function saveSettings() {
+      alert('Settings saved in demo mode.');
+    }
+
+    function useClientForInvoice(id) {
+      document.getElementById('invoiceClient').value = String(id);
+      updateInvoiceSummary();
+      showSection('invoice');
+    }
+
+    function addClient() {
+      const company = document.getElementById('newClientCompany').value.trim();
+      const contact = document.getElementById('newClientName').value.trim();
+      const email = document.getElementById('newClientEmail').value.trim();
+      const plan = document.getElementById('newClientPlan').value.trim();
+      const status = document.getElementById('newClientStatus').value;
+      const wallet = Number(document.getElementById('newClientWallet').value || 0);
+      if (!company || !contact || !email || !plan) {
+        alert('Fill all client fields first.');
+        return;
+      }
+      state.clients.unshift({ id: Date.now(), company, contact, email, plan, status, wallet, previousDue: 0, renewal: addDays(today(), 30) });
+      document.getElementById('newClientCompany').value = '';
+      document.getElementById('newClientName').value = '';
+      document.getElementById('newClientEmail').value = '';
+      document.getElementById('newClientPlan').value = '';
+      document.getElementById('newClientWallet').value = '0';
+      closeModal('clientModal');
+      refreshAll();
+    }
+
+    function refreshAll() {
+      refreshMetrics();
+      renderChart();
+      renderFocusList();
+      renderClients();
+      renderServices();
+      renderInvoices();
+      renderRecurring();
+      renderPayments();
+      renderLedger();
+      renderReports();
+      populateClientSelects();
+      updateInvoiceSummary();
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+      login();
+    });
+
+    document.querySelectorAll('#nav button').forEach((button) => {
+      button.addEventListener('click', () => showSection(button.dataset.section));
+    });
+
+    document.getElementById('paymentDate').value = today();
+    resetInvoiceForm();
+    refreshAll();
+  </script>
+</body>
+</html>
