@@ -764,6 +764,8 @@
       display: flex;
       align-items: center;
       min-height: 88px;
+      max-width: 520px;
+      width: 100%;
     }
 
     .invoice-header-banner img {
@@ -772,6 +774,15 @@
       object-fit: contain;
       object-position: left center;
       display: block;
+    }
+
+    .invoice-header-text {
+      width: 100%;
+      color: #64748b;
+      font-size: 14px;
+      line-height: 1.5;
+      padding: 10px 0;
+      border-bottom: 1px solid #dbe7f3;
     }
 
     .invoice-brand-copy strong {
@@ -2582,14 +2593,7 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
       const termsHtml = String(safeCompany.terms || '').split('\n').filter(Boolean).join('\n');
       const brandHeader = safeCompany.headerAssetData
         ? `<div class="invoice-header-banner"><img src="${safeCompany.headerAssetData}" alt="Company Header" /></div>`
-        : `<div class="invoice-branding">
-            <div class="invoice-brand-badge">${safeCompany.companyName ? safeCompany.companyName.slice(0, 2).toUpperCase() : 'II'}</div>
-            <div class="invoice-brand-copy">
-              <strong>${safeCompany.issuerName || 'Company Name'}</strong>
-              <span>${safeCompany.companyName || 'OCRM'}</span>
-              <p>${safeCompany.invoiceHeader || ''}</p>
-            </div>
-          </div>`;
+        : `<div class="invoice-header-banner"><div class="invoice-header-text">${safeCompany.invoiceHeader || ''}</div></div>`;
       const taxRows = `
         <div class="invoice-total-row"><span>Taxable Amount</span><strong>${money(totals.subtotal || 0)}</strong></div>
         <div class="invoice-total-row"><span>${safeTax.primaryLabel || '-'}</span><strong>${money(safeTax.primaryAmount ?? 0)}</strong></div>
