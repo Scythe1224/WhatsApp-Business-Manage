@@ -39,11 +39,6 @@ You can:
 - view recurring billing items
 - review ledger and report summaries
 
-## Demo Credentials
-
-- Email: `admin@company.com`
-- Password: `admin123`
-
 ## Important Note
 
 Because GitHub Pages hosts static files, this version does not yet include a real backend.
