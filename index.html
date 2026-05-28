@@ -1393,6 +1393,7 @@
       gap: 8px;
       width: 100%;
       position: relative;
+      grid-column: 1 / -1;
     }
 
     .invoice-terms-box::before {
@@ -3368,15 +3369,15 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
             <h4>Bank Details</h4>
             <div class="invoice-bank-line"></div>
             <div class="invoice-bank-grid">${bankDetails}</div>
-            <div class="invoice-terms-box">
-              <h4>Terms and Conditions</h4>
-              <div class="invoice-terms-list">${termsHtml}</div>
-            </div>
           </div>
           <div class="invoice-signature-block">
             <div class="invoice-sign-company">${safeCompany.signatureName || 'For Company'}</div>
             <div class="signature-mark">${safeCompany.signatureAssetData ? `<img src="${safeCompany.signatureAssetData}" alt="Signature" style="width:100%;max-width:170px;height:86px;object-fit:contain;" />` : '✍'}</div>
             <div class="signature-line">${safeCompany.signatureTitle || 'Authorized Signatory'}</div>
+          </div>
+          <div class="invoice-terms-box">
+            <h4>Terms and Conditions</h4>
+            <div class="invoice-terms-list">${termsHtml}</div>
           </div>
         </div>
         <div class="invoice-doc-footer"><span>${safeCompany.invoiceFooter || 'operations@intellidata.in • www.intellidata.in'}</span><span>GSTIN: ${safeCompany.gstin || '-'}</span></div>
