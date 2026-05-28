@@ -12,12 +12,15 @@
       --brand-soft: #d9fff0;
       --accent: #1d4ed8;
       --accent-soft: #dbeafe;
-      --ink: #172033;
-      --muted: #627089;
-      --line: #d6e0ea;
+      --ink: #e8eef8;
+      --muted: #9fb0c9;
+      --line: #28374d;
       --panel: #ffffff;
       --shell: #f3f7fb;
       --navy: #12263f;
+      --surface: #131a24;
+      --surface-soft: #1b2432;
+      --surface-elevated: #202b3b;
       --shadow: 0 24px 60px rgba(16, 32, 50, 0.12);
       --radius: 24px;
     }
@@ -181,7 +184,7 @@
       display: grid;
       grid-template-columns: 280px 1fr;
       min-height: 100vh;
-      background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.08));
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
     }
 
     .sidebar {
@@ -269,6 +272,10 @@
     .main {
       min-width: 0;
       padding: 24px;
+      background:
+        radial-gradient(circle at top right, rgba(31, 191, 117, 0.08), transparent 22%),
+        radial-gradient(circle at bottom left, rgba(29, 78, 216, 0.1), transparent 24%),
+        linear-gradient(180deg, #0d1117, #11161e 55%, #0f141b);
     }
 
     .topbar {
@@ -276,10 +283,10 @@
       justify-content: space-between;
       align-items: center;
       gap: 16px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(245, 250, 255, 0.96));
-      border: 1px solid #d8e2ec;
+      background: linear-gradient(135deg, rgba(25, 32, 44, 0.94), rgba(18, 24, 33, 0.98));
+      border: 1px solid rgba(115, 139, 173, 0.2);
       border-radius: var(--radius);
-      box-shadow: 0 18px 40px rgba(16, 32, 50, 0.06);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
       padding: 18px 20px;
       margin-bottom: 22px;
     }
@@ -287,10 +294,11 @@
     .topbar h1 {
       font-size: 25px;
       margin-bottom: 4px;
+      color: #f6f8fc;
     }
 
     .topbar p {
-      color: var(--muted);
+      color: #9db1cb;
       font-size: 14px;
     }
 
@@ -327,10 +335,10 @@
     }
 
     .card {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 255, 0.96));
-      border: 1px solid #d8e2ec;
+      background: linear-gradient(180deg, rgba(27, 36, 50, 0.98), rgba(21, 29, 40, 0.96));
+      border: 1px solid rgba(121, 144, 177, 0.18);
       border-radius: var(--radius);
-      box-shadow: 0 14px 30px rgba(16, 32, 50, 0.05);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
       padding: 20px;
       min-width: 0;
     }
@@ -343,7 +351,7 @@
     }
 
     .metric span {
-      color: var(--muted);
+      color: #8fa4c4;
       font-size: 13px;
       font-weight: 800;
     }
@@ -352,6 +360,7 @@
       font-size: 28px;
       letter-spacing: -0.9px;
       margin-top: 10px;
+      color: #f5f7fb;
     }
 
     .metric-icon {
@@ -375,11 +384,12 @@
 
     .section-head h2 {
       font-size: 22px;
+      color: #f4f8ff;
     }
 
     .section-head p,
     .small {
-      color: var(--muted);
+      color: #98aac4;
       font-size: 13px;
       line-height: 1.6;
     }
@@ -391,18 +401,19 @@
     .toolbar input,
     .toolbar select {
       min-width: 180px;
-      border: 1px solid var(--line);
+      border: 1px solid #314257;
       border-radius: 12px;
       padding: 10px 12px;
-      background: #fff;
+      background: rgba(18, 25, 35, 0.9);
+      color: #e7eef8;
     }
 
     .table-wrap {
       overflow: auto;
       -webkit-overflow-scrolling: touch;
-      border: 1px solid var(--line);
+      border: 1px solid #2c3a4f;
       border-radius: 16px;
-      background: #fff;
+      background: #141b25;
     }
 
     table {
@@ -421,11 +432,15 @@
     }
 
     th {
-      background: #f8fafc;
-      color: #475569;
+      background: #1a2330;
+      color: #9bb0ce;
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.04em;
+    }
+
+    td {
+      color: #e3ebf8;
     }
 
     tr:last-child td {
@@ -511,7 +526,7 @@
       border: 1px solid var(--line);
       border-radius: 18px;
       padding: 16px;
-      background: linear-gradient(180deg, #ffffff, #f9fbff);
+      background: linear-gradient(180deg, #18202b, #131b25);
     }
 
     .item-card {
@@ -523,6 +538,11 @@
       margin-bottom: 10px;
       display: block;
       font-size: 16px;
+      color: #f4f8ff;
+    }
+
+    .list-card p {
+      color: #a0b1c8;
     }
 
     .list-stack {
