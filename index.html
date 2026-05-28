@@ -2293,7 +2293,7 @@
 
 <section id="invoice" class="section"><div class="page-shell"><div class="page-hero"><h2>Tax Invoice Workspace</h2><p>Build invoices with compact setup cards, line items in the main workspace, and the full document available from the preview button.</p></div><div class="invoice-meta-toolbar"><div class="field"><label>Saved Invoices</label><select id="invoiceSavedDraft" onchange="handleInvoiceDraftSelect(this.value)"><option value="new">New Draft</option></select></div><div class="field"><label>Companies</label><select id="invoiceCompanySelect" onchange="handleInvoiceCompanySelect(this.value)"></select></div><button class="btn btn-secondary" onclick="showSection('settings')">Company Settings</button></div><div class="invoice-page-grid"><div class="invoice-side-stack"><div class="invoice-pane"><div class="invoice-mini-head"><div><h4>Client</h4><p>Select client and pull billing details.</p></div><button class="btn btn-secondary btn-sm" onclick="showSection('clients')">+ Add</button></div><div class="field"><label>Select Client</label><select id="invoiceClient" onchange="applyClientToInvoice(this.value)"></select></div></div><div class="invoice-pane"><div class="invoice-pane-title"><div><h3>Issuer</h3><p>These values come from the selected company profile.</p></div></div><div id="invoiceCompanyPreview" class="invoice-company-card"></div></div></div><div class="invoice-main-stack"><div style="display:none;" aria-hidden="true"><input id="invoiceBillCompany" /><input id="invoiceBillContact" /><input id="invoiceBillEmail" type="email" /><input id="invoiceBillPhone" /><input id="invoiceBillGstin" /><input id="invoiceBillPan" /><input id="invoiceBillAddress1" /><input id="invoiceBillAddress2" /><input id="invoiceBillCity" /><input id="invoiceBillState" oninput="updateInvoiceSummary()" /><input id="invoiceBillPincode" /><input id="invoiceBillCountry" value="India" /></div><div class="invoice-pane"><div class="invoice-pane-title"><div><h3>Line Items</h3><p>Add charges here and open the full invoice only when you need to review it.</p></div><div class="top-actions"><select id="invoiceServicePicker" class="btn btn-light btn-sm" style="min-width:180px;"></select><button class="btn btn-light btn-sm" onclick="addSelectedServiceToInvoice()" type="button">Use Service</button><button class="btn btn-secondary btn-sm" onclick="addInvoiceItem()">+ Add Line</button></div></div><div id="invoiceItems"></div></div><div class="invoice-lower-row"><div class="invoice-pane"><div class="invoice-pane-title"><div><h3>Invoice Details</h3><p>Series and date controls for this invoice.</p></div><div class="top-actions"><button class="btn btn-light btn-sm" onclick="resetInvoiceForm()">Reset</button><button class="btn btn-primary btn-sm" onclick="saveInvoice()">Save Invoice</button></div></div><div class="form-grid-2"><div class="field"><label>Product</label><select id="invoiceProduct"></select></div><div class="field"><label>Invoice No.</label><input id="invoiceNo" /></div><div class="field"><label>Invoice Date</label><input id="invoiceDate" type="date" /></div><div class="field"><label>Due Date</label><input id="invoiceDueDate" type="date" /></div><div class="field"><label>Billing Period</label><input id="invoicePeriod" placeholder="May 2026" /></div><div class="field"><label>Place of Supply</label><input id="invoicePlace" value="Rajasthan" oninput="updateInvoiceSummary()" /></div><div class="field"><label>Previous Due</label><input id="invoicePreviousDue" disabled /></div></div></div><div class="invoice-preview-stack"><div class="invoice-pane summary-box"><div class="invoice-live-head" style="padding:0; margin-bottom:14px;"><span>Invoice Summary</span><span id="invoiceLiveMeta">Preview available from the button below</span></div><div class="summary-line"><span>Subtotal</span><strong id="sumSubtotal">INR 0</strong></div><div class="summary-line"><span id="sumTaxPrimaryLabel">CGST 9%</span><strong id="sumTaxPrimary">INR 0</strong></div><div class="summary-line"><span id="sumTaxSecondaryLabel">SGST 9%</span><strong id="sumTaxSecondary">INR 0</strong></div><div class="summary-line"><span>Outstanding Due</span><strong id="sumOutstanding">INR 0</strong></div><div class="summary-line"><span>Wallet Balance</span><strong id="sumWallet">INR 0</strong></div><div class="summary-total"><span>Payable</span><span id="sumPayable">INR 0</span></div><p class="small" id="sumTaxHint" style="margin-top:14px;">Tax mode is selected automatically based on your business state and the invoice place of supply.</p><div class="invoice-summary-actions"><button class="btn btn-light btn-sm" onclick="resetInvoiceForm()">Reset</button><button class="btn btn-secondary btn-sm" onclick="previewCurrentInvoice()">Preview Invoice</button><button class="btn btn-primary btn-sm" onclick="saveInvoice()">Save Invoice</button></div></div></div></div></div></div></div></section>
 
-      <section id="invoicePreviewPage" class="section"><div class="preview-page-shell"><div class="page-hero"><h2>Invoice Preview</h2><p>Review the full invoice on its own page, then go back to editing or save it directly.</p></div><div class="preview-page-actions"><button class="btn btn-light" onclick="backFromInvoicePreview()">Back</button><div class="top-actions"><button id="invoicePreviewSaveBtn" class="btn btn-primary" onclick="saveInvoice()">Save Invoice</button></div></div><div class="preview-page-frame"><div id="invoicePreviewPageContent" class="invoice-document"></div></div></div></section>
+      <section id="invoicePreviewPage" class="section"><div class="preview-page-shell"><div class="page-hero"><h2>Invoice Preview</h2><p>Review the full invoice on its own page, then go back to editing, save it, or download it.</p></div><div class="preview-page-actions"><button class="btn btn-light" onclick="backFromInvoicePreview()">Back</button><div class="top-actions"><button class="btn btn-secondary" onclick="downloadCurrentInvoice()">Download Invoice</button><button id="invoicePreviewSaveBtn" class="btn btn-primary" onclick="saveInvoice()">Save Invoice</button></div></div><div class="preview-page-frame"><div id="invoicePreviewPageContent" class="invoice-document"></div></div></div></section>
 
       <section id="invoices" class="section"><div class="section-head"><div><h2>Invoice List</h2><p>Review payment state, billing type, due dates, and outstanding balances.</p></div></div><div class="toolbar"><input id="invoiceSearch" type="search" placeholder="Search invoice or client" oninput="renderInvoices()" /><select id="invoiceStatusFilter" onchange="renderInvoices()"><option value="">All Payment Status</option><option value="Pending">Pending</option><option value="Paid">Paid</option><option value="Partially Paid">Partially Paid</option></select></div><div class="table-wrap"><table><thead><tr><th>Invoice</th><th>Client</th><th>Date</th><th>Type</th><th>Total</th><th>Paid</th><th>Balance</th><th>Status</th><th>Actions</th></tr></thead><tbody id="invoiceTable"></tbody></table></div></section>
 
@@ -2428,7 +2428,8 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
       selectedCompanyId: 1,
       theme: 'light',
       invoicePreviewReturnSection: 'invoice',
-      invoicePreviewCanSave: true
+      invoicePreviewCanSave: true,
+      invoicePreviewTitle: 'invoice-preview'
     };
 
     const sectionMeta = {
@@ -3401,7 +3402,8 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
       openInvoicePreviewPage(
         buildInvoicePreviewHtml(draftInvoice, getCompanySettingsSnapshot(), getInvoiceBillingSnapshot(), totals.tax, totals),
         'invoice',
-        true
+        true,
+        draftInvoice.invoiceNo
       );
     }
 
@@ -3443,13 +3445,15 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
       openInvoicePreviewPage(
         buildInvoicePreviewHtml(invoice, invoice.companyDetails || getCompanySettingsSnapshot(), invoice.billingDetails || {}, invoice.taxBreakdown || {}, { subtotal: invoice.total - (invoice.taxBreakdown?.amount1 || 0) - (invoice.taxBreakdown?.amount2 || 0), outstanding: getClientDueTotal(invoice.clientId), wallet: getClientById(invoice.clientId)?.wallet || 0, payable: invoice.balance, currentInvoiceTotal: invoice.total }),
         document.querySelector('.section.active')?.id || 'invoices',
-        false
+        false,
+        invoice.invoiceNo
       );
     }
 
-    function openInvoicePreviewPage(html, returnSection = 'invoice', canSave = false) {
+    function openInvoicePreviewPage(html, returnSection = 'invoice', canSave = false, previewTitle = 'invoice-preview') {
       state.invoicePreviewReturnSection = returnSection;
       state.invoicePreviewCanSave = canSave;
+      state.invoicePreviewTitle = previewTitle || 'invoice-preview';
       document.getElementById('invoicePreviewPageContent').innerHTML = html;
       document.getElementById('invoicePreviewSaveBtn').style.display = canSave ? 'inline-flex' : 'none';
       showSection('invoicePreviewPage');
@@ -3457,6 +3461,46 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
 
     function backFromInvoicePreview() {
       showSection(state.invoicePreviewReturnSection || 'invoice');
+    }
+
+    function downloadCurrentInvoice() {
+      const previewHtml = document.getElementById('invoicePreviewPageContent').innerHTML;
+      if (!previewHtml.trim()) return;
+      const styleText = Array.from(document.querySelectorAll('style')).map((tag) => tag.textContent).join('\n');
+      const invoiceWindow = window.open('', '_blank', 'width=1024,height=900');
+      if (!invoiceWindow) {
+        alert('Please allow popups to download the invoice.');
+        return;
+      }
+      const safeTitle = String(state.invoicePreviewTitle || 'invoice-preview').replace(/[\\/:*?"<>|]/g, '-');
+      invoiceWindow.document.write(`
+        <!doctype html>
+        <html>
+          <head>
+            <meta charset="utf-8" />
+            <title>${safeTitle}</title>
+            <style>
+              ${styleText}
+              body { background: #ffffff !important; padding: 24px; }
+              .page-hero, .preview-page-actions, .topbar, .sidebar, .hidden, .modal-backdrop { display: none !important; }
+              #invoicePreviewPageContent { width: 860px !important; margin: 0 auto !important; }
+              @media print {
+                body { padding: 0; }
+                #invoicePreviewPageContent { width: 100% !important; margin: 0 !important; }
+              }
+            </style>
+          </head>
+          <body>
+            <div id="invoicePreviewPageContent" class="invoice-document">${previewHtml}</div>
+            <script>
+              window.onload = function () {
+                setTimeout(function () { window.print(); }, 250);
+              };
+            <\/script>
+          </body>
+        </html>
+      `);
+      invoiceWindow.document.close();
     }
 
     function recordPayment() {
