@@ -712,7 +712,7 @@
 
     .invoice-page-grid {
       display: grid;
-      grid-template-columns: 390px minmax(0, 1fr);
+      grid-template-columns: 300px minmax(0, 1fr);
       gap: 18px;
       align-items: start;
     }
@@ -734,6 +734,13 @@
     .invoice-preview-stack {
       align-self: start;
       position: static;
+    }
+
+    .invoice-lower-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 18px;
+      align-items: start;
     }
 
     .invoice-pane {
@@ -774,12 +781,12 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .invoice-side-stack .invoice-pane:nth-child(2) .top-actions {
+    .invoice-lower-row .invoice-pane:first-child .top-actions {
       align-items: flex-start;
       gap: 10px;
     }
 
-    .invoice-side-stack .invoice-pane:nth-child(2) .top-actions .btn {
+    .invoice-lower-row .invoice-pane:first-child .top-actions .btn {
       min-width: 86px;
     }
 
@@ -1199,7 +1206,8 @@
 
     .summary-box {
       padding: 16px;
-      max-width: 100%;
+      width: 100%;
+      max-width: 340px;
     }
 
     .summary-box .invoice-live-head {
@@ -1946,6 +1954,7 @@
 
       .invoice-page-grid,
       .invoice-main-stack,
+      .invoice-lower-row,
       .company-manage-shell,
       .invoice-summary-area,
       .invoice-bottom-grid {
@@ -2233,7 +2242,7 @@
 
       <section id="services" class="section"><div class="section-head"><div><h2>Services</h2><p>Manage billable service catalog and default pricing used by invoice creation.</p></div></div><div class="table-wrap"><table><thead><tr><th>Service</th><th>Category</th><th>Billing Type</th><th>Rate</th><th>SAC</th><th>Description</th></tr></thead><tbody id="serviceTable"></tbody></table></div></section>
 
-<section id="invoice" class="section"><div class="page-shell"><div class="page-hero"><h2>Tax Invoice Workspace</h2><p>Build invoices with compact setup cards, line items in the main workspace, and the full document available from the preview button.</p></div><div class="invoice-meta-toolbar"><div class="field"><label>Saved Invoices</label><select id="invoiceSavedDraft" onchange="handleInvoiceDraftSelect(this.value)"><option value="new">New Draft</option></select></div><div class="field"><label>Companies</label><select id="invoiceCompanySelect" onchange="handleInvoiceCompanySelect(this.value)"></select></div><button class="btn btn-secondary" onclick="showSection('settings')">Company Settings</button></div><div class="invoice-page-grid"><div class="invoice-side-stack"><div class="invoice-pane"><div class="invoice-mini-head"><div><h4>Client</h4><p>Select client and pull billing details.</p></div><button class="btn btn-secondary btn-sm" onclick="showSection('clients')">+ Add</button></div><div class="field"><label>Select Client</label><select id="invoiceClient" onchange="applyClientToInvoice(this.value)"></select></div></div><div class="invoice-pane"><div class="invoice-pane-title"><div><h3>Invoice Details</h3><p>Series and date controls for this invoice.</p></div><div class="top-actions"><button class="btn btn-light btn-sm" onclick="resetInvoiceForm()">Reset</button><button class="btn btn-primary btn-sm" onclick="saveInvoice()">Save Invoice</button></div></div><div class="form-grid-2"><div class="field"><label>Invoice No.</label><input id="invoiceNo" /></div><div class="field"><label>Product</label><select id="invoiceProduct"><option>WhatsApp Panel Monthly Subscription Charges</option><option>CNMS Onnet</option><option>Campaign Setup</option><option>Chatbot Management</option></select></div><div class="field"><label>Invoice Date</label><input id="invoiceDate" type="date" /></div><div class="field"><label>Due Date</label><input id="invoiceDueDate" type="date" /></div><div class="field"><label>Billing Period</label><input id="invoicePeriod" placeholder="May 2026" /></div><div class="field"><label>Place of Supply</label><input id="invoicePlace" value="Rajasthan" oninput="updateInvoiceSummary()" /></div><div class="field"><label>Previous Due</label><input id="invoicePreviousDue" disabled /></div></div></div><div class="invoice-pane"><div class="invoice-pane-title"><div><h3>Issuer</h3><p>These values come from the selected company profile.</p></div></div><div id="invoiceCompanyPreview" class="invoice-company-card"></div></div></div><div class="invoice-main-stack"><div style="display:none;" aria-hidden="true"><input id="invoiceBillCompany" /><input id="invoiceBillContact" /><input id="invoiceBillEmail" type="email" /><input id="invoiceBillPhone" /><input id="invoiceBillGstin" /><input id="invoiceBillPan" /><input id="invoiceBillAddress1" /><input id="invoiceBillAddress2" /><input id="invoiceBillCity" /><input id="invoiceBillState" oninput="updateInvoiceSummary()" /><input id="invoiceBillPincode" /><input id="invoiceBillCountry" value="India" /></div><div class="invoice-pane"><div class="invoice-pane-title"><div><h3>Line Items</h3><p>Add charges here and open the full invoice only when you need to review it.</p></div><button class="btn btn-secondary btn-sm" onclick="addInvoiceItem()">+ Add Line</button></div><div id="invoiceItems"></div></div><div class="invoice-preview-stack"><div class="invoice-pane summary-box"><div class="invoice-live-head" style="padding:0; margin-bottom:14px;"><span>Invoice Summary</span><span id="invoiceLiveMeta">Preview available from the button below</span></div><div class="summary-line"><span>Subtotal</span><strong id="sumSubtotal">INR 0</strong></div><div class="summary-line"><span id="sumTaxPrimaryLabel">CGST 9%</span><strong id="sumTaxPrimary">INR 0</strong></div><div class="summary-line"><span id="sumTaxSecondaryLabel">SGST 9%</span><strong id="sumTaxSecondary">INR 0</strong></div><div class="summary-line"><span>Outstanding Due</span><strong id="sumOutstanding">INR 0</strong></div><div class="summary-line"><span>Wallet Balance</span><strong id="sumWallet">INR 0</strong></div><div class="summary-total"><span>Payable</span><span id="sumPayable">INR 0</span></div><p class="small" id="sumTaxHint" style="margin-top:14px;">Tax mode is selected automatically based on your business state and the invoice place of supply.</p><div class="invoice-summary-actions"><button class="btn btn-light btn-sm" onclick="resetInvoiceForm()">Reset</button><button class="btn btn-secondary btn-sm" onclick="previewCurrentInvoice()">Preview Invoice</button><button class="btn btn-primary btn-sm" onclick="saveInvoice()">Save Invoice</button></div></div></div></div></div></div></section>
+<section id="invoice" class="section"><div class="page-shell"><div class="page-hero"><h2>Tax Invoice Workspace</h2><p>Build invoices with compact setup cards, line items in the main workspace, and the full document available from the preview button.</p></div><div class="invoice-meta-toolbar"><div class="field"><label>Saved Invoices</label><select id="invoiceSavedDraft" onchange="handleInvoiceDraftSelect(this.value)"><option value="new">New Draft</option></select></div><div class="field"><label>Companies</label><select id="invoiceCompanySelect" onchange="handleInvoiceCompanySelect(this.value)"></select></div><button class="btn btn-secondary" onclick="showSection('settings')">Company Settings</button></div><div class="invoice-page-grid"><div class="invoice-side-stack"><div class="invoice-pane"><div class="invoice-mini-head"><div><h4>Client</h4><p>Select client and pull billing details.</p></div><button class="btn btn-secondary btn-sm" onclick="showSection('clients')">+ Add</button></div><div class="field"><label>Select Client</label><select id="invoiceClient" onchange="applyClientToInvoice(this.value)"></select></div></div><div class="invoice-pane"><div class="invoice-pane-title"><div><h3>Issuer</h3><p>These values come from the selected company profile.</p></div></div><div id="invoiceCompanyPreview" class="invoice-company-card"></div></div></div><div class="invoice-main-stack"><div style="display:none;" aria-hidden="true"><input id="invoiceBillCompany" /><input id="invoiceBillContact" /><input id="invoiceBillEmail" type="email" /><input id="invoiceBillPhone" /><input id="invoiceBillGstin" /><input id="invoiceBillPan" /><input id="invoiceBillAddress1" /><input id="invoiceBillAddress2" /><input id="invoiceBillCity" /><input id="invoiceBillState" oninput="updateInvoiceSummary()" /><input id="invoiceBillPincode" /><input id="invoiceBillCountry" value="India" /></div><div class="invoice-pane"><div class="invoice-pane-title"><div><h3>Line Items</h3><p>Add charges here and open the full invoice only when you need to review it.</p></div><button class="btn btn-secondary btn-sm" onclick="addInvoiceItem()">+ Add Line</button></div><div id="invoiceItems"></div></div><div class="invoice-lower-row"><div class="invoice-pane"><div class="invoice-pane-title"><div><h3>Invoice Details</h3><p>Series and date controls for this invoice.</p></div><div class="top-actions"><button class="btn btn-light btn-sm" onclick="resetInvoiceForm()">Reset</button><button class="btn btn-primary btn-sm" onclick="saveInvoice()">Save Invoice</button></div></div><div class="form-grid-2"><div class="field"><label>Invoice No.</label><input id="invoiceNo" /></div><div class="field"><label>Product</label><select id="invoiceProduct"><option>WhatsApp Panel Monthly Subscription Charges</option><option>CNMS Onnet</option><option>Campaign Setup</option><option>Chatbot Management</option></select></div><div class="field"><label>Invoice Date</label><input id="invoiceDate" type="date" /></div><div class="field"><label>Due Date</label><input id="invoiceDueDate" type="date" /></div><div class="field"><label>Billing Period</label><input id="invoicePeriod" placeholder="May 2026" /></div><div class="field"><label>Place of Supply</label><input id="invoicePlace" value="Rajasthan" oninput="updateInvoiceSummary()" /></div><div class="field"><label>Previous Due</label><input id="invoicePreviousDue" disabled /></div></div></div><div class="invoice-preview-stack"><div class="invoice-pane summary-box"><div class="invoice-live-head" style="padding:0; margin-bottom:14px;"><span>Invoice Summary</span><span id="invoiceLiveMeta">Preview available from the button below</span></div><div class="summary-line"><span>Subtotal</span><strong id="sumSubtotal">INR 0</strong></div><div class="summary-line"><span id="sumTaxPrimaryLabel">CGST 9%</span><strong id="sumTaxPrimary">INR 0</strong></div><div class="summary-line"><span id="sumTaxSecondaryLabel">SGST 9%</span><strong id="sumTaxSecondary">INR 0</strong></div><div class="summary-line"><span>Outstanding Due</span><strong id="sumOutstanding">INR 0</strong></div><div class="summary-line"><span>Wallet Balance</span><strong id="sumWallet">INR 0</strong></div><div class="summary-total"><span>Payable</span><span id="sumPayable">INR 0</span></div><p class="small" id="sumTaxHint" style="margin-top:14px;">Tax mode is selected automatically based on your business state and the invoice place of supply.</p><div class="invoice-summary-actions"><button class="btn btn-light btn-sm" onclick="resetInvoiceForm()">Reset</button><button class="btn btn-secondary btn-sm" onclick="previewCurrentInvoice()">Preview Invoice</button><button class="btn btn-primary btn-sm" onclick="saveInvoice()">Save Invoice</button></div></div></div></div></div></div></div></section>
 
       <section id="invoices" class="section"><div class="section-head"><div><h2>Invoice List</h2><p>Review payment state, billing type, due dates, and outstanding balances.</p></div></div><div class="toolbar"><input id="invoiceSearch" type="search" placeholder="Search invoice or client" oninput="renderInvoices()" /><select id="invoiceStatusFilter" onchange="renderInvoices()"><option value="">All Payment Status</option><option value="Pending">Pending</option><option value="Paid">Paid</option><option value="Partially Paid">Partially Paid</option></select></div><div class="table-wrap"><table><thead><tr><th>Invoice</th><th>Client</th><th>Date</th><th>Type</th><th>Total</th><th>Paid</th><th>Balance</th><th>Status</th><th>Actions</th></tr></thead><tbody id="invoiceTable"></tbody></table></div></section>
 
