@@ -1310,7 +1310,18 @@
       grid-template-columns: minmax(0, 1fr) 320px;
       gap: 28px;
       align-items: start;
-      padding-top: 12px;
+      padding-top: 22px;
+      position: relative;
+    }
+
+    .invoice-bottom-grid::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 3px;
+      background: #4caf50;
     }
 
     .invoice-bank-box {
@@ -1327,10 +1338,7 @@
     }
 
     .invoice-bank-line {
-      height: 3px;
-      width: 100%;
-      background: #4caf50;
-      margin-bottom: 12px;
+      display: none;
     }
 
     .invoice-bank-grid {
