@@ -37,9 +37,9 @@
       color: var(--ink);
       -webkit-text-size-adjust: 100%;
       background:
-        radial-gradient(circle at top left, rgba(31, 191, 117, 0.12), transparent 28%),
-        radial-gradient(circle at bottom right, rgba(29, 78, 216, 0.1), transparent 30%),
-        linear-gradient(135deg, #f7fbff, #eef4fa 52%, #edf8f3);
+        radial-gradient(circle at top left, rgba(31, 191, 117, 0.12), transparent 26%),
+        radial-gradient(circle at bottom right, rgba(29, 78, 216, 0.14), transparent 28%),
+        linear-gradient(145deg, #0b1017, #111722 54%, #0f1620);
     }
 
     button,
@@ -64,6 +64,10 @@
       align-items: center;
       justify-content: center;
       padding: 32px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(31, 191, 117, 0.12), transparent 20%),
+        radial-gradient(circle at 82% 24%, rgba(29, 78, 216, 0.12), transparent 20%),
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
     }
 
     .login-panel {
@@ -75,20 +79,21 @@
 
     .login-card {
       width: min(440px, 100%);
-      background: rgba(255, 255, 255, 0.98);
-      border: 1px solid rgba(220, 231, 225, 0.95);
+      background: linear-gradient(180deg, rgba(24, 32, 44, 0.96), rgba(17, 23, 32, 0.98));
+      border: 1px solid rgba(122, 146, 180, 0.2);
       border-radius: 28px;
       padding: 34px;
-      box-shadow: var(--shadow);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.32);
     }
 
     .login-card h2 {
       font-size: 30px;
       margin-bottom: 8px;
+      color: #f4f8ff;
     }
 
     .login-card p {
-      color: var(--muted);
+      color: #9cb0cb;
       line-height: 1.6;
       margin-bottom: 24px;
     }
@@ -102,20 +107,25 @@
       margin-bottom: 8px;
       font-size: 13px;
       font-weight: 800;
-      color: #334155;
+      color: #dbe7f8;
     }
 
     .field input,
     .field select,
     .field textarea {
       width: 100%;
-      border: 1px solid var(--line);
+      border: 1px solid #314257;
       border-radius: 14px;
       padding: 12px 14px;
-      background: #fff;
-      color: var(--ink);
+      background: rgba(13, 19, 28, 0.92);
+      color: #f4f8ff;
       outline: none;
       transition: 0.2s ease;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #7f94b2;
     }
 
     .field textarea {
