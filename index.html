@@ -712,7 +712,7 @@
 
     .invoice-page-grid {
       display: grid;
-      grid-template-columns: 360px minmax(0, 1fr);
+      grid-template-columns: 390px minmax(0, 1fr);
       gap: 18px;
       align-items: start;
     }
@@ -727,23 +727,13 @@
 
     .invoice-main-stack {
       min-width: 0;
-      grid-template-columns: minmax(0, 1fr) 360px;
+      grid-template-columns: 1fr;
       align-items: start;
     }
 
-    .invoice-main-stack > .invoice-pane:first-of-type {
-      grid-column: 1 / -1;
-    }
-
-    .invoice-main-stack > .invoice-pane:nth-of-type(2) {
-      grid-column: 1;
-    }
-
     .invoice-preview-stack {
-      grid-column: 2;
       align-self: start;
-      position: sticky;
-      top: 24px;
+      position: static;
     }
 
     .invoice-pane {
@@ -782,6 +772,15 @@
 
     .invoice-side-stack .form-grid-2 {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .invoice-side-stack .invoice-pane:nth-child(2) .top-actions {
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .invoice-side-stack .invoice-pane:nth-child(2) .top-actions .btn {
+      min-width: 86px;
     }
 
     .invoice-meta-toolbar {
@@ -1119,7 +1118,8 @@
       overflow: hidden;
       border-radius: 16px;
       border: 1px solid rgba(121, 144, 177, 0.18);
-      background: rgba(9, 15, 26, 0.36);
+      background: rgba(9, 15, 26, 0.22);
+      table-layout: fixed;
     }
 
     .invoice-builder-table th {
@@ -1137,6 +1137,7 @@
       padding: 7px;
       border-top: 1px solid rgba(121, 144, 177, 0.18);
       vertical-align: middle;
+      background: rgba(255, 255, 255, 0.03);
     }
 
     .invoice-builder-table input,
@@ -1146,13 +1147,17 @@
       border-radius: 12px;
       font-size: 12px;
       width: 100%;
+      border: 1px solid rgba(121, 144, 177, 0.34);
+      background: rgba(255, 255, 255, 0.9);
+      color: #172033;
+      box-shadow: none;
     }
 
     .invoice-builder-table .amount-readonly {
       min-height: 36px;
       border: 1px solid rgba(121, 144, 177, 0.18);
       border-radius: 12px;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.1);
       display: flex;
       align-items: center;
       justify-content: flex-end;
@@ -1194,6 +1199,7 @@
 
     .summary-box {
       padding: 16px;
+      max-width: 100%;
     }
 
     .summary-box .invoice-live-head {
@@ -1779,6 +1785,29 @@
       border-top: 1px solid #d7e2ec;
     }
 
+    body.theme-light .invoice-builder-table {
+      background: #edf3fa;
+      border-color: #d4deea;
+    }
+
+    body.theme-light .invoice-builder-table td {
+      background: #edf3fa;
+      border-top: 1px solid #d7e2ec;
+    }
+
+    body.theme-light .invoice-builder-table input,
+    body.theme-light .invoice-builder-table select {
+      background: #ffffff;
+      color: #172033;
+      border: 1px solid #a4b2c4;
+    }
+
+    body.theme-light .invoice-builder-table .amount-readonly {
+      background: #dde7f3;
+      color: #334155;
+      border-color: #c7d5e6;
+    }
+
     body.theme-light .main {
       background:
         radial-gradient(circle at top right, rgba(31, 191, 117, 0.08), transparent 22%),
@@ -2088,7 +2117,7 @@
       }
 
       .invoice-builder-table {
-        min-width: 860px;
+        min-width: 760px;
       }
 
       .invoice-preview-meta {
@@ -2150,11 +2179,11 @@
     }
   </style>
 </head>
-<body>
+<body class="theme-light">
   <section id="loginScreen" class="login-shell">
     <div class="login-panel">
       <form id="loginForm" class="login-card">
-        <div class="top-actions" style="justify-content:flex-end; margin-bottom:14px;"><button id="loginThemeToggle" class="btn btn-light btn-sm theme-toggle" type="button" onclick="toggleTheme()">Light Mode</button></div>
+        <div class="top-actions" style="justify-content:flex-end; margin-bottom:14px;"><button id="loginThemeToggle" class="btn btn-light btn-sm theme-toggle" type="button" onclick="toggleTheme()">Dark Mode</button></div>
         <h2>Admin Login</h2>
         <p>Use the demo credentials below to enter the web application.</p>
         <div class="field"><label>Email</label><input id="loginEmail" type="email" value="admin@company.com" required /></div>
@@ -2183,7 +2212,7 @@
     </aside>
 
     <section class="main">
-      <header class="topbar"><div><h1 id="pageTitle">Dashboard Overview</h1><p id="pageSubtitle">Monitor billing performance, dues, recurring reminders, and operational health.</p></div><div class="top-actions"><button id="appThemeToggle" class="btn btn-light theme-toggle" onclick="toggleTheme()">Light Mode</button><button class="btn btn-secondary" onclick="openModal('passwordModal')">Change Password</button><button class="btn btn-primary" onclick="showSection('invoice')">Create Invoice</button></div></header>
+      <header class="topbar"><div><h1 id="pageTitle">Dashboard Overview</h1><p id="pageSubtitle">Monitor billing performance, dues, recurring reminders, and operational health.</p></div><div class="top-actions"><button id="appThemeToggle" class="btn btn-light theme-toggle" onclick="toggleTheme()">Dark Mode</button><button class="btn btn-secondary" onclick="openModal('passwordModal')">Change Password</button><button class="btn btn-primary" onclick="showSection('invoice')">Create Invoice</button></div></header>
 
       <section id="dashboard" class="section active">
         <div class="grid grid-4">
@@ -2334,7 +2363,7 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
       editingClientId: null,
       currentClientAccountId: null,
       selectedCompanyId: 1,
-      theme: 'dark'
+      theme: 'light'
     };
 
     const sectionMeta = {
@@ -3014,9 +3043,9 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
           <table class="invoice-builder-table">
             <thead>
               <tr>
-                <th style="width:38%;">Description</th>
-                <th style="width:14%;">SAC/HSN</th>
-                <th style="width:10%;">Qty</th>
+                <th style="width:42%;">Description</th>
+                <th style="width:12%;">SAC/HSN</th>
+                <th style="width:8%;">Qty</th>
                 <th style="width:12%;">Rate (₹)</th>
                 <th style="width:14%;">Term</th>
                 <th style="width:12%;">Amount</th>
