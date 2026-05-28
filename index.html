@@ -54,6 +54,16 @@
       cursor: pointer;
     }
 
+    body.theme-light {
+      --ink: #172033;
+      --muted: #627089;
+      --line: #d6e0ea;
+      background:
+        radial-gradient(circle at top left, rgba(31, 191, 117, 0.08), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(29, 78, 216, 0.08), transparent 30%),
+        linear-gradient(135deg, #f7fbff, #eef4fa 52%, #edf8f3);
+    }
+
     .hidden {
       display: none !important;
     }
@@ -188,6 +198,10 @@
       padding: 8px 11px;
       border-radius: 11px;
       font-size: 12px;
+    }
+
+    .theme-toggle {
+      min-width: 118px;
     }
 
     .app-shell {
@@ -1484,6 +1498,164 @@
       color: #f4f8ff;
     }
 
+    body.theme-light .login-shell {
+      background:
+        radial-gradient(circle at 18% 18%, rgba(31, 191, 117, 0.1), transparent 20%),
+        radial-gradient(circle at 82% 24%, rgba(29, 78, 216, 0.08), transparent 20%),
+        linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.04));
+    }
+
+    body.theme-light .login-card,
+    body.theme-light .card,
+    body.theme-light .invoice-pane,
+    body.theme-light .company-list-card,
+    body.theme-light .company-editor-card,
+    body.theme-light .modal {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 255, 0.96));
+      border: 1px solid #d8e2ec;
+      box-shadow: 0 14px 30px rgba(16, 32, 50, 0.06);
+    }
+
+    body.theme-light .login-card h2,
+    body.theme-light .topbar h1,
+    body.theme-light .section-head h2,
+    body.theme-light .invoice-pane-title h3,
+    body.theme-light .company-list-card h3,
+    body.theme-light .company-editor-card h3,
+    body.theme-light .modal-head h2,
+    body.theme-light .stat-card strong,
+    body.theme-light .detail-row div,
+    body.theme-light .list-card strong,
+    body.theme-light td {
+      color: #172033;
+    }
+
+    body.theme-light .login-card p,
+    body.theme-light .topbar p,
+    body.theme-light .section-head p,
+    body.theme-light .small,
+    body.theme-light .invoice-pane-title p,
+    body.theme-light .company-editor-top p,
+    body.theme-light .list-card p,
+    body.theme-light .stat-card span,
+    body.theme-light .detail-row label {
+      color: #627089;
+    }
+
+    body.theme-light .field label {
+      color: #334155;
+    }
+
+    body.theme-light .field input,
+    body.theme-light .field select,
+    body.theme-light .field textarea,
+    body.theme-light .toolbar input,
+    body.theme-light .toolbar select,
+    body.theme-light .stat-card input {
+      background: #fff;
+      color: #172033;
+      border: 1px solid #d6e0ea;
+    }
+
+    body.theme-light .field input::placeholder,
+    body.theme-light .field textarea::placeholder {
+      color: #8aa0bb;
+    }
+
+    body.theme-light .app-shell {
+      background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.08));
+    }
+
+    body.theme-light .sidebar {
+      background:
+        radial-gradient(circle at top left, rgba(31, 191, 117, 0.12), transparent 26%),
+        linear-gradient(180deg, #fefefe, #f4f8fb 55%, #eef3f9);
+      border-right: 1px solid #d8e2ec;
+      box-shadow: inset -1px 0 0 rgba(255,255,255,0.65);
+    }
+
+    body.theme-light .brand-row {
+      border-bottom: 1px solid #d7e2ec;
+    }
+
+    body.theme-light .brand-row strong {
+      color: #12263f;
+    }
+
+    body.theme-light .brand-row span {
+      color: #627089;
+    }
+
+    body.theme-light .nav button {
+      background: rgba(255, 255, 255, 0.78);
+      color: #334155;
+      border: 1px solid transparent;
+      box-shadow: 0 8px 18px rgba(16, 32, 50, 0.03);
+    }
+
+    body.theme-light .nav button.active,
+    body.theme-light .nav button:hover {
+      background: linear-gradient(135deg, rgba(31, 191, 117, 0.14), rgba(29, 78, 216, 0.12));
+      color: #12263f;
+      border-color: #c9ddf4;
+    }
+
+    body.theme-light .sidebar-footer {
+      border-top: 1px solid #d7e2ec;
+    }
+
+    body.theme-light .main {
+      background:
+        radial-gradient(circle at top right, rgba(31, 191, 117, 0.08), transparent 22%),
+        radial-gradient(circle at bottom left, rgba(29, 78, 216, 0.1), transparent 24%),
+        linear-gradient(180deg, #f5f9fd, #eef4fa 55%, #edf7f1);
+    }
+
+    body.theme-light .topbar {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(245, 250, 255, 0.96));
+      border: 1px solid #d8e2ec;
+      box-shadow: 0 18px 40px rgba(16, 32, 50, 0.06);
+    }
+
+    body.theme-light .metric-icon {
+      background: linear-gradient(135deg, rgba(31, 191, 117, 0.16), rgba(29, 78, 216, 0.16));
+      color: #12263f;
+    }
+
+    body.theme-light .table-wrap {
+      background: #fff;
+      border: 1px solid #d6e0ea;
+    }
+
+    body.theme-light th {
+      background: #f8fafc;
+      color: #475569;
+    }
+
+    body.theme-light .item-card,
+    body.theme-light .list-card,
+    body.theme-light .stat-card,
+    body.theme-light .detail-panel,
+    body.theme-light .invoice-company-card,
+    body.theme-light .invoice-live-card,
+    body.theme-light .company-list-item,
+    body.theme-light .upload-box,
+    body.theme-light .upload-preview {
+      background: linear-gradient(180deg, #ffffff, #f9fbff);
+      border-color: #d8e2ec;
+      box-shadow: 0 10px 24px rgba(16, 32, 50, 0.06);
+    }
+
+    body.theme-light .detail-panel h3 {
+      background: linear-gradient(135deg, #2b6de4, #0ea5e9);
+    }
+
+    body.theme-light .company-list-item.active {
+      border-color: #2563eb;
+      box-shadow: inset 0 0 0 1px #2563eb;
+      background: #eff6ff;
+    }
+
     @media (max-width: 1180px) {
       .grid-4,
       .grid-3,
@@ -1766,6 +1938,7 @@
   <section id="loginScreen" class="login-shell">
     <div class="login-panel">
       <form id="loginForm" class="login-card">
+        <div class="top-actions" style="justify-content:flex-end; margin-bottom:14px;"><button id="loginThemeToggle" class="btn btn-light btn-sm theme-toggle" type="button" onclick="toggleTheme()">Light Mode</button></div>
         <h2>Admin Login</h2>
         <p>Use the demo credentials below to enter the web application.</p>
         <div class="field"><label>Email</label><input id="loginEmail" type="email" value="admin@company.com" required /></div>
@@ -1794,7 +1967,7 @@
     </aside>
 
     <section class="main">
-      <header class="topbar"><div><h1 id="pageTitle">Dashboard Overview</h1><p id="pageSubtitle">Monitor billing performance, dues, recurring reminders, and operational health.</p></div><div class="top-actions"><button class="btn btn-secondary" onclick="openModal('passwordModal')">Change Password</button><button class="btn btn-primary" onclick="showSection('invoice')">Create Invoice</button></div></header>
+      <header class="topbar"><div><h1 id="pageTitle">Dashboard Overview</h1><p id="pageSubtitle">Monitor billing performance, dues, recurring reminders, and operational health.</p></div><div class="top-actions"><button id="appThemeToggle" class="btn btn-light theme-toggle" onclick="toggleTheme()">Light Mode</button><button class="btn btn-secondary" onclick="openModal('passwordModal')">Change Password</button><button class="btn btn-primary" onclick="showSection('invoice')">Create Invoice</button></div></header>
 
       <section id="dashboard" class="section active">
         <div class="grid grid-4">
@@ -1944,7 +2117,8 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
       invoiceItems: [],
       editingClientId: null,
       currentClientAccountId: null,
-      selectedCompanyId: 1
+      selectedCompanyId: 1,
+      theme: 'dark'
     };
 
     const sectionMeta = {
@@ -1963,6 +2137,20 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
 
     function money(value) {
       return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(Number(value || 0));
+    }
+
+    function applyTheme(theme) {
+      state.theme = theme === 'light' ? 'light' : 'dark';
+      document.body.classList.toggle('theme-light', state.theme === 'light');
+      const nextLabel = state.theme === 'light' ? 'Dark Mode' : 'Light Mode';
+      ['loginThemeToggle', 'appThemeToggle'].forEach((id) => {
+        const button = document.getElementById(id);
+        if (button) button.textContent = nextLabel;
+      });
+    }
+
+    function toggleTheme() {
+      applyTheme(state.theme === 'dark' ? 'light' : 'dark');
     }
 
     function numberToWords(value) {
@@ -3054,6 +3242,7 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
     });
 
     document.getElementById('paymentDate').value = today();
+    applyTheme(state.theme);
     populateClientSelects();
     selectCompany(state.selectedCompanyId);
     resetInvoiceForm();
