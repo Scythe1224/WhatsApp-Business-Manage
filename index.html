@@ -691,15 +691,21 @@
 
     .invoice-page-grid {
       display: grid;
-      grid-template-columns: minmax(0, 460px) minmax(0, 1fr);
+      grid-template-columns: 320px minmax(0, 1fr);
       gap: 18px;
       align-items: start;
     }
 
     .invoice-form-stack,
-    .invoice-preview-stack {
+    .invoice-preview-stack,
+    .invoice-side-stack,
+    .invoice-main-stack {
       display: grid;
       gap: 18px;
+    }
+
+    .invoice-main-stack {
+      min-width: 0;
     }
 
     .invoice-pane {
@@ -738,6 +744,25 @@
       align-items: end;
     }
 
+    .invoice-mini-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .invoice-mini-head h4 {
+      font-size: 17px;
+      color: #f6f9ff;
+    }
+
+    .invoice-mini-head p {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
     .invoice-company-card {
       border: 1px solid var(--line);
       border-radius: 18px;
@@ -766,6 +791,20 @@
       padding: 14px;
     }
 
+    .invoice-live-card.compact-preview {
+      padding: 16px;
+      display: grid;
+      gap: 12px;
+      cursor: pointer;
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .invoice-live-card.compact-preview:hover {
+      transform: translateY(-2px);
+      border-color: rgba(96, 165, 250, 0.5);
+      box-shadow: 0 16px 34px rgba(3, 105, 161, 0.18);
+    }
+
     .invoice-live-head {
       display: flex;
       justify-content: space-between;
@@ -776,6 +815,39 @@
       color: #96aacc;
       font-size: 12px;
       font-weight: 700;
+    }
+
+    .invoice-thumb-stage {
+      position: relative;
+      min-height: 270px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #e8eef7, #dbe5f2);
+      border: 1px solid rgba(154, 176, 208, 0.4);
+    }
+
+    .invoice-thumb-stage::after {
+      content: "Click to open full invoice preview";
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      background: rgba(15, 23, 42, 0.82);
+      color: #f8fbff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 8px 12px;
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    .invoice-thumb-stage .invoice-document {
+      transform: scale(0.34);
+      transform-origin: top left;
+      width: 294%;
+      min-height: auto;
+      box-shadow: none;
+      border-radius: 0;
     }
 
     .invoice-document {
@@ -1038,6 +1110,85 @@
 
     .invoice-item-table .right {
       text-align: right;
+    }
+
+    .invoice-builder-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid rgba(121, 144, 177, 0.18);
+      background: rgba(9, 15, 26, 0.36);
+    }
+
+    .invoice-builder-table th {
+      background: linear-gradient(90deg, #123a7a, #0f2f62);
+      color: #eef5ff;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 12px 10px;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .invoice-builder-table td {
+      padding: 8px;
+      border-top: 1px solid rgba(121, 144, 177, 0.18);
+      vertical-align: middle;
+    }
+
+    .invoice-builder-table input,
+    .invoice-builder-table select {
+      min-height: 40px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      font-size: 13px;
+      width: 100%;
+    }
+
+    .invoice-builder-table .amount-readonly {
+      min-height: 40px;
+      border: 1px solid rgba(121, 144, 177, 0.18);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 12px;
+      font-weight: 700;
+      color: #eef5ff;
+      white-space: nowrap;
+    }
+
+    .invoice-builder-table .icon-btn {
+      width: 38px;
+      height: 38px;
+      min-height: 38px;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      font-size: 18px;
+    }
+
+    .invoice-line-tools {
+      display: flex;
+      justify-content: flex-start;
+      margin-top: 12px;
+    }
+
+    .invoice-summary-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .invoice-summary-actions .btn {
+      flex: 1 1 140px;
     }
 
     .invoice-summary-area {
@@ -1875,6 +2026,10 @@
         display: grid;
       }
 
+      .invoice-builder-table {
+        min-width: 860px;
+      }
+
       .invoice-preview-meta {
         text-align: left;
       }
@@ -1988,7 +2143,7 @@
 
       <section id="services" class="section"><div class="section-head"><div><h2>Services</h2><p>Manage billable service catalog and default pricing used by invoice creation.</p></div></div><div class="table-wrap"><table><thead><tr><th>Service</th><th>Category</th><th>Billing Type</th><th>Rate</th><th>SAC</th><th>Description</th></tr></thead><tbody id="serviceTable"></tbody></table></div></section>
 
-<section id="invoice" class="section"><div class="page-shell"><div class="page-hero"><h2>Tax Invoice Workspace</h2><p>Build invoices on a full page with issuer controls on the left and a live tax invoice preview on the right.</p></div><div class="invoice-meta-toolbar"><div class="field"><label>Saved Invoices</label><select id="invoiceSavedDraft" onchange="handleInvoiceDraftSelect(this.value)"><option value="new">New Draft</option></select></div><div class="field"><label>Companies</label><select id="invoiceCompanySelect" onchange="handleInvoiceCompanySelect(this.value)"></select></div><button class="btn btn-secondary" onclick="showSection('settings')">Company Settings</button></div><div class="invoice-page-grid"><div class="invoice-form-stack"><div class="invoice-pane"><div class="invoice-pane-title"><div><h3>Invoice Details</h3><p>Use client and series data to create the invoice number and billing block.</p></div><div class="top-actions"><button class="btn btn-light btn-sm" onclick="resetInvoiceForm()">Reset</button><button class="btn btn-secondary btn-sm" onclick="previewCurrentInvoice()">Preview Invoice</button><button class="btn btn-primary btn-sm" onclick="saveInvoice()">Save Invoice</button></div></div><div class="form-grid-2"><div class="field"><label>Product</label><select id="invoiceProduct"><option>WhatsApp Panel Monthly Subscription Charges</option><option>CNMS Onnet</option><option>Campaign Setup</option><option>Chatbot Management</option></select></div><div class="field"><label>Invoice No.</label><input id="invoiceNo" /></div><div class="field"><label>Client</label><select id="invoiceClient" onchange="applyClientToInvoice(this.value)"></select></div><div class="field"><label>Date</label><input id="invoiceDate" type="date" /></div><div class="field"><label>Due Date</label><input id="invoiceDueDate" type="date" /></div><div class="field"><label>Billing Period</label><input id="invoicePeriod" placeholder="May 2026" /></div><div class="field"><label>Place of Supply</label><input id="invoicePlace" value="Rajasthan" oninput="updateInvoiceSummary()" /></div><div class="field"><label>Previous Due</label><input id="invoicePreviousDue" disabled /></div></div></div><div class="invoice-pane"><div class="invoice-pane-title"><div><h3>Issuer</h3><p>These values come from the selected company profile.</p></div></div><div id="invoiceCompanyPreview" class="invoice-company-card"></div></div><div class="invoice-pane"><div class="invoice-pane-title"><div><h3>Recipient</h3><p>Auto-filled from the client record and still editable for one-off invoice changes.</p></div><button class="btn btn-light btn-sm" onclick="syncInvoiceWithSelectedClient()" type="button">Reload From Client</button></div><div class="form-grid-2"><div class="field"><label>Company / Billing Name</label><input id="invoiceBillCompany" /></div><div class="field"><label>Contact Person</label><input id="invoiceBillContact" /></div><div class="field"><label>Email</label><input id="invoiceBillEmail" type="email" /></div><div class="field"><label>Phone</label><input id="invoiceBillPhone" /></div><div class="field"><label>GSTIN</label><input id="invoiceBillGstin" /></div><div class="field"><label>PAN</label><input id="invoiceBillPan" /></div><div class="field"><label>Address Line 1</label><input id="invoiceBillAddress1" /></div><div class="field"><label>Address Line 2</label><input id="invoiceBillAddress2" /></div><div class="field"><label>City</label><input id="invoiceBillCity" /></div><div class="field"><label>State</label><input id="invoiceBillState" oninput="updateInvoiceSummary()" /></div><div class="field"><label>Pincode</label><input id="invoiceBillPincode" /></div><div class="field"><label>Country</label><input id="invoiceBillCountry" value="India" /></div></div></div><div class="invoice-pane"><div class="invoice-pane-title"><div><h3>Line Items</h3><p>Add or edit invoice charge lines with quantity, rate, and term.</p></div><button class="btn btn-secondary btn-sm" onclick="addInvoiceItem()">Add Line</button></div><div id="invoiceItems"></div></div></div><div class="invoice-preview-stack"><div class="invoice-live-card"><div class="invoice-live-head"><span>Live Preview</span><span id="invoiceLiveMeta">Tax invoice preview updates as you type</span></div><div id="invoicePreviewContent" class="invoice-document"></div></div><div class="invoice-pane summary-box"><h3 style="margin-bottom:14px;">Invoice Summary</h3><div class="summary-line"><span>Subtotal</span><strong id="sumSubtotal">INR 0</strong></div><div class="summary-line"><span id="sumTaxPrimaryLabel">CGST 9%</span><strong id="sumTaxPrimary">INR 0</strong></div><div class="summary-line"><span id="sumTaxSecondaryLabel">SGST 9%</span><strong id="sumTaxSecondary">INR 0</strong></div><div class="summary-line"><span>Outstanding Due</span><strong id="sumOutstanding">INR 0</strong></div><div class="summary-line"><span>Wallet Balance</span><strong id="sumWallet">INR 0</strong></div><div class="summary-total"><span>Payable</span><span id="sumPayable">INR 0</span></div><p class="small" id="sumTaxHint" style="margin-top:14px;">Tax mode is selected automatically based on your business state and the invoice place of supply.</p></div></div></div></div></section>
+<section id="invoice" class="section"><div class="page-shell"><div class="page-hero"><h2>Tax Invoice Workspace</h2><p>Build invoices with compact setup cards, line items in the main workspace, and a clickable preview thumbnail for the final document.</p></div><div class="invoice-meta-toolbar"><div class="field"><label>Saved Invoices</label><select id="invoiceSavedDraft" onchange="handleInvoiceDraftSelect(this.value)"><option value="new">New Draft</option></select></div><div class="field"><label>Companies</label><select id="invoiceCompanySelect" onchange="handleInvoiceCompanySelect(this.value)"></select></div><button class="btn btn-secondary" onclick="showSection('settings')">Company Settings</button></div><div class="invoice-page-grid"><div class="invoice-side-stack"><div class="invoice-pane"><div class="invoice-mini-head"><div><h4>Client</h4><p>Select client and pull billing details.</p></div><button class="btn btn-secondary btn-sm" onclick="showSection('clients')">+ Add</button></div><div class="field"><label>Select Client</label><select id="invoiceClient" onchange="applyClientToInvoice(this.value)"></select></div></div><div class="invoice-pane"><div class="invoice-pane-title"><div><h3>Invoice Details</h3><p>Series and date controls for this invoice.</p></div><div class="top-actions"><button class="btn btn-light btn-sm" onclick="resetInvoiceForm()">Reset</button><button class="btn btn-primary btn-sm" onclick="saveInvoice()">Save Invoice</button></div></div><div class="form-grid-2"><div class="field"><label>Invoice No.</label><input id="invoiceNo" /></div><div class="field"><label>Product</label><select id="invoiceProduct"><option>WhatsApp Panel Monthly Subscription Charges</option><option>CNMS Onnet</option><option>Campaign Setup</option><option>Chatbot Management</option></select></div><div class="field"><label>Invoice Date</label><input id="invoiceDate" type="date" /></div><div class="field"><label>Due Date</label><input id="invoiceDueDate" type="date" /></div><div class="field"><label>Billing Period</label><input id="invoicePeriod" placeholder="May 2026" /></div><div class="field"><label>Place of Supply</label><input id="invoicePlace" value="Rajasthan" oninput="updateInvoiceSummary()" /></div><div class="field"><label>Previous Due</label><input id="invoicePreviousDue" disabled /></div></div></div><div class="invoice-pane"><div class="invoice-pane-title"><div><h3>Issuer</h3><p>These values come from the selected company profile.</p></div></div><div id="invoiceCompanyPreview" class="invoice-company-card"></div></div></div><div class="invoice-main-stack"><div class="invoice-pane"><div class="invoice-pane-title"><div><h3>Recipient</h3><p>Auto-filled from the client record and still editable for one-off invoice changes.</p></div><button class="btn btn-light btn-sm" onclick="syncInvoiceWithSelectedClient()" type="button">Reload From Client</button></div><div class="form-grid-2"><div class="field"><label>Company / Billing Name</label><input id="invoiceBillCompany" /></div><div class="field"><label>Contact Person</label><input id="invoiceBillContact" /></div><div class="field"><label>Email</label><input id="invoiceBillEmail" type="email" /></div><div class="field"><label>Phone</label><input id="invoiceBillPhone" /></div><div class="field"><label>GSTIN</label><input id="invoiceBillGstin" /></div><div class="field"><label>PAN</label><input id="invoiceBillPan" /></div><div class="field"><label>Address Line 1</label><input id="invoiceBillAddress1" /></div><div class="field"><label>Address Line 2</label><input id="invoiceBillAddress2" /></div><div class="field"><label>City</label><input id="invoiceBillCity" /></div><div class="field"><label>State</label><input id="invoiceBillState" oninput="updateInvoiceSummary()" /></div><div class="field"><label>Pincode</label><input id="invoiceBillPincode" /></div><div class="field"><label>Country</label><input id="invoiceBillCountry" value="India" /></div></div></div><div class="invoice-pane"><div class="invoice-pane-title"><div><h3>Line Items</h3><p>Add charges here and keep the full invoice preview one click away.</p></div><button class="btn btn-secondary btn-sm" onclick="addInvoiceItem()">+ Add Line</button></div><div id="invoiceItems"></div></div><div class="invoice-preview-stack"><div class="invoice-live-card compact-preview" onclick="previewCurrentInvoice()"><div class="invoice-live-head"><span>Preview Thumbnail</span><span id="invoiceLiveMeta">Click the image to open the full invoice</span></div><div class="invoice-thumb-stage"><div id="invoicePreviewContent" class="invoice-document"></div></div></div><div class="invoice-pane summary-box"><h3 style="margin-bottom:14px;">Invoice Summary</h3><div class="summary-line"><span>Subtotal</span><strong id="sumSubtotal">INR 0</strong></div><div class="summary-line"><span id="sumTaxPrimaryLabel">CGST 9%</span><strong id="sumTaxPrimary">INR 0</strong></div><div class="summary-line"><span id="sumTaxSecondaryLabel">SGST 9%</span><strong id="sumTaxSecondary">INR 0</strong></div><div class="summary-line"><span>Outstanding Due</span><strong id="sumOutstanding">INR 0</strong></div><div class="summary-line"><span>Wallet Balance</span><strong id="sumWallet">INR 0</strong></div><div class="summary-total"><span>Payable</span><span id="sumPayable">INR 0</span></div><p class="small" id="sumTaxHint" style="margin-top:14px;">Tax mode is selected automatically based on your business state and the invoice place of supply.</p><div class="invoice-summary-actions"><button class="btn btn-light btn-sm" onclick="resetInvoiceForm()">Reset</button><button class="btn btn-secondary btn-sm" onclick="previewCurrentInvoice()">Preview Invoice</button><button class="btn btn-primary btn-sm" onclick="saveInvoice()">Save Invoice</button></div></div></div></div></div></div></section>
 
       <section id="invoices" class="section"><div class="section-head"><div><h2>Invoice List</h2><p>Review payment state, billing type, due dates, and outstanding balances.</p></div></div><div class="toolbar"><input id="invoiceSearch" type="search" placeholder="Search invoice or client" oninput="renderInvoices()" /><select id="invoiceStatusFilter" onchange="renderInvoices()"><option value="">All Payment Status</option><option value="Pending">Pending</option><option value="Paid">Paid</option><option value="Partially Paid">Partially Paid</option></select></div><div class="table-wrap"><table><thead><tr><th>Invoice</th><th>Client</th><th>Date</th><th>Type</th><th>Total</th><th>Paid</th><th>Balance</th><th>Status</th><th>Actions</th></tr></thead><tbody id="invoiceTable"></tbody></table></div></section>
 
@@ -2767,14 +2922,14 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
       document.getElementById('invoicePlace').value = invoice.placeOfSupply || '';
       document.getElementById('invoiceProduct').value = invoice.product || 'WhatsApp Panel Monthly Subscription Charges';
       fillInvoiceBillingDetails(invoice.billingDetails || getClientById(invoice.clientId));
-      state.invoiceItems = invoice.items?.length ? invoice.items.map((item) => ({ ...item, id: Date.now() + Math.random() })) : [{ id: Date.now(), description: invoice.product || 'Service Charges', qty: 1, rate: Number(invoice.total || 0), billingType: invoice.billingType || 'One Time', term: 'Monthly' }];
+      state.invoiceItems = invoice.items?.length ? invoice.items.map((item) => ({ sacHsn: '997331', ...item, id: Date.now() + Math.random() })) : [{ id: Date.now(), description: invoice.product || 'Service Charges', sacHsn: '997331', qty: 1, rate: Number(invoice.total || 0), billingType: invoice.billingType || 'One Time', term: 'Monthly' }];
       renderInvoiceItems();
       updateInvoiceSummary();
     }
 
     function addInvoiceItem(prefill) {
       const service = prefill || state.services[0];
-      state.invoiceItems.push({ id: Date.now() + Math.random(), description: service.name, qty: 1, rate: service.rate, billingType: service.billingType, term: 'Monthly' });
+      state.invoiceItems.push({ id: Date.now() + Math.random(), description: service.name, sacHsn: service.sacHsn || '997331', qty: 1, rate: service.rate, billingType: service.billingType, term: 'Monthly' });
       renderInvoiceItems();
       updateInvoiceSummary();
     }
@@ -2793,20 +2948,39 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
     }
 
     function renderInvoiceItems() {
-      document.getElementById('invoiceItems').innerHTML = state.invoiceItems.map((item, index) => `
-        <div class="item-card">
-          <h4>Line Item ${index + 1}</h4>
-          <div class="form-grid">
-            <div class="field"><label>Description</label><input value="${item.description}" oninput="updateInvoiceItem(${item.id}, 'description', this.value)" /></div>
-            <div class="field"><label>Quantity</label><input type="number" value="${item.qty}" oninput="updateInvoiceItem(${item.id}, 'qty', this.value)" /></div>
-            <div class="field"><label>Rate</label><input type="number" value="${item.rate}" oninput="updateInvoiceItem(${item.id}, 'rate', this.value)" /></div>
-            <div class="field"><label>Billing Type</label><select onchange="updateInvoiceItem(${item.id}, 'billingType', this.value)"><option ${item.billingType === 'One Time' ? 'selected' : ''}>One Time</option><option ${item.billingType === 'Recurring' ? 'selected' : ''}>Recurring</option></select></div>
-            <div class="field"><label>Term</label><select onchange="updateInvoiceItem(${item.id}, 'term', this.value)"><option ${item.term === 'Monthly' ? 'selected' : ''}>Monthly</option><option ${item.term === 'Quarterly' ? 'selected' : ''}>Quarterly</option><option ${item.term === 'Yearly' ? 'selected' : ''}>Yearly</option></select></div>
-            <div class="field"><label>Line Total</label><input value="${money(item.qty * item.rate)}" disabled /></div>
-          </div>
-          <button class="btn btn-danger btn-sm" onclick="removeInvoiceItem(${item.id})">Remove Line</button>
+      document.getElementById('invoiceItems').innerHTML = `
+        <div class="table-wrap">
+          <table class="invoice-builder-table">
+            <thead>
+              <tr>
+                <th style="width:38%;">Description</th>
+                <th style="width:14%;">SAC/HSN</th>
+                <th style="width:10%;">Qty</th>
+                <th style="width:12%;">Rate (₹)</th>
+                <th style="width:14%;">Term</th>
+                <th style="width:12%;">Amount</th>
+                <th style="width:44px;"></th>
+              </tr>
+            </thead>
+            <tbody>
+              ${state.invoiceItems.map((item) => `
+                <tr>
+                  <td><input value="${item.description}" oninput="updateInvoiceItem(${item.id}, 'description', this.value)" /></td>
+                  <td><input value="${item.sacHsn || '997331'}" oninput="updateInvoiceItem(${item.id}, 'sacHsn', this.value)" /></td>
+                  <td><input type="number" value="${item.qty}" oninput="updateInvoiceItem(${item.id}, 'qty', this.value)" /></td>
+                  <td><input type="number" value="${item.rate}" oninput="updateInvoiceItem(${item.id}, 'rate', this.value)" /></td>
+                  <td><select onchange="updateInvoiceItem(${item.id}, 'term', this.value)"><option ${item.term === 'Monthly' ? 'selected' : ''}>Monthly</option><option ${item.term === 'Quarterly' ? 'selected' : ''}>Quarterly</option><option ${item.term === 'Yearly' ? 'selected' : ''}>Yearly</option></select></td>
+                  <td><div class="amount-readonly">${money(item.qty * item.rate)}</div></td>
+                  <td><button class="btn btn-danger icon-btn" onclick="removeInvoiceItem(${item.id})" type="button">×</button></td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
         </div>
-      `).join('');
+        <div class="invoice-line-tools">
+          <button class="btn btn-light btn-sm" onclick="addInvoiceItem()" type="button">+ Row</button>
+        </div>
+      `;
     }
 
     function updateInvoiceSummary() {
