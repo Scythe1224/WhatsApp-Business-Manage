@@ -206,7 +206,7 @@
 
     .app-shell {
       display: grid;
-      grid-template-columns: 236px 1fr;
+      grid-template-columns: 92px 1fr;
       min-height: 100vh;
       background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
     }
@@ -220,7 +220,7 @@
         radial-gradient(circle at bottom right, rgba(29, 78, 216, 0.08), transparent 26%),
         linear-gradient(180deg, #10161f, #131b26 58%, #101721);
       border-right: 1px solid #263446;
-      padding: 20px;
+      padding: 18px 14px;
       display: flex;
       flex-direction: column;
       gap: 16px;
@@ -231,9 +231,9 @@
     .brand-row {
       display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: center;
       border-bottom: 1px solid #243244;
-      padding: 2px 2px 16px;
+      padding: 2px 0 16px;
     }
 
     .brand-mark {
@@ -249,36 +249,34 @@
       letter-spacing: 0.04em;
     }
 
-    .brand-row strong {
-      display: block;
-      font-size: 14px;
-      color: #f4f8ff;
-    }
-
-    .brand-row span {
-      color: #8ea3c1;
-      font-size: 11px;
+    .brand-copy {
+      display: none;
     }
 
     .nav {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
       overflow: auto;
       flex: 1;
-      padding: 4px 4px 6px 0;
+      padding: 4px 0 6px;
+      align-items: center;
     }
 
     .nav button {
-      width: 100%;
-      text-align: left;
+      width: 56px;
+      height: 56px;
+      text-align: center;
       background: rgba(255, 255, 255, 0.03);
       color: #d6e3f7;
-      padding: 12px 13px;
-      border-radius: 14px;
+      padding: 0;
+      border-radius: 18px;
       font-weight: 800;
       border: 1px solid rgba(148, 172, 204, 0.08);
       box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .nav button.active,
@@ -286,12 +284,35 @@
       background: linear-gradient(135deg, rgba(31, 191, 117, 0.22), rgba(29, 78, 216, 0.2));
       color: #f8fbff;
       border-color: rgba(135, 166, 206, 0.28);
-      transform: translateX(2px);
+      transform: translateY(-1px);
+    }
+
+    .nav-icon {
+      font-size: 24px;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .sidebar-footer {
       border-top: 1px solid #243244;
       padding-top: 14px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .sidebar-footer .btn {
+      width: 56px;
+      height: 56px;
+      min-height: 56px;
+      padding: 0;
+      border-radius: 18px;
+    }
+
+    .logout-icon {
+      font-size: 22px;
+      line-height: 1;
     }
 
     .main {
@@ -1797,15 +1818,41 @@
         padding: 18px;
       }
 
+      .brand-copy {
+        display: block;
+      }
+
       .nav {
         flex-direction: row;
         overflow-x: auto;
         padding-bottom: 6px;
         margin: 0 -4px;
+        align-items: stretch;
       }
 
       .nav button {
         min-width: fit-content;
+        width: auto;
+        height: auto;
+        min-height: 44px;
+        padding: 12px 13px;
+        justify-content: flex-start;
+      }
+
+      .nav-icon {
+        margin-right: 10px;
+        font-size: 18px;
+      }
+
+      .sidebar-footer {
+        justify-content: flex-start;
+      }
+
+      .sidebar-footer .btn {
+        width: 100%;
+        height: auto;
+        min-height: 44px;
+        padding: 11px 16px;
       }
 
       .main {
@@ -2058,20 +2105,20 @@
 
   <main id="appShell" class="app-shell hidden">
     <aside class="sidebar">
-      <div class="brand-row"><div class="brand-mark">WB</div><div><strong>Billing Dashboard</strong><span>WhatsApp Services Admin</span></div></div>
+      <div class="brand-row"><div class="brand-mark" title="WhatsApp Business Manage">WB</div><div class="brand-copy"><strong>Billing Dashboard</strong><span>WhatsApp Services Admin</span></div></div>
       <nav id="nav" class="nav">
-        <button class="active" data-section="dashboard">Dashboard</button>
-        <button data-section="clients">Clients</button>
-        <button data-section="services">Services</button>
-        <button data-section="invoice">Create Invoice</button>
-        <button data-section="invoices">Invoice List</button>
-        <button data-section="recurring">Recurring</button>
-        <button data-section="payments">Payments</button>
-        <button data-section="ledger">Ledger</button>
-        <button data-section="reports">Reports</button>
-        <button data-section="settings">Settings</button>
+        <button class="active" data-section="dashboard" title="Dashboard" aria-label="Dashboard"><span class="nav-icon">⌂</span></button>
+        <button data-section="clients" title="Clients" aria-label="Clients"><span class="nav-icon">👥</span></button>
+        <button data-section="services" title="Services" aria-label="Services"><span class="nav-icon">🧩</span></button>
+        <button data-section="invoice" title="Create Invoice" aria-label="Create Invoice"><span class="nav-icon">🧾</span></button>
+        <button data-section="invoices" title="Invoice List" aria-label="Invoice List"><span class="nav-icon">📄</span></button>
+        <button data-section="recurring" title="Recurring" aria-label="Recurring"><span class="nav-icon">↻</span></button>
+        <button data-section="payments" title="Payments" aria-label="Payments"><span class="nav-icon">₹</span></button>
+        <button data-section="ledger" title="Ledger" aria-label="Ledger"><span class="nav-icon">📒</span></button>
+        <button data-section="reports" title="Reports" aria-label="Reports"><span class="nav-icon">📊</span></button>
+        <button data-section="settings" title="Settings" aria-label="Settings"><span class="nav-icon">⚙</span></button>
       </nav>
-      <div class="sidebar-footer"><button class="btn btn-light full" onclick="logout()">Logout</button></div>
+      <div class="sidebar-footer"><button class="btn btn-light full" onclick="logout()" title="Logout" aria-label="Logout"><span class="logout-icon">⇦</span></button></div>
     </aside>
 
     <section class="main">
