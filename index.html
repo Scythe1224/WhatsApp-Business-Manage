@@ -1387,11 +1387,21 @@
     }
 
     .invoice-terms-box {
-      border-top: 1px dashed #dbe7f3;
+      border-top: none;
       padding-top: 14px;
       display: grid;
       gap: 8px;
       width: 100%;
+      position: relative;
+    }
+
+    .invoice-terms-box::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      border-top: 1px dashed #dbe7f3;
     }
 
     .invoice-terms-box h4 {
