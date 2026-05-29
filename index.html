@@ -2265,9 +2265,9 @@
       <form id="loginForm" class="login-card">
         <div class="top-actions" style="justify-content:flex-end; margin-bottom:14px;"><button id="loginThemeToggle" class="btn btn-light btn-sm theme-toggle" type="button" onclick="toggleTheme()">Dark Mode</button></div>
         <h2>Admin Login</h2>
-        <p>Use the demo credentials below to enter the web application.</p>
-        <div class="field"><label>Email</label><input id="loginEmail" type="email" value="admin@company.com" required /></div>
-        <div class="field"><label>Password</label><input id="loginPassword" type="password" value="admin123" required /></div>
+        <p>Sign in with your saved account details to enter the web application.</p>
+        <div class="field"><label>Username / User ID</label><input id="loginEmail" type="text" autocomplete="username" required /></div>
+        <div class="field"><label>Password</label><input id="loginPassword" type="password" autocomplete="current-password" required /></div>
         <button class="btn btn-primary full" type="submit">Login Securely</button>
       </form>
     </div>
@@ -2343,7 +2343,7 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
 
   <div id="serviceModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><div><h2 id="serviceModalTitle">Add Service</h2><p class="small">Create reusable services that you can insert directly into invoice line items.</p></div><button class="btn btn-light btn-sm" onclick="closeModal('serviceModal')">Close</button></div><div class="form-grid-2"><div class="field"><label>Service Name</label><input id="newServiceName" /></div><div class="field"><label>Category</label><input id="newServiceCategory" /></div><div class="field"><label>Billing Type</label><select id="newServiceBillingType" onchange="toggleServiceTermField()"><option>Recurring</option><option>One Time</option></select></div><div class="field"><label>Rate</label><input id="newServiceRate" type="number" min="0" value="0" /></div><div class="field"><label>SAC / HSN</label><input id="newServiceSac" /></div><div class="field"><label>Default Term</label><select id="newServiceTerm"><option>Monthly</option><option>Quarterly</option><option>Yearly</option></select></div></div><div class="field"><label>Description</label><textarea id="newServiceDescription"></textarea></div><button class="btn btn-primary" onclick="saveService()">Save Service</button></div></div>
 
-  <div id="passwordModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><div><h2>Change Password</h2><p class="small">Demo interaction only for the frontend build.</p></div><button class="btn btn-light btn-sm" onclick="closeModal('passwordModal')">Close</button></div><div class="form-grid-2"><div class="field"><label>Current Password</label><input type="password" /></div><div class="field"><label>New Password</label><input type="password" /></div></div><button class="btn btn-primary" onclick="alert('Password updated in demo mode.')">Update Password</button></div></div>
+  <div id="passwordModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><div><h2>Account Settings</h2><p class="small">Update the login username or password for this dashboard.</p></div><button class="btn btn-light btn-sm" onclick="closeModal('passwordModal')">Close</button></div><div class="form-grid-2"><div class="field"><label>Current Username / User ID</label><input id="accountCurrentUsername" type="text" /></div><div class="field"><label>New Username / User ID</label><input id="accountNewUsername" type="text" /></div><div class="field"><label>Current Password</label><input id="accountCurrentPassword" type="password" /></div><div class="field"><label>New Password</label><input id="accountNewPassword" type="password" /></div></div><button class="btn btn-primary" onclick="saveAccountSettings()">Update Account</button></div></div>
 
   <div id="invoicePreviewModal" class="modal-backdrop hidden"><div class="modal" style="max-width:1100px;"><div class="modal-head"><div><h2>Invoice Preview</h2><p class="small">Review the invoice company header, footer, signature, and bill-to details saved with this invoice.</p></div><button class="btn btn-light btn-sm" onclick="closeModal('invoicePreviewModal')">Close</button></div><div id="invoicePreviewModalContent" class="invoice-document"></div></div></div>
 
@@ -2356,6 +2356,10 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script>
+    const AUTH_STORAGE_KEY = 'wbm-auth-profile';
+    const SESSION_STORAGE_KEY = 'wbm-auth-session';
+    const DEFAULT_AUTH_PROFILE = { username: 'admin', password: 'admin123' };
+
     const state = {
       clients: [
         { id: 1, company: 'Apex Digital LLP', contact: 'Rohan Mehta', email: 'rohan@apexdigital.in', phone: '+91 98765 43210', plan: 'Growth', status: 'Active', wallet: 4500, previousDue: 8000, renewal: '2026-06-04', gstin: '27AAPFA1234A1Z5', pan: 'AAPFA1234A', placeOfSupply: 'Maharashtra', address1: '402, Sigma Trade Centre', address2: 'Andheri East', city: 'Mumbai', state: 'Maharashtra', pincode: '400069', country: 'India', operatorId: 'APEX-001', commitmentRemark: '', registrationDate: '2026-04-12', activationDate: '2026-05-01', expiryDate: '2026-06-04', purchaseType: 'Rental', paymentType: 'POSTPAID', connectionCount: 12 },
@@ -2996,18 +3000,93 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
       return formatInvoiceNumber();
     }
 
-    function login() {
+    function getAuthProfile() {
+      try {
+        const stored = localStorage.getItem(AUTH_STORAGE_KEY);
+        if (!stored) return { ...DEFAULT_AUTH_PROFILE };
+        const parsed = JSON.parse(stored);
+        return {
+          username: parsed.username || DEFAULT_AUTH_PROFILE.username,
+          password: parsed.password || DEFAULT_AUTH_PROFILE.password
+        };
+      } catch (error) {
+        return { ...DEFAULT_AUTH_PROFILE };
+      }
+    }
+
+    function saveAuthProfile(profile) {
+      localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(profile));
+    }
+
+    function setSessionActive(isActive) {
+      localStorage.setItem(SESSION_STORAGE_KEY, isActive ? '1' : '0');
+    }
+
+    function isSessionActive() {
+      return localStorage.getItem(SESSION_STORAGE_KEY) === '1';
+    }
+
+    function login(skipValidation = false) {
+      if (!skipValidation) {
+        const username = document.getElementById('loginEmail').value.trim();
+        const password = document.getElementById('loginPassword').value;
+        const authProfile = getAuthProfile();
+        if (username !== authProfile.username || password !== authProfile.password) {
+          alert('Invalid username or password.');
+          return;
+        }
+      }
       document.getElementById('loginScreen').classList.add('hidden');
       document.getElementById('appShell').classList.remove('hidden');
+      setSessionActive(true);
+      document.getElementById('loginPassword').value = '';
       refreshAll();
     }
 
     function logout() {
       document.getElementById('appShell').classList.add('hidden');
       document.getElementById('loginScreen').classList.remove('hidden');
+      setSessionActive(false);
+      document.getElementById('loginEmail').value = '';
+      document.getElementById('loginPassword').value = '';
+    }
+
+    function saveAccountSettings() {
+      const currentUsername = document.getElementById('accountCurrentUsername').value.trim();
+      const newUsername = document.getElementById('accountNewUsername').value.trim();
+      const currentPassword = document.getElementById('accountCurrentPassword').value;
+      const newPassword = document.getElementById('accountNewPassword').value;
+      const authProfile = getAuthProfile();
+
+      if (currentUsername !== authProfile.username || currentPassword !== authProfile.password) {
+        alert('Current username or password is incorrect.');
+        return;
+      }
+
+      if (!newUsername || !newPassword) {
+        alert('Enter the new username and new password first.');
+        return;
+      }
+
+      saveAuthProfile({ username: newUsername, password: newPassword });
+      document.getElementById('accountCurrentUsername').value = '';
+      document.getElementById('accountNewUsername').value = '';
+      document.getElementById('accountCurrentPassword').value = '';
+      document.getElementById('accountNewPassword').value = '';
+      document.getElementById('loginEmail').value = '';
+      document.getElementById('loginPassword').value = '';
+      closeModal('passwordModal');
+      alert('Username and password updated successfully.');
     }
 
     function openModal(id) {
+      if (id === 'passwordModal') {
+        const authProfile = getAuthProfile();
+        document.getElementById('accountCurrentUsername').value = authProfile.username;
+        document.getElementById('accountNewUsername').value = authProfile.username;
+        document.getElementById('accountCurrentPassword').value = '';
+        document.getElementById('accountNewPassword').value = '';
+      }
       document.getElementById(id).classList.remove('hidden');
     }
 
@@ -3769,6 +3848,9 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
     resetInvoiceForm();
     refreshAll();
     syncInvoiceWithSelectedClient();
+    if (isSessionActive()) {
+      login(true);
+    }
   </script>
 </body>
 </html>
