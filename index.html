@@ -1253,6 +1253,45 @@
       font-size: 18px;
     }
 
+    .module-banner-row td {
+      background: rgba(18, 28, 40, 0.92);
+      border-top: none;
+      padding: 10px 14px;
+    }
+
+    .module-banner-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 7px 14px;
+      border: 1px solid rgba(53, 221, 131, 0.4);
+      background: rgba(34, 197, 94, 0.12);
+      color: #d9ffe8;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+
+    .module-banner-chip::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.16);
+    }
+
+    .module-master-shell {
+      display: grid;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .operator-field-hidden {
+      display: none;
+    }
+
     .invoice-line-tools {
       display: flex;
       justify-content: flex-start;
@@ -1903,6 +1942,16 @@
       border-top: 1px solid #d7e2ec;
     }
 
+    body.theme-light .module-banner-row td {
+      background: #f5f9ff;
+    }
+
+    body.theme-light .module-banner-chip {
+      background: rgba(34, 197, 94, 0.08);
+      color: #166534;
+      border-color: rgba(34, 197, 94, 0.26);
+    }
+
     body.theme-light .invoice-builder-table input,
     body.theme-light .invoice-builder-table select {
       background: #ffffff;
@@ -2362,7 +2411,7 @@
 
       <section id="clientAccount" class="section"><div class="section-head"><div><h2 id="clientAccountTitle">Client Account</h2><p id="clientAccountSubtitle">Wallet, due, invoices, credit notes, and billing profile for the selected client.</p></div><div class="top-actions"><button class="btn btn-light" onclick="showSection('clients')">Back To Clients</button><button class="btn btn-secondary" onclick="openWalletModal()">Add Balance</button><button class="btn btn-secondary" onclick="openCreditNoteModal()">Credit Note</button><button class="btn btn-primary" onclick="openClientInvoiceFromAccount()">Create Invoice</button></div></div><div class="client-account-shell"><div class="stat-grid"><div class="stat-card"><span>Due Amount</span><strong><button id="clientDueButton" class="money-link-btn" onclick="openClientDueDetails()"></button></strong></div><div class="stat-card"><span>Wallet Amount</span><strong id="clientWalletValue">INR 0</strong></div><div class="stat-card"><span>Net Balance</span><strong id="clientNetBalanceValue">INR 0</strong></div><div class="stat-card"><span>Commitment Remark</span><input id="clientCommitmentRemark" placeholder="Add a commitment note for this client" oninput="saveClientCommitmentRemark(this.value)" /></div></div><div class="client-action-grid"><button class="btn btn-secondary" onclick="openWalletModal()">Add Money Details</button><button class="btn btn-secondary" onclick="openCreditNoteModal()">Credit Note</button><button class="btn btn-secondary" onclick="openClientDueDetails()">Bill Details</button><button class="btn btn-primary" onclick="adjustWalletAgainstDueForClient()">Adjust Wallet To Due</button></div><div class="detail-grid"><div class="detail-panel"><h3>Operator Details</h3><div id="clientOperatorDetails" class="detail-body"></div></div><div class="detail-panel"><h3>Billing / Address Details</h3><div id="clientAddressDetails" class="detail-body"></div></div><div class="detail-panel"><h3>Account Summary</h3><div id="clientMiscDetails" class="detail-body"></div></div></div><div class="grid grid-2"><div class="card"><div class="section-head"><div><h2 style="font-size:18px;">Raised Invoices</h2><p>Pending and paid invoices for this client.</p></div></div><div id="clientInvoiceList" class="list-stack"></div></div><div class="card"><div class="section-head"><div><h2 style="font-size:18px;">Credit Notes</h2><p>Credit notes and wallet adjustments recorded in demo mode.</p></div></div><div id="clientCreditNoteList" class="list-stack"></div></div></div></div></section>
 
-      <section id="services" class="section"><div class="section-head"><div><h2>Services</h2><p>Manage billable service catalog and default pricing used by invoice creation.</p></div><div class="top-actions"><button class="btn btn-primary" onclick="openServiceModal()">Add Service</button></div></div><div class="table-wrap"><table><thead><tr><th>Service</th><th>Category</th><th>Billing Type</th><th>Rate</th><th>SAC</th><th>Description</th><th>Actions</th></tr></thead><tbody id="serviceTable"></tbody></table></div></section>
+      <section id="services" class="section"><div class="section-head"><div><h2>Services</h2><p>Manage service/module master entries and the billable service catalog used in invoice creation.</p></div><div class="top-actions"><button class="btn btn-secondary" onclick="openModuleModal()">Add Module</button><button class="btn btn-primary" onclick="openServiceModal()">Add Service</button></div></div><div class="module-master-shell"><div class="card"><div class="section-head"><div><h2 style="font-size:18px;">Service / Module Master</h2><p>Create the client-facing module names that control invoice behavior and Operator ID visibility.</p></div></div><div class="table-wrap"><table><thead><tr><th>Module Name</th><th>Invoice Label</th><th>Operator ID</th><th>Description</th><th>Actions</th></tr></thead><tbody id="moduleTable"></tbody></table></div></div><div class="card"><div class="section-head"><div><h2 style="font-size:18px;">Billable Service Catalog</h2><p>Default line-item services and pricing used in invoice generation.</p></div></div><div class="table-wrap"><table><thead><tr><th>Service</th><th>Category</th><th>Billing Type</th><th>Rate</th><th>SAC</th><th>Description</th><th>Actions</th></tr></thead><tbody id="serviceTable"></tbody></table></div></div></div></section>
 
 <section id="invoice" class="section"><div class="page-shell"><div class="page-hero"><h2>Tax Invoice Workspace</h2><p>Build invoices with compact setup cards, line items in the main workspace, and the full document available from the preview button.</p></div><div class="invoice-meta-toolbar"><div class="field"><label>Saved Invoices</label><select id="invoiceSavedDraft" onchange="handleInvoiceDraftSelect(this.value)"><option value="new">New Draft</option></select></div><div class="field"><label>Companies</label><select id="invoiceCompanySelect" onchange="handleInvoiceCompanySelect(this.value)"></select></div><div class="field toolbar-button-field"><label>Company Settings</label><button class="btn btn-secondary" onclick="showSection('settings')">Company Settings</button></div></div><div class="invoice-page-grid"><div class="invoice-side-stack"><div class="invoice-pane"><div class="invoice-mini-head"><div><h4>Client</h4><p>Select client and pull billing details.</p></div><button class="btn btn-secondary btn-sm" onclick="showSection('clients')">+ Add</button></div><div class="field"><label>Select Client</label><select id="invoiceClient" onchange="applyClientToInvoice(this.value)"></select></div></div><div class="invoice-pane"><div class="invoice-pane-title"><div><h3>Issuer</h3><p>These values come from the selected company profile.</p></div></div><div id="invoiceCompanyPreview" class="invoice-company-card"></div></div></div><div class="invoice-main-stack"><div style="display:none;" aria-hidden="true"><input id="invoiceBillCompany" /><input id="invoiceBillContact" /><input id="invoiceBillEmail" type="email" /><input id="invoiceBillPhone" /><input id="invoiceBillGstin" /><input id="invoiceBillPan" /><input id="invoiceBillAddress1" /><input id="invoiceBillAddress2" /><input id="invoiceBillCity" /><input id="invoiceBillState" oninput="updateInvoiceSummary()" /><input id="invoiceBillPincode" /><input id="invoiceBillCountry" value="India" /></div><div class="invoice-pane"><div class="invoice-pane-title"><div><h3>Line Items</h3><p>Add charges here and open the full invoice only when you need to review it.</p></div><div class="top-actions"><select id="invoiceServicePicker" class="btn btn-light btn-sm" style="min-width:180px;"></select><button class="btn btn-light btn-sm" onclick="addSelectedServiceToInvoice()" type="button">Use Service</button><button class="btn btn-secondary btn-sm" onclick="addInvoiceItem()">+ Add Line</button></div></div><div id="invoiceItems"></div></div><div class="invoice-lower-row"><div class="invoice-pane"><div class="invoice-pane-title"><div><h3>Invoice Details</h3><p>Series and date controls for this invoice.</p></div><div class="top-actions"><button class="btn btn-light btn-sm" onclick="resetInvoiceForm()">Reset</button><button class="btn btn-primary btn-sm" onclick="saveInvoice()">Save Invoice</button></div></div><div class="form-grid-2"><div class="field"><label>Product</label><select id="invoiceProduct"></select></div><div class="field"><label>Invoice No.</label><input id="invoiceNo" /></div><div class="field"><label>Invoice Date</label><input id="invoiceDate" type="date" /></div><div class="field"><label>Due Date</label><input id="invoiceDueDate" type="date" /></div><div class="field"><label>Billing Period</label><input id="invoicePeriod" placeholder="May 2026" /></div><div class="field"><label>Place of Supply</label><input id="invoicePlace" value="Rajasthan" oninput="updateInvoiceSummary()" /></div><div class="field"><label>Previous Due</label><input id="invoicePreviousDue" disabled /></div></div></div><div class="invoice-preview-stack"><div class="invoice-pane summary-box"><div class="invoice-live-head" style="padding:0; margin-bottom:14px;"><span>Invoice Summary</span><span id="invoiceLiveMeta">Preview available from the button below</span></div><div class="summary-line"><span>Subtotal</span><strong id="sumSubtotal">INR 0</strong></div><div class="summary-line"><span id="sumTaxPrimaryLabel">CGST 9%</span><strong id="sumTaxPrimary">INR 0</strong></div><div class="summary-line"><span id="sumTaxSecondaryLabel">SGST 9%</span><strong id="sumTaxSecondary">INR 0</strong></div><div class="summary-line"><span>Outstanding Due</span><strong id="sumOutstanding">INR 0</strong></div><div class="summary-line"><span>Wallet Balance</span><strong id="sumWallet">INR 0</strong></div><div class="summary-total"><span>Payable</span><span id="sumPayable">INR 0</span></div><p class="small" id="sumTaxHint" style="margin-top:14px;">Tax mode is selected automatically based on your business state and the invoice place of supply.</p><div class="invoice-summary-actions"><button class="btn btn-light btn-sm" onclick="resetInvoiceForm()">Reset</button><button class="btn btn-secondary btn-sm" onclick="previewCurrentInvoice()">Preview Invoice</button><button class="btn btn-primary btn-sm" onclick="saveInvoice()">Save Invoice</button></div></div></div></div></div></div></div></section>
 
@@ -2390,9 +2439,11 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
 5. Objections in writing within 3 days.</textarea></div></div><div class="company-branding-grid"><div class="upload-box"><label>Default Header</label><input id="settingHeaderAsset" type="file" accept="image/*" onchange="previewBrandingAsset('header', this)" /><div id="headerPreview" class="upload-preview">No header uploaded</div></div><div class="upload-box"><label>Default Footer</label><input id="settingFooterAsset" type="file" accept="image/*" onchange="previewBrandingAsset('footer', this)" /><div id="footerPreview" class="upload-preview">No footer uploaded</div></div><div class="upload-box"><label>Default Signature</label><input id="settingSignatureAsset" type="file" accept="image/*" onchange="previewBrandingAsset('signature', this)" /><div id="signaturePreview" class="upload-preview">No signature uploaded</div></div></div><div class="company-action-row"><button class="btn btn-primary" onclick="saveSettings()">Save Company</button><button class="btn btn-danger" onclick="deleteSelectedCompany()">Delete Company</button></div></div></div></div></section>
   </main>
 
-  <div id="clientModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><div><h2 id="clientModalTitle">Add Client</h2><p class="small">Save invoice-ready client details so the invoice form fills automatically.</p></div><button class="btn btn-light btn-sm" onclick="closeModal('clientModal')">Close</button></div><div class="form-grid-2"><div class="field"><label>Company</label><input id="newClientCompany" /></div><div class="field"><label>Contact Name</label><input id="newClientName" /></div><div class="field"><label>Email</label><input id="newClientEmail" type="email" /></div><div class="field"><label>Phone</label><input id="newClientPhone" /></div><div class="field"><label>Plan</label><input id="newClientPlan" /></div><div class="field"><label>Status</label><select id="newClientStatus"><option>Active</option><option>Trial</option><option>Paused</option></select></div><div class="field"><label>Wallet Balance</label><input id="newClientWallet" type="number" value="0" /></div><div class="field"><label>GSTIN</label><input id="newClientGstin" /></div><div class="field"><label>PAN</label><input id="newClientPan" /></div><div class="field"><label>Place of Supply</label><input id="newClientPlaceOfSupply" value="Maharashtra" /></div><div class="field"><label>Address Line 1</label><input id="newClientAddress1" /></div><div class="field"><label>Address Line 2</label><input id="newClientAddress2" /></div><div class="field"><label>City</label><input id="newClientCity" /></div><div class="field"><label>State</label><input id="newClientState" value="Maharashtra" /></div><div class="field"><label>Pincode</label><input id="newClientPincode" /></div><div class="field"><label>Country</label><input id="newClientCountry" value="India" /></div></div><button class="btn btn-primary" onclick="saveClient()">Save Client</button></div></div>
+  <div id="clientModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><div><h2 id="clientModalTitle">Add Client</h2><p class="small">Save invoice-ready client details so the invoice form fills automatically.</p></div><button class="btn btn-light btn-sm" onclick="closeModal('clientModal')">Close</button></div><div class="form-grid-2"><div class="field"><label>Company</label><input id="newClientCompany" /></div><div class="field"><label>Contact Name</label><input id="newClientName" /></div><div class="field"><label>Email</label><input id="newClientEmail" type="email" /></div><div class="field"><label>Phone</label><input id="newClientPhone" /></div><div class="field"><label>Plan</label><input id="newClientPlan" /></div><div class="field"><label>Status</label><select id="newClientStatus"><option>Active</option><option>Trial</option><option>Paused</option></select></div><div class="field"><label>Service / Module</label><select id="newClientModuleId" onchange="toggleClientOperatorField()"></select></div><div class="field" id="clientOperatorField"><label>Operator ID</label><input id="newClientOperatorId" placeholder="Enter operator ID for broadband / net manager clients" /></div><div class="field"><label>Wallet Balance</label><input id="newClientWallet" type="number" value="0" /></div><div class="field"><label>GSTIN</label><input id="newClientGstin" /></div><div class="field"><label>PAN</label><input id="newClientPan" /></div><div class="field"><label>Place of Supply</label><input id="newClientPlaceOfSupply" value="Maharashtra" /></div><div class="field"><label>Address Line 1</label><input id="newClientAddress1" /></div><div class="field"><label>Address Line 2</label><input id="newClientAddress2" /></div><div class="field"><label>City</label><input id="newClientCity" /></div><div class="field"><label>State</label><input id="newClientState" value="Maharashtra" /></div><div class="field"><label>Pincode</label><input id="newClientPincode" /></div><div class="field"><label>Country</label><input id="newClientCountry" value="India" /></div></div><button class="btn btn-primary" onclick="saveClient()">Save Client</button></div></div>
 
   <div id="serviceModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><div><h2 id="serviceModalTitle">Add Service</h2><p class="small">Create reusable services that you can insert directly into invoice line items.</p></div><button class="btn btn-light btn-sm" onclick="closeModal('serviceModal')">Close</button></div><div class="form-grid-2"><div class="field"><label>Service Name</label><input id="newServiceName" /></div><div class="field"><label>Category</label><input id="newServiceCategory" /></div><div class="field"><label>Billing Type</label><select id="newServiceBillingType" onchange="toggleServiceTermField()"><option>Recurring</option><option>One Time</option></select></div><div class="field"><label>Rate</label><input id="newServiceRate" type="number" min="0" value="0" /></div><div class="field"><label>SAC / HSN</label><input id="newServiceSac" /></div><div class="field"><label>Default Term</label><select id="newServiceTerm"><option>Monthly</option><option>Quarterly</option><option>Yearly</option></select></div></div><div class="field"><label>Description</label><textarea id="newServiceDescription"></textarea></div><button class="btn btn-primary" onclick="saveService()">Save Service</button></div></div>
+
+  <div id="moduleModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><div><h2 id="moduleModalTitle">Add Service / Module</h2><p class="small">Manage the service/module names that are assigned to clients and shown on invoices.</p></div><button class="btn btn-light btn-sm" onclick="closeModal('moduleModal')">Close</button></div><div class="form-grid-2"><div class="field"><label>Module Name</label><input id="newModuleName" /></div><div class="field"><label>Invoice Label</label><input id="newModuleInvoiceLabel" /></div><div class="field"><label>Operator ID Requirement</label><select id="newModuleOperatorMode"><option value="hide">Hide Operator ID</option><option value="show">Show Operator ID</option></select></div><div class="field"><label>Status</label><select id="newModuleStatus"><option>Active</option><option>Inactive</option></select></div></div><div class="field"><label>Description</label><textarea id="newModuleDescription"></textarea></div><button class="btn btn-primary" onclick="saveModule()">Save Module</button></div></div>
 
   <div id="passwordModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-head"><div><h2>Account Settings</h2><p class="small">Update the login username or password for this dashboard.</p></div><button class="btn btn-light btn-sm" onclick="closeModal('passwordModal')">Close</button></div><div class="form-grid-2"><div class="field"><label>Current Username / User ID</label><input id="accountCurrentUsername" type="text" /></div><div class="field"><label>New Username / User ID</label><input id="accountNewUsername" type="text" /></div><div class="field"><label>Current Password</label><input id="accountCurrentPassword" type="password" /></div><div class="field"><label>New Password</label><input id="accountNewPassword" type="password" /></div></div><button class="btn btn-primary" onclick="saveAccountSettings()">Update Account</button></div></div>
 
@@ -2417,10 +2468,14 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
 
     const state = {
       clients: [
-        { id: 1, company: 'Apex Digital LLP', contact: 'Rohan Mehta', email: 'rohan@apexdigital.in', phone: '+91 98765 43210', plan: 'Growth', status: 'Active', wallet: 4500, previousDue: 8000, renewal: '2026-06-04', gstin: '27AAPFA1234A1Z5', pan: 'AAPFA1234A', placeOfSupply: 'Maharashtra', address1: '402, Sigma Trade Centre', address2: 'Andheri East', city: 'Mumbai', state: 'Maharashtra', pincode: '400069', country: 'India', operatorId: 'APEX-001', commitmentRemark: '', registrationDate: '2026-04-12', activationDate: '2026-05-01', expiryDate: '2026-06-04', purchaseType: 'Rental', paymentType: 'POSTPAID', connectionCount: 12 },
-        { id: 2, company: 'Nova Traders', contact: 'Anita Shah', email: 'anita@novatraders.in', phone: '+91 99887 66554', plan: 'Starter', status: 'Trial', wallet: 0, previousDue: 2500, renewal: '2026-05-28', gstin: '24AAFFN4321L1ZR', pan: 'AAFFN4321L', placeOfSupply: 'Gujarat', address1: '88 Market Square', address2: 'Navrangpura', city: 'Ahmedabad', state: 'Gujarat', pincode: '380009', country: 'India', operatorId: 'NOVA-002', commitmentRemark: '', registrationDate: '2026-04-22', activationDate: '2026-05-05', expiryDate: '2026-05-28', purchaseType: 'Rental', paymentType: 'PREPAID', connectionCount: 4 },
-        { id: 3, company: 'Orbit Care Pvt Ltd', contact: 'Farhan Ali', email: 'farhan@orbitcare.in', phone: '+91 98989 12121', plan: 'Enterprise', status: 'Active', wallet: 12000, previousDue: 0, renewal: '2026-06-15', gstin: '29AACCO7788K1ZB', pan: 'AACCO7788K', placeOfSupply: 'Karnataka', address1: '6th Floor, Orbit House', address2: 'Indiranagar', city: 'Bengaluru', state: 'Karnataka', pincode: '560038', country: 'India', operatorId: 'ORBIT-003', commitmentRemark: '', registrationDate: '2026-04-25', activationDate: '2026-05-06', expiryDate: '2026-06-15', purchaseType: 'Rental', paymentType: 'ADVANCE', connectionCount: 18 },
-        { id: 4, company: 'Zen Retail Hub', contact: 'Sneha Kapoor', email: 'sneha@zenretail.in', phone: '+91 97654 21098', plan: 'Scale', status: 'Paused', wallet: 1800, previousDue: 6300, renewal: '2026-06-01', gstin: '07AAACZ7788M1ZQ', pan: 'AAACZ7788M', placeOfSupply: 'Delhi', address1: '14 Retail Avenue', address2: 'Karol Bagh', city: 'New Delhi', state: 'Delhi', pincode: '110005', country: 'India', operatorId: 'ZEN-004', commitmentRemark: '', registrationDate: '2026-04-29', activationDate: '2026-05-08', expiryDate: '2026-06-01', purchaseType: 'Rental', paymentType: 'POSTPAID', connectionCount: 7 }
+        { id: 1, company: 'Apex Digital LLP', contact: 'Rohan Mehta', email: 'rohan@apexdigital.in', phone: '+91 98765 43210', plan: 'Growth', status: 'Active', wallet: 4500, previousDue: 8000, renewal: '2026-06-04', gstin: '27AAPFA1234A1Z5', pan: 'AAPFA1234A', placeOfSupply: 'Maharashtra', address1: '402, Sigma Trade Centre', address2: 'Andheri East', city: 'Mumbai', state: 'Maharashtra', pincode: '400069', country: 'India', operatorId: 'APEX-001', serviceModuleId: 2, commitmentRemark: '', registrationDate: '2026-04-12', activationDate: '2026-05-01', expiryDate: '2026-06-04', purchaseType: 'Rental', paymentType: 'POSTPAID', connectionCount: 12 },
+        { id: 2, company: 'Nova Traders', contact: 'Anita Shah', email: 'anita@novatraders.in', phone: '+91 99887 66554', plan: 'Starter', status: 'Trial', wallet: 0, previousDue: 2500, renewal: '2026-05-28', gstin: '24AAFFN4321L1ZR', pan: 'AAFFN4321L', placeOfSupply: 'Gujarat', address1: '88 Market Square', address2: 'Navrangpura', city: 'Ahmedabad', state: 'Gujarat', pincode: '380009', country: 'India', operatorId: '', serviceModuleId: 1, commitmentRemark: '', registrationDate: '2026-04-22', activationDate: '2026-05-05', expiryDate: '2026-05-28', purchaseType: 'Rental', paymentType: 'PREPAID', connectionCount: 4 },
+        { id: 3, company: 'Orbit Care Pvt Ltd', contact: 'Farhan Ali', email: 'farhan@orbitcare.in', phone: '+91 98989 12121', plan: 'Enterprise', status: 'Active', wallet: 12000, previousDue: 0, renewal: '2026-06-15', gstin: '29AACCO7788K1ZB', pan: 'AACCO7788K', placeOfSupply: 'Karnataka', address1: '6th Floor, Orbit House', address2: 'Indiranagar', city: 'Bengaluru', state: 'Karnataka', pincode: '560038', country: 'India', operatorId: 'ORBIT-003', serviceModuleId: 2, commitmentRemark: '', registrationDate: '2026-04-25', activationDate: '2026-05-06', expiryDate: '2026-06-15', purchaseType: 'Rental', paymentType: 'ADVANCE', connectionCount: 18 },
+        { id: 4, company: 'Zen Retail Hub', contact: 'Sneha Kapoor', email: 'sneha@zenretail.in', phone: '+91 97654 21098', plan: 'Scale', status: 'Paused', wallet: 1800, previousDue: 6300, renewal: '2026-06-01', gstin: '07AAACZ7788M1ZQ', pan: 'AAACZ7788M', placeOfSupply: 'Delhi', address1: '14 Retail Avenue', address2: 'Karol Bagh', city: 'New Delhi', state: 'Delhi', pincode: '110005', country: 'India', operatorId: '', serviceModuleId: 1, commitmentRemark: '', registrationDate: '2026-04-29', activationDate: '2026-05-08', expiryDate: '2026-06-01', purchaseType: 'Rental', paymentType: 'POSTPAID', connectionCount: 7 }
+      ],
+      serviceModules: [
+        { id: 1, name: 'WhatsApp Service', invoiceLabel: 'WhatsApp Business Service', operatorMode: 'hide', status: 'Active', description: 'Clients using WhatsApp Business and messaging services only.' },
+        { id: 2, name: 'Broadband / Net Manager Service', invoiceLabel: 'Broadband / Net Manager Service', operatorMode: 'show', status: 'Active', description: 'Clients using broadband or net manager billing that require an operator ID.' }
       ],
       services: [
         { id: 1, name: 'WhatsApp API Maintenance', category: 'Platform', billingType: 'Recurring', rate: 7500, sac: '998313', description: 'Monthly account maintenance and service monitoring.' },
@@ -2506,6 +2561,7 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
       ],
       invoiceItems: [],
       editingClientId: null,
+      editingModuleId: null,
       editingServiceId: null,
       currentClientAccountId: null,
       selectedCompanyId: 1,
@@ -2775,16 +2831,32 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
       document.getElementById('invoicePlace').value = client.placeOfSupply || client.state || '';
     }
 
+    function syncInvoiceProductToClientModule(client) {
+      const module = getInvoiceModuleForClient(client);
+      const productField = document.getElementById('invoiceProduct');
+      if (!productField) return module;
+      const optionValues = Array.from(productField.options).map((option) => option.value);
+      if (!optionValues.includes(module.invoiceLabel)) {
+        productField.insertAdjacentHTML('afterbegin', `<option value="${module.invoiceLabel}">${module.invoiceLabel}</option>`);
+      }
+      productField.value = module.invoiceLabel;
+      return module;
+    }
+
     function syncInvoiceWithSelectedClient() {
       const clientId = Number(document.getElementById('invoiceClient').value || 0);
       const client = state.clients.find((entry) => entry.id === clientId);
       fillInvoiceBillingDetails(client);
+      syncInvoiceProductToClientModule(client);
+      renderInvoiceItems();
       updateInvoiceSummary();
     }
 
     function applyClientToInvoice(id) {
       const client = state.clients.find((entry) => entry.id === Number(id));
       fillInvoiceBillingDetails(client);
+      syncInvoiceProductToClientModule(client);
+      renderInvoiceItems();
       updateInvoiceSummary();
     }
 
@@ -2858,6 +2930,7 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
     function renderClientAccount() {
       const client = getCurrentClientAccount();
       if (!client) return;
+      const serviceModule = getClientModule(client);
       const due = getClientDueTotal(client.id);
       const wallet = Number(client.wallet || 0);
       const netBalance = wallet - due;
@@ -2871,7 +2944,8 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
       document.getElementById('clientCommitmentRemark').value = client.commitmentRemark || '';
       document.getElementById('clientOperatorDetails').innerHTML = renderDetailRows([
         { label: 'Company', value: client.company },
-        { label: 'Operator ID', value: client.operatorId || `CL-${client.id}` },
+        { label: 'Service / Module', value: serviceModule?.name || '-' },
+        ...(clientNeedsOperatorId(client) ? [{ label: 'Operator ID', value: client.operatorId || `CL-${client.id}` }] : []),
         { label: 'Owner Name', value: client.contact },
         { label: 'Owner Email', value: client.email },
         { label: 'Owner Mobile', value: client.phone },
@@ -3013,14 +3087,16 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
     function resetClientForm() {
       state.editingClientId = null;
       document.getElementById('clientModalTitle').textContent = 'Add Client';
-      ['newClientCompany', 'newClientName', 'newClientEmail', 'newClientPhone', 'newClientPlan', 'newClientGstin', 'newClientPan', 'newClientAddress1', 'newClientAddress2', 'newClientCity', 'newClientPincode'].forEach((id) => {
+      ['newClientCompany', 'newClientName', 'newClientEmail', 'newClientPhone', 'newClientPlan', 'newClientOperatorId', 'newClientGstin', 'newClientPan', 'newClientAddress1', 'newClientAddress2', 'newClientCity', 'newClientPincode'].forEach((id) => {
         document.getElementById(id).value = '';
       });
       document.getElementById('newClientStatus').value = 'Active';
+      document.getElementById('newClientModuleId').value = String(state.serviceModules[0]?.id || '');
       document.getElementById('newClientWallet').value = '0';
       document.getElementById('newClientPlaceOfSupply').value = 'Maharashtra';
       document.getElementById('newClientState').value = 'Maharashtra';
       document.getElementById('newClientCountry').value = 'India';
+      toggleClientOperatorField();
     }
 
     function openClientModal(id) {
@@ -3036,6 +3112,8 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
           document.getElementById('newClientPhone').value = client.phone || '';
           document.getElementById('newClientPlan').value = client.plan || '';
           document.getElementById('newClientStatus').value = client.status || 'Active';
+          document.getElementById('newClientModuleId').value = String(client.serviceModuleId || state.serviceModules[0]?.id || '');
+          document.getElementById('newClientOperatorId').value = client.operatorId || '';
           document.getElementById('newClientWallet').value = String(client.wallet || 0);
           document.getElementById('newClientGstin').value = client.gstin || '';
           document.getElementById('newClientPan').value = client.pan || '';
@@ -3048,6 +3126,7 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
           document.getElementById('newClientCountry').value = client.country || 'India';
         }
       }
+      toggleClientOperatorField();
       openModal('clientModal');
     }
 
@@ -3206,7 +3285,7 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
         <tr>
           <td><button class="client-link-btn" onclick="openClientAccount(${client.id})">${client.company}</button><div class="small">${client.address1 || client.city || ''}</div></td>
           <td>${client.contact}<div class="small">${client.email}<br />${client.phone || ''}</div></td>
-          <td>${client.plan}</td>
+          <td>${client.plan}<div class="small">${getClientModule(client)?.name || 'No module selected'}</div></td>
           <td><span class="status ${client.status === 'Active' ? 'active' : client.status === 'Trial' ? 'trial' : 'disabled'}">${client.status}</span></td>
           <td>${client.gstin || '-'}</td>
           <td>${money(client.wallet)}</td>
@@ -3214,6 +3293,99 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
           <td><button class="btn btn-light btn-sm" onclick="openClientModal(${client.id})">Edit</button> <button class="btn btn-light btn-sm" onclick="openClientAccount(${client.id})">View</button> <button class="btn btn-light btn-sm" onclick="useClientForInvoice(${client.id})">Invoice</button></td>
         </tr>
       `).join('');
+    }
+
+    function getModuleById(id) {
+      return state.serviceModules.find((entry) => entry.id === Number(id)) || null;
+    }
+
+    function getClientModule(client) {
+      return getModuleById(client?.serviceModuleId) || state.serviceModules[0] || null;
+    }
+
+    function clientNeedsOperatorId(client) {
+      return getClientModule(client)?.operatorMode === 'show';
+    }
+
+    function getInvoiceModuleForClient(client) {
+      const module = getClientModule(client);
+      return {
+        id: module?.id || null,
+        name: module?.name || 'Service Module',
+        invoiceLabel: module?.invoiceLabel || module?.name || 'Service Module',
+        operatorMode: module?.operatorMode || 'hide'
+      };
+    }
+
+    function populateModuleSelects() {
+      const moduleSelect = document.getElementById('newClientModuleId');
+      if (!moduleSelect) return;
+      moduleSelect.innerHTML = state.serviceModules
+        .filter((module) => module.status !== 'Inactive')
+        .map((module) => `<option value="${module.id}">${module.name}</option>`)
+        .join('');
+    }
+
+    function toggleClientOperatorField() {
+      const wrapper = document.getElementById('clientOperatorField');
+      const input = document.getElementById('newClientOperatorId');
+      const module = getModuleById(document.getElementById('newClientModuleId').value);
+      const showOperator = module?.operatorMode === 'show';
+      wrapper.classList.toggle('operator-field-hidden', !showOperator);
+      if (!showOperator) input.value = '';
+    }
+
+    function renderModules() {
+      document.getElementById('moduleTable').innerHTML = state.serviceModules.map((module) => `
+        <tr>
+          <td><strong>${module.name}</strong></td>
+          <td>${module.invoiceLabel || module.name}</td>
+          <td>${module.operatorMode === 'show' ? 'Shown for this module' : 'Hidden for this module'}</td>
+          <td>${module.description || '-'}</td>
+          <td><button class="btn btn-light btn-sm" onclick="openModuleModal(${module.id})">Edit</button></td>
+        </tr>
+      `).join('');
+    }
+
+    function openModuleModal(id) {
+      state.editingModuleId = id || null;
+      const module = getModuleById(id);
+      document.getElementById('moduleModalTitle').textContent = module ? 'Edit Service / Module' : 'Add Service / Module';
+      document.getElementById('newModuleName').value = module?.name || '';
+      document.getElementById('newModuleInvoiceLabel').value = module?.invoiceLabel || '';
+      document.getElementById('newModuleOperatorMode').value = module?.operatorMode || 'hide';
+      document.getElementById('newModuleStatus').value = module?.status || 'Active';
+      document.getElementById('newModuleDescription').value = module?.description || '';
+      openModal('moduleModal');
+    }
+
+    function saveModule() {
+      const payload = {
+        name: document.getElementById('newModuleName').value.trim(),
+        invoiceLabel: document.getElementById('newModuleInvoiceLabel').value.trim(),
+        operatorMode: document.getElementById('newModuleOperatorMode').value,
+        status: document.getElementById('newModuleStatus').value,
+        description: document.getElementById('newModuleDescription').value.trim()
+      };
+      if (!payload.name) {
+        alert('Please enter a module name.');
+        return;
+      }
+      if (!payload.invoiceLabel) payload.invoiceLabel = payload.name;
+      if (state.editingModuleId) {
+        const module = getModuleById(state.editingModuleId);
+        Object.assign(module, payload);
+      } else {
+        state.serviceModules.unshift({ id: Date.now(), ...payload });
+      }
+      state.editingModuleId = null;
+      renderModules();
+      populateModuleSelects();
+      if (state.editingClientId) {
+        toggleClientOperatorField();
+      }
+      closeModal('moduleModal');
+      refreshAll();
     }
 
     function renderServices() {
@@ -3228,6 +3400,7 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
       document.getElementById('invoiceServicePicker').innerHTML = ['<option value="">Select saved service</option>'].concat(
         state.services.map((service) => `<option value="${service.id}">${service.name}</option>`)
       ).join('');
+      populateModuleSelects();
     }
 
     function openServiceModal(id) {
@@ -3290,11 +3463,11 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
     function useServiceForInvoice(serviceId, stayOnInvoice = false) {
       const service = state.services.find((entry) => entry.id === Number(serviceId));
       if (!service) return;
-      document.getElementById('invoiceProduct').value = service.name;
       if (document.getElementById('invoiceServicePicker')) {
         document.getElementById('invoiceServicePicker').value = String(service.id);
       }
       addInvoiceItem(service);
+      syncInvoiceProductToClientModule(getClientById(document.getElementById('invoiceClient').value));
       if (!stayOnInvoice) {
         showSection('invoice');
       }
@@ -3307,6 +3480,7 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
         state.invoices.map((invoice) => `<option value="${invoice.id}">${invoice.invoiceNo} - ${invoice.clientName}</option>`)
       ).join('');
       populateServiceSelects();
+      syncInvoiceProductToClientModule(getClientById(document.getElementById('invoiceClient').value || state.clients[0]?.id));
       renderCompanyList();
     }
 
@@ -3326,7 +3500,7 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
       document.getElementById('invoiceDueDate').value = invoice.dueDate;
       document.getElementById('invoicePeriod').value = invoice.period || '';
       document.getElementById('invoicePlace').value = invoice.placeOfSupply || '';
-      document.getElementById('invoiceProduct').value = invoice.product || state.services[0]?.name || 'Service Charges';
+      document.getElementById('invoiceProduct').value = invoice.serviceModule?.invoiceLabel || invoice.product || state.services[0]?.name || 'Service Charges';
       fillInvoiceBillingDetails(invoice.billingDetails || getClientById(invoice.clientId));
       state.invoiceItems = invoice.items?.length ? invoice.items.map((item) => ({ sacHsn: '997331', ...item, id: Date.now() + Math.random() })) : [{ id: Date.now(), description: invoice.product || 'Service Charges', sacHsn: '997331', qty: 1, rate: Number(invoice.total || 0), billingType: invoice.billingType || 'One Time', term: 'Monthly' }];
       renderInvoiceItems();
@@ -3354,6 +3528,7 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
     }
 
     function renderInvoiceItems() {
+      const module = getInvoiceModuleForClient(getClientById(document.getElementById('invoiceClient').value));
       document.getElementById('invoiceItems').innerHTML = `
         <div class="table-wrap">
           <table class="invoice-builder-table">
@@ -3369,6 +3544,9 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
               </tr>
             </thead>
             <tbody>
+              <tr class="module-banner-row">
+                <td colspan="7"><div class="module-banner-chip">${module.invoiceLabel}</div></td>
+              </tr>
               ${state.invoiceItems.map((item) => `
                 <tr>
                   <td><input value="${item.description}" oninput="updateInvoiceItem(${item.id}, 'description', this.value)" /></td>
@@ -3420,7 +3598,8 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
         dueDate: document.getElementById('invoiceDueDate').value,
         placeOfSupply: getInvoicePlaceOfSupply(),
         period: document.getElementById('invoicePeriod').value,
-        product: document.getElementById('invoiceProduct').value
+        product: document.getElementById('invoiceProduct').value,
+        serviceModule: getInvoiceModuleForClient(client)
       };
       return { payable: Math.max(payable, 0), tax, subtotal, outstanding, wallet, currentInvoiceTotal };
     }
@@ -3446,10 +3625,11 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
       const issueToName = safeBilling.company || invoice.clientName || '-';
       const headerColor = safeCompany.headerColor || '#103f91';
       const previewItems = invoice.items?.length ? invoice.items : (state.invoiceItems.length ? state.invoiceItems : [{ description: invoice.product || 'Service Charges', qty: 1, rate: totals.currentInvoiceTotal || 0, term: 'Monthly' }]);
+      const serviceModule = invoice.serviceModule || getInvoiceModuleForClient(client);
       const itemRows = previewItems.map((item) => `
         <tr>
           <td>${item.description || '-'}</td>
-          <td class="right">${item.sac || '997331'}</td>
+          <td class="right">${item.sac || item.sacHsn || '997331'}</td>
           <td class="right">${item.qty || 1}</td>
           <td class="right">${money(item.rate || 0)}</td>
           <td class="right">${item.term || 'Monthly'}</td>
@@ -3486,7 +3666,7 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
             <div class="invoice-detail-list">
               <div class="invoice-detail-row"><span>Name</span><div>${issueToName}</div></div>
               <div class="invoice-detail-row"><span>Address</span><div>${safeBilling.address1 || ''}${safeBilling.address2 ? `\n${safeBilling.address2}` : ''}${safeBilling.city ? `\n${safeBilling.city}` : ''}${safeBilling.state ? `, ${safeBilling.state}` : ''}${safeBilling.pincode ? ` - ${safeBilling.pincode}` : ''}</div></div>
-              <div class="invoice-detail-row"><span>Operator ID</span><div>${client?.operatorId || '-'}</div></div>
+              ${serviceModule.operatorMode === 'show' ? `<div class="invoice-detail-row"><span>Operator ID</span><div>${client?.operatorId || '-'}</div></div>` : ''}
             </div>
           </div>
           <div class="invoice-info-card">
@@ -3526,7 +3706,7 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
               <th>Amount (₹)</th>
             </tr>
           </thead>
-          <tbody>${itemRows}</tbody>
+          <tbody><tr class="module-banner-row"><td colspan="6"><div class="module-banner-chip">${serviceModule.invoiceLabel}</div></td></tr>${itemRows}</tbody>
         </table>
         <div class="invoice-summary-area">
           <div class="invoice-note-box">${numberToWords(Math.round(totals.payable || 0))} Only</div>
@@ -3581,7 +3761,7 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
       const clientId = Number(document.getElementById('invoiceClient').value);
       const client = state.clients.find((entry) => entry.id === clientId);
       const totals = updateInvoiceSummary();
-      const invoice = { id: Date.now(), invoiceNo: document.getElementById('invoiceNo').value || generateInvoiceNo(), clientId, clientName: client.company, companyId: state.selectedCompanyId, invoiceDate: document.getElementById('invoiceDate').value, dueDate: document.getElementById('invoiceDueDate').value, period: document.getElementById('invoicePeriod').value, product: document.getElementById('invoiceProduct').value, billingType: state.invoiceItems.some((item) => item.billingType === 'Recurring') ? 'Recurring' : 'One Time', total: Math.round(totals.currentInvoiceTotal), paid: 0, balance: Math.round(totals.currentInvoiceTotal), paymentStatus: 'Pending', placeOfSupply: getInvoicePlaceOfSupply(), billingDetails: getInvoiceBillingSnapshot(), companyDetails: getCompanySettingsSnapshot(), taxMode: totals.tax.mode, taxBreakdown: { label1: totals.tax.primaryLabel, amount1: Math.round(totals.tax.primaryAmount), label2: totals.tax.secondaryLabel, amount2: Math.round(totals.tax.secondaryAmount), businessState: totals.tax.businessState }, items: state.invoiceItems.map((item) => ({ ...item })) };
+      const invoice = { id: Date.now(), invoiceNo: document.getElementById('invoiceNo').value || generateInvoiceNo(), clientId, clientName: client.company, companyId: state.selectedCompanyId, invoiceDate: document.getElementById('invoiceDate').value, dueDate: document.getElementById('invoiceDueDate').value, period: document.getElementById('invoicePeriod').value, product: document.getElementById('invoiceProduct').value, serviceModule: getInvoiceModuleForClient(client), billingType: state.invoiceItems.some((item) => item.billingType === 'Recurring') ? 'Recurring' : 'One Time', total: Math.round(totals.currentInvoiceTotal), paid: 0, balance: Math.round(totals.currentInvoiceTotal), paymentStatus: 'Pending', placeOfSupply: getInvoicePlaceOfSupply(), billingDetails: getInvoiceBillingSnapshot(), companyDetails: getCompanySettingsSnapshot(), taxMode: totals.tax.mode, taxBreakdown: { label1: totals.tax.primaryLabel, amount1: Math.round(totals.tax.primaryAmount), label2: totals.tax.secondaryLabel, amount2: Math.round(totals.tax.secondaryAmount), businessState: totals.tax.businessState }, items: state.invoiceItems.map((item) => ({ ...item })) };
       state.invoices.unshift(invoice);
       updateClientLegacyDue(clientId);
       const nextSerial = String(getInvoiceSeriesConfig().nextNumber + 1);
@@ -3821,6 +4001,8 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
       const phone = document.getElementById('newClientPhone').value.trim();
       const plan = document.getElementById('newClientPlan').value.trim();
       const status = document.getElementById('newClientStatus').value;
+      const serviceModuleId = Number(document.getElementById('newClientModuleId').value || 0);
+      const operatorId = document.getElementById('newClientOperatorId').value.trim();
       const wallet = Number(document.getElementById('newClientWallet').value || 0);
       const gstin = document.getElementById('newClientGstin').value.trim();
       const pan = document.getElementById('newClientPan').value.trim();
@@ -3831,16 +4013,16 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
       const stateName = document.getElementById('newClientState').value.trim();
       const pincode = document.getElementById('newClientPincode').value.trim();
       const country = document.getElementById('newClientCountry').value.trim();
-      if (!company || !contact || !email || !plan) {
+      if (!company || !contact || !email || !plan || !serviceModuleId) {
         alert('Fill all client fields first.');
         return;
       }
-      const payload = { company, contact, email, phone, plan, status, wallet, gstin, pan, placeOfSupply, address1, address2, city, state: stateName, pincode, country };
+      const payload = { company, contact, email, phone, plan, status, serviceModuleId, operatorId: getModuleById(serviceModuleId)?.operatorMode === 'show' ? operatorId : '', wallet, gstin, pan, placeOfSupply, address1, address2, city, state: stateName, pincode, country };
       if (state.editingClientId) {
         const client = state.clients.find((entry) => entry.id === state.editingClientId);
         Object.assign(client, payload);
       } else {
-        state.clients.unshift({ id: Date.now(), ...payload, previousDue: 0, renewal: addDays(today(), 30), operatorId: `CL-${state.clients.length + 1}`, commitmentRemark: '', registrationDate: today(), activationDate: today(), expiryDate: addDays(today(), 30), purchaseType: 'Rental', paymentType: 'POSTPAID', connectionCount: 0 });
+        state.clients.unshift({ id: Date.now(), ...payload, previousDue: 0, renewal: addDays(today(), 30), operatorId: payload.operatorId || (getModuleById(serviceModuleId)?.operatorMode === 'show' ? `CL-${state.clients.length + 1}` : ''), commitmentRemark: '', registrationDate: today(), activationDate: today(), expiryDate: addDays(today(), 30), purchaseType: 'Rental', paymentType: 'POSTPAID', connectionCount: 0 });
       }
       resetClientForm();
       closeModal('clientModal');
@@ -3852,6 +4034,7 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
       renderChart();
       renderFocusList();
       renderClients();
+      renderModules();
       renderServices();
       renderInvoices();
       renderRecurring();
