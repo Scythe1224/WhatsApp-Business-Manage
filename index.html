@@ -2358,7 +2358,11 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
   <script>
     const AUTH_STORAGE_KEY = 'wbm-auth-profile';
     const SESSION_STORAGE_KEY = 'wbm-auth-session';
-    const DEFAULT_AUTH_PROFILE = { username: 'admin', password: 'admin123' };
+    const DEFAULT_AUTH_PROFILE = {
+      username: 'admin@company.com',
+      password: 'admin123',
+      aliases: ['admin']
+    };
 
     const state = {
       clients: [
@@ -3007,7 +3011,8 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
         const parsed = JSON.parse(stored);
         return {
           username: parsed.username || DEFAULT_AUTH_PROFILE.username,
-          password: parsed.password || DEFAULT_AUTH_PROFILE.password
+          password: parsed.password || DEFAULT_AUTH_PROFILE.password,
+          aliases: Array.isArray(parsed.aliases) ? parsed.aliases : [...DEFAULT_AUTH_PROFILE.aliases]
         };
       } catch (error) {
         return { ...DEFAULT_AUTH_PROFILE };
@@ -3016,6 +3021,17 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
 
     function saveAuthProfile(profile) {
       localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(profile));
+    }
+
+    function getAllowedLoginIds(authProfile) {
+      const ids = [authProfile.username, ...(authProfile.aliases || [])]
+        .map((value) => (value || '').trim().toLowerCase())
+        .filter(Boolean);
+      return [...new Set(ids)];
+    }
+
+    function matchesAuthUsername(inputUsername, authProfile) {
+      return getAllowedLoginIds(authProfile).includes((inputUsername || '').trim().toLowerCase());
     }
 
     function setSessionActive(isActive) {
@@ -3031,7 +3047,7 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
         const username = document.getElementById('loginEmail').value.trim();
         const password = document.getElementById('loginPassword').value;
         const authProfile = getAuthProfile();
-        if (username !== authProfile.username || password !== authProfile.password) {
+        if (!matchesAuthUsername(username, authProfile) || password !== authProfile.password) {
           alert('Invalid username or password.');
           return;
         }
@@ -3058,7 +3074,7 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
       const newPassword = document.getElementById('accountNewPassword').value;
       const authProfile = getAuthProfile();
 
-      if (currentUsername !== authProfile.username || currentPassword !== authProfile.password) {
+      if (!matchesAuthUsername(currentUsername, authProfile) || currentPassword !== authProfile.password) {
         alert('Current username or password is incorrect.');
         return;
       }
@@ -3068,7 +3084,7 @@ IFSC: ICIC0000167</textarea></div><div class="field"><label>Terms & Conditions</
         return;
       }
 
-      saveAuthProfile({ username: newUsername, password: newPassword });
+      saveAuthProfile({ username: newUsername, password: newPassword, aliases: [] });
       document.getElementById('accountCurrentUsername').value = '';
       document.getElementById('accountNewUsername').value = '';
       document.getElementById('accountCurrentPassword').value = '';
