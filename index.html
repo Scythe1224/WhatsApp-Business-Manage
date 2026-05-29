@@ -288,11 +288,23 @@
     }
 
     .nav-icon {
-      font-size: 24px;
-      line-height: 1;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      width: 22px;
+      height: 22px;
+      color: currentColor;
+    }
+
+    .nav-icon svg,
+    .logout-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .sidebar-footer {
@@ -311,8 +323,11 @@
     }
 
     .logout-icon {
-      font-size: 22px;
-      line-height: 1;
+      display: inline-flex;
+      width: 22px;
+      height: 22px;
+      align-items: center;
+      justify-content: center;
     }
 
     .main {
@@ -2277,18 +2292,18 @@
     <aside class="sidebar">
       <div class="brand-row"><div class="brand-mark" title="WhatsApp Business Manage">WB</div><div class="brand-copy"><strong>Billing Dashboard</strong><span>WhatsApp Services Admin</span></div></div>
       <nav id="nav" class="nav">
-        <button class="active" data-section="dashboard" title="Dashboard" aria-label="Dashboard"><span class="nav-icon">⌂</span></button>
-        <button data-section="clients" title="Clients" aria-label="Clients"><span class="nav-icon">👥</span></button>
-        <button data-section="services" title="Services" aria-label="Services"><span class="nav-icon">🧩</span></button>
-        <button data-section="invoice" title="Create Invoice" aria-label="Create Invoice"><span class="nav-icon">🧾</span></button>
-        <button data-section="invoices" title="Invoice List" aria-label="Invoice List"><span class="nav-icon">📄</span></button>
-        <button data-section="recurring" title="Recurring" aria-label="Recurring"><span class="nav-icon">↻</span></button>
-        <button data-section="payments" title="Payments" aria-label="Payments"><span class="nav-icon">₹</span></button>
-        <button data-section="ledger" title="Ledger" aria-label="Ledger"><span class="nav-icon">📒</span></button>
-        <button data-section="reports" title="Reports" aria-label="Reports"><span class="nav-icon">📊</span></button>
-        <button data-section="settings" title="Settings" aria-label="Settings"><span class="nav-icon">⚙</span></button>
+        <button class="active" data-section="dashboard" title="Dashboard" aria-label="Dashboard"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"></rect><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"></rect><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"></rect><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"></rect></svg></span></button>
+        <button data-section="clients" title="Clients" aria-label="Clients"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 19v-1a3.5 3.5 0 0 0-3.5-3.5h-2A3.5 3.5 0 0 0 7.5 18v1"></path><circle cx="12" cy="8" r="3"></circle><path d="M18 9.5a2.5 2.5 0 1 1 0 5"></path><path d="M20.5 19v-.8a2.7 2.7 0 0 0-2.1-2.6"></path></svg></span></button>
+        <button data-section="services" title="Services" aria-label="Services"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5h8"></path><path d="M8 12h8"></path><path d="M8 18.5h8"></path><path d="M5 5.5h.01"></path><path d="M5 12h.01"></path><path d="M5 18.5h.01"></path><rect x="3.5" y="3.5" width="17" height="17" rx="3"></rect></svg></span></button>
+        <button data-section="invoice" title="Create Invoice" aria-label="Create Invoice"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3.5h6l4 4v13H8a2 2 0 0 1-2-2v-13a2 2 0 0 1 2-2z"></path><path d="M14 3.5v4h4"></path><path d="M9.5 12h5"></path><path d="M9.5 16h5"></path></svg></span></button>
+        <button data-section="invoices" title="Invoice List" aria-label="Invoice List"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3.5" width="14" height="17" rx="2"></rect><path d="M8.5 8h7"></path><path d="M8.5 12h7"></path><path d="M8.5 16h5"></path></svg></span></button>
+        <button data-section="recurring" title="Recurring" aria-label="Recurring"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 8a7 7 0 0 0-12-2"></path><path d="M5 5v4h4"></path><path d="M5 16a7 7 0 0 0 12 2"></path><path d="M19 19v-4h-4"></path></svg></span></button>
+        <button data-section="payments" title="Payments" aria-label="Payments"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5v17"></path><path d="M16 7.5c0-1.7-1.8-3-4-3s-4 1.3-4 3 1.3 2.5 4 3 4 1.3 4 3-1.8 3-4 3-4-1.3-4-3"></path></svg></span></button>
+        <button data-section="ledger" title="Ledger" aria-label="Ledger"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.5h10a2 2 0 0 1 2 2v13H8a2 2 0 0 0-2 2z"></path><path d="M6 4.5a2 2 0 0 0-2 2v13h2"></path><path d="M9 9h6"></path><path d="M9 13h6"></path></svg></span></button>
+        <button data-section="reports" title="Reports" aria-label="Reports"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19.5V10.5"></path><path d="M12 19.5V4.5"></path><path d="M19 19.5V13.5"></path><path d="M3.5 19.5h17"></path></svg></span></button>
+        <button data-section="settings" title="Settings" aria-label="Settings"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1 1 0 0 0 .2 1.1l.1.1a1.8 1.8 0 0 1 0 2.5 1.8 1.8 0 0 1-2.5 0l-.1-.1a1 1 0 0 0-1.1-.2 1 1 0 0 0-.6.9V20a1.8 1.8 0 0 1-1.8 1.8h-1.2A1.8 1.8 0 0 1 10.6 20v-.2a1 1 0 0 0-.6-.9 1 1 0 0 0-1.1.2l-.1.1a1.8 1.8 0 0 1-2.5 0 1.8 1.8 0 0 1 0-2.5l.1-.1a1 1 0 0 0 .2-1.1 1 1 0 0 0-.9-.6H5.5a1.8 1.8 0 0 1-1.8-1.8v-1.2a1.8 1.8 0 0 1 1.8-1.8h.2a1 1 0 0 0 .9-.6 1 1 0 0 0-.2-1.1l-.1-.1a1.8 1.8 0 0 1 0-2.5 1.8 1.8 0 0 1 2.5 0l.1.1a1 1 0 0 0 1.1.2 1 1 0 0 0 .6-.9V4a1.8 1.8 0 0 1 1.8-1.8h1.2A1.8 1.8 0 0 1 13.4 4v.2a1 1 0 0 0 .6.9 1 1 0 0 0 1.1-.2l.1-.1a1.8 1.8 0 0 1 2.5 0 1.8 1.8 0 0 1 0 2.5l-.1.1a1 1 0 0 0-.2 1.1 1 1 0 0 0 .9.6h.2a1.8 1.8 0 0 1 1.8 1.8v1.2a1.8 1.8 0 0 1-1.8 1.8h-.2a1 1 0 0 0-.9.6z"></path></svg></span></button>
       </nav>
-      <div class="sidebar-footer"><button class="btn btn-light full" onclick="logout()" title="Logout" aria-label="Logout"><span class="logout-icon">⇦</span></button></div>
+      <div class="sidebar-footer"><button class="btn btn-light full" onclick="logout()" title="Logout" aria-label="Logout"><span class="logout-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17l-5-5 5-5"></path><path d="M5 12h10"></path><path d="M14 4.5h3a1.5 1.5 0 0 1 1.5 1.5v12a1.5 1.5 0 0 1-1.5 1.5h-3"></path></svg></span></button></div>
     </aside>
 
     <section class="main">
